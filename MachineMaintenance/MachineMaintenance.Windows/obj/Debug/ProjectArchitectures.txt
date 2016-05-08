@@ -1,0 +1,2 @@
+C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Windows\MachineMaintenance.Windows.csproj;neutral
+C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance\MachineMaintenance.csproj;neutral

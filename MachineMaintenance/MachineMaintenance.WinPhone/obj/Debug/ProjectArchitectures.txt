@@ -1,0 +1,2 @@
+C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.WinPhone\MachineMaintenance.WinPhone.csproj;neutral
+C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance\MachineMaintenance.csproj;neutral
