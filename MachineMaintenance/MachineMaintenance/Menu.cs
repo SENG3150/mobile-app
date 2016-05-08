@@ -16,7 +16,7 @@ namespace MachineMaintenance
 
             Children.Add(new AddMachine());
             Children.Add(new SchedulePage());
-            Children.Add(new CompleteInspection());
+            Children.Add(new SelectMachineForInspection());
         }
     }
 }

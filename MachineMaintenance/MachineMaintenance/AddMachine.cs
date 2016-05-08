@@ -10,11 +10,12 @@ namespace MachineMaintenance
 {
     public class AddMachine : ContentPage
     {
-
+        //download machine and store it on device
         public AddMachine()
         {
             Title = "Add Machine";
             BackgroundColor = Color.White;
+
             Content = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.Center,

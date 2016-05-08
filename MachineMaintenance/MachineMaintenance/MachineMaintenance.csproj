@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="AddMachine.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="CompleteInspection.cs" />
+    <Compile Include="SelectMachineForInspection.cs" />
     <Compile Include="ObjectModel\Inspection.cs" />
     <Compile Include="ObjectModel\Machine.cs" />
     <Compile Include="Menu.cs" />
