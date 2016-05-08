@@ -8,13 +8,17 @@ using Xamarin.Forms;
 
 namespace MachineMaintenance
 {
-    public class CompleteInspection : ContentPage
+    public class CompleteInspection : ContentPage   //will probably become a carouselpage/navigation page.
     {
 
         public CompleteInspection()
         {
             Title = "Inspect Machine";
             BackgroundColor = Color.White;
+
+            List<ContentPage> pages = new List<ContentPage>(0);
+            List<ObjectModel.MajorAssemblies> majorAs;
+
             Content = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.Center,
@@ -24,7 +28,7 @@ namespace MachineMaintenance
                 {
                     new Label()
                     {
-                        Text = "This is where we add complete an inspection!"
+                        Text = "This is where we inspect machines!"
                     }
                 }
             };
