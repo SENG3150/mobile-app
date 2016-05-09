@@ -9,8 +9,8 @@ namespace MachineMaintenance.ObjectModel
     class Test
     {
         public int id { get; set; }
-        public bool machineGeneral { get; set; }
-        public bool oil { get; set; }
-        public bool wear { get; set; }
+        public MachineGeneral machineGeneral { get; set; }
+        public Oil oil { get; set; }
+        public Wear wear { get; set; }
     }
 }

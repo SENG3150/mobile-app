@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance.ObjectModel
 {
-    class Machine
+    class Oil
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public Model model { get; set; }
+        public bool test { get; set; }
+        public object lower { get; set; }
+        public object upper { get; set; }
     }
 }

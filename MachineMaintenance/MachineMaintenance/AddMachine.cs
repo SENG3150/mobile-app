@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 using Xamarin.Forms;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MachineMaintenance
 {
