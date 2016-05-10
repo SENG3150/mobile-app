@@ -18,31 +18,11 @@ namespace MachineMaintenance
     {
         List<ObjectModel.Machine> machines;
         List<String> machineNames;
-
+        //need to access machines from device
         public SelectMachineForInspection()
         {
             Title = "Inspect Machine";
             BackgroundColor = Color.White;
-
-            getMachines(); 
-        }
-
-        private async void getMachines()
-        {
-            await viewMachines();
-            machineNames = new List<String>();
-            foreach (ObjectModel.Machine m in machines)
-            {
-                if (m != null)
-                {
-                    machineNames.Add(m.id.ToString() + "\n" + m.model.name);
-                }
-            }
-
-            var machineList = new ListView();
-            machineList.ItemsSource = machineNames;
-
-            machineList.IsPullToRefreshEnabled = true;
 
             Content = new StackLayout
             {
@@ -53,37 +33,10 @@ namespace MachineMaintenance
                 {
                     new Label()
                     {
-                        Text = "This is where we inspect machines!"
+                        Text = "This is where we inspect downloaded machines!"
                     },
-
-                    machineList
                 }
             };
-        }
-
-        private async Task viewMachines()
-        {
-            try
-            {
-                using (var c = new HttpClient())
-                {
-                    var client = new HttpClient();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zZW5nMzE1MC53aW5nbWFud2ViZGVzaWduLmNvbS5hdVwvYXV0aFwvYXV0aGVudGljYXRlIiwiaWF0IjoxNDYyODUyNDIyLCJleHAiOjE0NjI4NTYwMjIsIm5iZiI6MTQ2Mjg1MjQyMiwianRpIjoiOWI1NTc4ZjU1MTdlMTJiNzM2YTVmNDk1MTU1ZWMwYzAiLCJzdWIiOiJhZG1pbmlzdHJhdG9yLWFkbWluaXN0cmF0b3IifQ.uzip-_BqEkHvxUD2cxlBrXnVnSYMPyucsBMYc83Tf68");
-                    Uri apiSite = new Uri("http://seng3150.wingmanwebdesign.com.au/machines");
-
-                    var response = await client.GetAsync(apiSite);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-                        machines = JsonConvert.DeserializeObject<List<ObjectModel.Machine>>(content);
-                    }
-                }
-            }
-
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
         }
     }
 }
