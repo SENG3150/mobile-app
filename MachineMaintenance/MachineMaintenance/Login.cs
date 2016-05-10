@@ -75,6 +75,10 @@ namespace MachineMaintenance
 
                     if (response.IsSuccessStatusCode)
                     {
+                        ObjectModel.Token token = new ObjectModel.Token();
+                        var bearer = await response.Content.ReadAsStringAsync();
+                        token = JsonConvert.DeserializeObject<ObjectModel.Token>(bearer);
+                        //must save token to database.
                         await Navigation.PushAsync(new Menu());
                     }
                 }
@@ -85,5 +89,6 @@ namespace MachineMaintenance
                 Debug.WriteLine(e);
             }
         }
+
     }
 }

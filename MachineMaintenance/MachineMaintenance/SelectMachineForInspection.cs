@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance
 {
-    public class SelectMachineForInspection : ContentPage   //will probably become a carouselpage/navigation page.
+    public class SelectMachineForInspection : ContentPage  
     {
         List<ObjectModel.Machine> machines;
         List<String> machineNames;
@@ -68,7 +68,7 @@ namespace MachineMaintenance
                 using (var c = new HttpClient())
                 {
                     var client = new HttpClient();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zZW5nMzE1MC53aW5nbWFud2ViZGVzaWduLmNvbS5hdVwvYXV0aFwvYXV0aGVudGljYXRlIiwiaWF0IjoxNDYyNzkyMjQxLCJleHAiOjE0NjI3OTU4NDEsIm5iZiI6MTQ2Mjc5MjI0MSwianRpIjoiODU5Mjg4NTA0NzM1Y2Y5ZjczYzI2NGQyM2EyNWQ5YjciLCJzdWIiOiJhZG1pbmlzdHJhdG9yLWFkbWluaXN0cmF0b3IifQ.ZNnhSlEvc8WocF - s0cVvPDZ46ao5XtiLJLWAg5IOlnE");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zZW5nMzE1MC53aW5nbWFud2ViZGVzaWduLmNvbS5hdVwvYXV0aFwvYXV0aGVudGljYXRlIiwiaWF0IjoxNDYyODUyNDIyLCJleHAiOjE0NjI4NTYwMjIsIm5iZiI6MTQ2Mjg1MjQyMiwianRpIjoiOWI1NTc4ZjU1MTdlMTJiNzM2YTVmNDk1MTU1ZWMwYzAiLCJzdWIiOiJhZG1pbmlzdHJhdG9yLWFkbWluaXN0cmF0b3IifQ.uzip-_BqEkHvxUD2cxlBrXnVnSYMPyucsBMYc83Tf68");
                     Uri apiSite = new Uri("http://seng3150.wingmanwebdesign.com.au/machines");
 
                     var response = await client.GetAsync(apiSite);

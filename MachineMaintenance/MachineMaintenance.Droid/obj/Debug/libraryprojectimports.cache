@@ -2,19 +2,19 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\RestSharp\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\RestSharp\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
-    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\RestSharp\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\RestSharp\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\RestSharp.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\MachineMaintenance\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\RestSharp.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>
