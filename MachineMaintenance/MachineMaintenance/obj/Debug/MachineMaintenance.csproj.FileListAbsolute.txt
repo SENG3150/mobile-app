@@ -56,5 +56,11 @@ C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.pdb
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\Debug\PCLStorage.Abstractions.dll
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\Debug\PCLStorage.dll
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\Debug\PCLStorage.xml
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\Debug\PCLStorage.Abstractions.xml
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb

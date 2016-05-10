@@ -82,6 +82,8 @@ class MonoPackageManager_Resources {
 		"MachineMaintenance.Droid.dll",
 		"FormsViewGroup.dll",
 		"MachineMaintenance.dll",
+		"PCLStorage.Abstractions.dll",
+		"PCLStorage.dll",
 		"RestSharp.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Design.dll",

@@ -118,5 +118,10 @@ C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droi
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Xamarin.Forms.Core.dll.mdb
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\PCLStorage.Abstractions.dll
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\PCLStorage.dll
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\PCLStorage.xml
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\PCLStorage.Abstractions.xml
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.dll.mdb
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.dll.mdb

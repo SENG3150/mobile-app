@@ -7,10 +7,13 @@ using System.Net.Http.Headers;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using System.Reflection;
 
 using Xamarin.Forms;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.IO;
+using PCLStorage;
 
 namespace MachineMaintenance
 {
@@ -78,7 +81,11 @@ namespace MachineMaintenance
                         ObjectModel.Token token = new ObjectModel.Token();
                         var bearer = await response.Content.ReadAsStringAsync();
                         token = JsonConvert.DeserializeObject<ObjectModel.Token>(bearer);
-                        //must save token to database.
+
+                        IFolder rootFolder = FileSystem.Current.LocalStorage;
+                        IFile file = await rootFolder.CreateFileAsync("Token.txt",
+                            CreationCollisionOption.ReplaceExisting);
+                        await file.WriteAllTextAsync(token.token);
                         await Navigation.PushAsync(new Menu());
                     }
                 }

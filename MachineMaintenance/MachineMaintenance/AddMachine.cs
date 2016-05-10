@@ -7,16 +7,18 @@ using System.Net.Http.Headers;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using PCLStorage;
 
 using Xamarin.Forms;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace MachineMaintenance
 {
     public class AddMachine : ContentPage
     {
-        List<ObjectModel.Machine> machines;
+        ObservableCollection<ObjectModel.Machine> machines;
         List<String> machineNames;
 
         public AddMachine()
@@ -24,18 +26,19 @@ namespace MachineMaintenance
             Title = "Add Machine";
             BackgroundColor = Color.White;
 
-            getMachines();
+            displayMachines();
         }
 
-        private async void getMachines()
+        private async void displayMachines()
         {
-            await viewMachines();
+            await getMachines();
+
             machineNames = new List<String>();
             foreach (ObjectModel.Machine m in machines)
             {
                 if (m != null /*&& machines isn't on device already*/)
                 {
-                    machineNames.Add(m.id.ToString() + "\n" + m.model.name);
+                    machineNames.Add(m.model.name);
                 }
             }
 
@@ -43,7 +46,29 @@ namespace MachineMaintenance
             machineList.Header = "Add a Machine to Device";
             machineList.ItemsSource = machineNames;
 
-            machineList.IsPullToRefreshEnabled = true;
+            machineList.ItemSelected += async (sender, e) =>
+            {
+                if (e.SelectedItem == null)
+                {
+                    return;
+                }
+                else
+                {
+                    String id = e.SelectedItem.ToString();
+
+                    foreach (ObjectModel.Machine m in machines)
+                    {
+
+                        if (m.model.name.Equals(id))
+                        {
+                            ObjectModel.Machine selection = m;
+                        }
+                    }
+                    machineList.SelectedItem = null;
+                    //need to save machine to file HERE
+                    await Navigation.PushAsync(new ViewMachine());
+                }
+            };
 
             Content = new StackLayout
             {
@@ -57,21 +82,30 @@ namespace MachineMaintenance
             };
         }
 
-        private async Task viewMachines()
+        private async Task getMachines()
         {
             try
             {
                 using (var c = new HttpClient())
                 {
+
+                    IFile file = await FileSystem.Current.LocalStorage.GetFileAsync("Token.txt");
+
+                    var stream = await file.OpenAsync(FileAccess.Read);
+                    var reader = new StreamReader(stream);
+                    String token = await reader.ReadToEndAsync();
+                    
+
+
                     var client = new HttpClient();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zZW5nMzE1MC53aW5nbWFud2ViZGVzaWduLmNvbS5hdVwvYXV0aFwvYXV0aGVudGljYXRlIiwiaWF0IjoxNDYyODUyNDIyLCJleHAiOjE0NjI4NTYwMjIsIm5iZiI6MTQ2Mjg1MjQyMiwianRpIjoiOWI1NTc4ZjU1MTdlMTJiNzM2YTVmNDk1MTU1ZWMwYzAiLCJzdWIiOiJhZG1pbmlzdHJhdG9yLWFkbWluaXN0cmF0b3IifQ.uzip-_BqEkHvxUD2cxlBrXnVnSYMPyucsBMYc83Tf68");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     Uri apiSite = new Uri("http://seng3150.wingmanwebdesign.com.au/machines");
 
                     var response = await client.GetAsync(apiSite);
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        machines = JsonConvert.DeserializeObject<List<ObjectModel.Machine>>(content);
+                        machines = JsonConvert.DeserializeObject<ObservableCollection<ObjectModel.Machine>>(content);
                     }
                 }
             }
