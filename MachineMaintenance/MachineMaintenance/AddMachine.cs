@@ -94,7 +94,7 @@ namespace MachineMaintenance
                                     {
                                         if (machinesToAdd[i].model.name == selection.model.name)
                                         {
-                                            await DisplayAlert("Error", "Machine is already downloaded", "Ok");
+                                            await DisplayAlert("Error", "Machine is already downloaded!", "Ok");
                                             break;
                                         }
                                     }

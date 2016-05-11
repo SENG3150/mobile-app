@@ -21,9 +21,16 @@ namespace MachineMaintenance
             Label machineInfo = new Label();
             machineInfo.Text = "You are currently viewing " + machine.model.name;
 
+            Label updateInfo = new Label();
+            updateInfo.Text = "It is best to update machine before beginning inspection";
+
             Button inspect = new Button();
             inspect.Text = "Inspect this Machine";
             inspect.Clicked += Inspect_Clicked;
+
+            Button update = new Button();
+            update.Text = "Update Machine";
+            update.Clicked += Update_Clicked;
 
             Content = new StackLayout
             {
@@ -33,9 +40,16 @@ namespace MachineMaintenance
                 Children =
                 {
                     machineInfo,
-                    inspect
+                    inspect,
+                    update, //this will download previous inspections for machine
+                    updateInfo
                 }
             };
+        }
+
+        private void Update_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Inspect_Clicked(object sender, EventArgs e)
