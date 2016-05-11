@@ -75,18 +75,35 @@ namespace MachineMaintenance
                                 var content = await reader.ReadToEndAsync();
                                 machinesToAdd = JsonConvert.DeserializeObject<List<ObjectModel.Machine>>(content);
 
-                                if (machinesToAdd == null || !machinesToAdd.Contains(selection))
+                                if (machinesToAdd == null)
                                 {
                                     if (machinesToAdd == null)
                                     {
                                         machinesToAdd = new List<ObjectModel.Machine>();
                                     }
+
                                     machinesToAdd.Add(selection);
+                                    await DisplayAlert("Success", "Machine has been downloaded", "Ok");
                                 }
 
                                 else
                                 {
-                                    await DisplayAlert("Error", "Machine is already downloaded", "Ok");
+                                    int i;
+
+                                    for (i = 0; i < machinesToAdd.Count; i++)
+                                    {
+                                        if (machinesToAdd[i].model.name == selection.model.name)
+                                        {
+                                            await DisplayAlert("Error", "Machine is already downloaded", "Ok");
+                                            break;
+                                        }
+                                    }
+
+                                    if (i == machinesToAdd.Count)
+                                    {
+                                        machinesToAdd.Add(selection);
+                                        await DisplayAlert("Success", "Machine has been downloaded", "Ok");
+                                    }                                    
                                 }
 
                             }
@@ -98,8 +115,6 @@ namespace MachineMaintenance
                         }
                     }
                     machineList.SelectedItem = null;
-
-                    await DisplayAlert("Success", "Machine has been downloaded", "Ok");
 
                 }
             };
