@@ -10,10 +10,21 @@ namespace MachineMaintenance
 {
     public class ViewMachine : ContentPage
     {
-        public ViewMachine()
+        ObjectModel.Machine selection;
+        public ViewMachine(ObjectModel.Machine machine)
         {
+            selection = machine;
+
             Title = "ViewMachine";
             BackgroundColor = Color.White;
+
+            Label machineInfo = new Label();
+            machineInfo.Text = "You are currently viewing " + machine.model.name;
+
+            Button inspect = new Button();
+            inspect.Text = "Inspect this Machine";
+            inspect.Clicked += Inspect_Clicked;
+
             Content = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.Center,
@@ -21,31 +32,15 @@ namespace MachineMaintenance
 
                 Children =
                 {
-                    new Label()
-                    {
-                        Text = "This is where we view details of a machine!"
-                    }
+                    machineInfo,
+                    inspect
                 }
             };
         }
 
-        public ViewMachine(ObjectModel.Machine machine)
+        private void Inspect_Clicked(object sender, EventArgs e)
         {
-            Title = "ViewMachine";
-            BackgroundColor = Color.White;
-            Content = new StackLayout
-            {
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-
-                Children =
-                {
-                    new Label()
-                    {
-                        Text = "You are currently viewing " + machine.model.name
-                    }
-                }
-            };
+            Navigation.PushAsync(new InspectMachine(selection));
         }
     }
 }
