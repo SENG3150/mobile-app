@@ -72,7 +72,7 @@ namespace MachineMaintenance
 
                     var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
                     HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
-                    Uri apiSite = new Uri("http://seng3150.wingmanwebdesign.com.au/auth/authenticate");
+                    Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/auth/authenticate");
 
                     var response = await client.PostAsync(apiSite, content);
 

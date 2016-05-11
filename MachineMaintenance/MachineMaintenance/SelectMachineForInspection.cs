@@ -46,7 +46,7 @@ namespace MachineMaintenance
                 {
                     if (m != null /*&& machines isn't on device already*/)
                     {
-                        machineNames.Add(m.model.name);
+                        machineNames.Add("Machine: " + m.id.ToString() + " - Model: " + m.model.name);
                     }
                 }
             }
@@ -67,14 +67,16 @@ namespace MachineMaintenance
                 else
                 {
                     String id = e.SelectedItem.ToString();
+                    id = id.Replace("Machine: ", "").Replace("- Model: ", "");
 
                     foreach (ObjectModel.Machine m in machines)
                     {
+                        String select = m.id.ToString() + " " + m.model.name;
 
-                        if (m.model.name.Equals(id))
+                        if (select.Equals(id))
                         {
                             selection = m;
-                            String select = JsonConvert.SerializeObject(selection);
+                            select = JsonConvert.SerializeObject(selection);
 
                             await Navigation.PushAsync(new ViewMachine(selection));
                             break;

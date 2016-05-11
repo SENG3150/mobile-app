@@ -19,7 +19,7 @@ namespace MachineMaintenance
             BackgroundColor = Color.White;
 
             Label machineInfo = new Label();
-            machineInfo.Text = "You are currently viewing " + machine.model.name;
+            machineInfo.Text = "You are currently viewing Machine: " + machine.id + " - Model: " + machine.model.name;
 
             Label updateInfo = new Label();
             updateInfo.Text = "It is best to update machine before beginning inspection";

@@ -39,7 +39,7 @@ namespace MachineMaintenance
             {
                 if (m != null /*&& machines isn't on device already*/)
                 {
-                    machineNames.Add(m.model.name);
+                    machineNames.Add("Machine: " + m.id.ToString() + " - Model: " + m.model.name);
                 }
             }
 
@@ -56,11 +56,12 @@ namespace MachineMaintenance
                 else
                 {
                     String id = e.SelectedItem.ToString();
+                    id = id.Replace("Machine: ", "").Replace("- Model: ", "");
 
                     foreach (ObjectModel.Machine m in machines)
                     {
-
-                        if (m.model.name.Equals(id))
+                        String select = m.id.ToString() + " " + m.model.name;
+                        if (select.Equals(id))
                         {
                             selection = m;
                             IFolder rootFolder = FileSystem.Current.LocalStorage;
@@ -92,7 +93,7 @@ namespace MachineMaintenance
 
                                     for (i = 0; i < machinesToAdd.Count; i++)
                                     {
-                                        if (machinesToAdd[i].model.name == selection.model.name)
+                                        if (machinesToAdd[i].id == selection.id)
                                         {
                                             await DisplayAlert("Error", "Machine is already downloaded!", "Ok");
                                             break;
@@ -146,7 +147,7 @@ namespace MachineMaintenance
    
                     var client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    Uri apiSite = new Uri("http://seng3150.wingmanwebdesign.com.au/machines");
+                    Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/machines?include=model.majorAssemblies.subAssemblies.tests");
 
                     var response = await client.GetAsync(apiSite);
                     if (response.IsSuccessStatusCode)
