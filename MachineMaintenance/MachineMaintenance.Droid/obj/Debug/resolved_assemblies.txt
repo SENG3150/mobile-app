@@ -6,6 +6,8 @@ C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droi
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\PCLStorage.Abstractions.dll
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\PCLStorage.dll
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\RestSharp.dll
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\SQLite-net.dll
+C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\SQLitePCL.raw.dll
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Core.dll
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.dll
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Xml.dll

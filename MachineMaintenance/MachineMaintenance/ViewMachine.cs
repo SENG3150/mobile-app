@@ -10,7 +10,6 @@ namespace MachineMaintenance
 {
     public class ViewMachine : ContentPage
     {
-
         public ViewMachine()
         {
             Title = "ViewMachine";
@@ -25,6 +24,25 @@ namespace MachineMaintenance
                     new Label()
                     {
                         Text = "This is where we view details of a machine!"
+                    }
+                }
+            };
+        }
+
+        public ViewMachine(ObjectModel.Machine machine)
+        {
+            Title = "ViewMachine";
+            BackgroundColor = Color.White;
+            Content = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+
+                Children =
+                {
+                    new Label()
+                    {
+                        Text = "You are currently viewing " + machine.model.name
                     }
                 }
             };

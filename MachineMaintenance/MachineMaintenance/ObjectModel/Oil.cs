@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance.ObjectModel
 {
-    class Oil
+    public class Oil
     {
         public bool test { get; set; }
         public object lower { get; set; }

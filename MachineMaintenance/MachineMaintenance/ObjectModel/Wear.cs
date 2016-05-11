@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance.ObjectModel
 {
-    class Wear
+    public class Wear
     {
         public bool test { get; set; }
         public object lower { get; set; }

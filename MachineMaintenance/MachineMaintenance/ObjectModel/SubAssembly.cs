@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance.ObjectModel
 {
-    class SubAssembly
+    public class SubAssembly
     {
         public int id { get; set; }
         public string name { get; set; }

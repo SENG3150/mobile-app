@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance.ObjectModel
 {
-    class Test
+    public class Test
     {
         public int id { get; set; }
         public MachineGeneral machineGeneral { get; set; }

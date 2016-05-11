@@ -32,6 +32,7 @@ namespace MachineMaintenance
         private async void displayMachines()
         {
             await getMachines();
+            ObjectModel.Machine selection;
 
             machineNames = new List<String>();
             foreach (ObjectModel.Machine m in machines)
@@ -61,12 +62,45 @@ namespace MachineMaintenance
 
                         if (m.model.name.Equals(id))
                         {
-                            ObjectModel.Machine selection = m;
+                            selection = m;
+                            IFolder rootFolder = FileSystem.Current.LocalStorage;
+                            IFile file = await rootFolder.CreateFileAsync("Machines.txt",
+                                        CreationCollisionOption.OpenIfExists);
+
+
+                            List<ObjectModel.Machine> machinesToAdd;
+                            using (var stream = await file.OpenAsync(FileAccess.Read))
+                            {
+                                var reader = new StreamReader(stream);
+                                var content = await reader.ReadToEndAsync();
+                                machinesToAdd = JsonConvert.DeserializeObject<List<ObjectModel.Machine>>(content);
+
+                                if (machinesToAdd == null || !machinesToAdd.Contains(selection))
+                                {
+                                    if (machinesToAdd == null)
+                                    {
+                                        machinesToAdd = new List<ObjectModel.Machine>();
+                                    }
+                                    machinesToAdd.Add(selection);
+                                }
+
+                                else
+                                {
+                                    await DisplayAlert("Error", "Machine is already downloaded", "Ok");
+                                }
+
+                            }
+
+                            String jsonMachines = JsonConvert.SerializeObject(machinesToAdd);
+
+                            await file.WriteAllTextAsync(jsonMachines);
+                            break;
                         }
                     }
                     machineList.SelectedItem = null;
-                    //need to save machine to file HERE
-                    await Navigation.PushAsync(new ViewMachine());
+
+                    await DisplayAlert("Success", "Machine has been downloaded", "Ok");
+
                 }
             };
 
@@ -94,9 +128,7 @@ namespace MachineMaintenance
                     var stream = await file.OpenAsync(FileAccess.Read);
                     var reader = new StreamReader(stream);
                     String token = await reader.ReadToEndAsync();
-                    
-
-
+   
                     var client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     Uri apiSite = new Uri("http://seng3150.wingmanwebdesign.com.au/machines");

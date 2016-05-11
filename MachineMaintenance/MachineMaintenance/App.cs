@@ -8,6 +8,7 @@ using System.Text;
 
 using Xamarin.Forms;
 using System.IO;
+using PCLStorage;
 
 namespace MachineMaintenance
 {
@@ -16,7 +17,15 @@ namespace MachineMaintenance
 
         public App()
         {
+            reset();
             MainPage = new NavigationPage(new Login ());
+        }
+
+        private async void reset()
+        {
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            IFile file = await rootFolder.CreateFileAsync("Machines.txt",
+                        CreationCollisionOption.ReplaceExisting);
         }
 
         protected override void OnStart()
