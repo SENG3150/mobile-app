@@ -88,6 +88,13 @@ namespace MachineMaintenance
                         await file.WriteAllTextAsync(token.token);
                         await Navigation.PushAsync(new Menu());
                     }
+
+                    else
+                    {
+                        await DisplayAlert("Error", "Ensure you are connected to the internet. If so, server may be experiencing difficulties", "I promise not to sue!");
+                        await Navigation.PushAsync(new Login());
+                        Navigation.RemovePage(this);
+                    }
                 }
             }
 

@@ -152,7 +152,6 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.pdb
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\FormsViewGroup.pdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\FormsViewGroup.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\PCLStorage.xml
