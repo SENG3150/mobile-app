@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using PCLStorage;
+using MachineMaintenance.ObjectModel;
 
 namespace MachineMaintenance
 {
@@ -80,7 +81,7 @@ namespace MachineMaintenance
                     if (response.IsSuccessStatusCode) //login worked
                     {
                         var bearer = await response.Content.ReadAsStringAsync();    //retrieve the content
-                        ObjectModel.Token token = JsonConvert.DeserializeObject<ObjectModel.Token>(bearer);
+                        Token token = JsonConvert.DeserializeObject<Token>(bearer);
 
                         IFolder rootFolder = FileSystem.Current.LocalStorage;
                         IFile file = await rootFolder.CreateFileAsync("Token.txt",

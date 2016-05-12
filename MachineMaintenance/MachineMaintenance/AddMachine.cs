@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Windows;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using PCLStorage;
-
+using MachineMaintenance.ObjectModel;
 using Xamarin.Forms;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -18,23 +15,23 @@ namespace MachineMaintenance
 {
     public class AddMachine : ContentPage
     {
-        private ObservableCollection<ObjectModel.Machine> machines;
+        private ObservableCollection<Machine> machines;
         private List<String> machineNames;
-        private ObjectModel.Machine selection;
+        private Machine selection;
         private ListView machineList;
-        private List<ObjectModel.Machine> machinesToAdd;
+        private List<Machine> machinesToAdd;
 
         public AddMachine()
         {
-            Title = "Add Machine";
-            BackgroundColor = Color.White;
             addMachineController();
-            machineNames = new List<String>();
         }
 
         //presentation logic for page
         private void addMachinePresentation()
         {
+            Title = "Add Machine";
+            BackgroundColor = Color.White;
+
             machineList = new ListView();
             machineList.Header = "Add a Machine to Device";
             machineList.ItemsSource = machineNames;
@@ -57,7 +54,9 @@ namespace MachineMaintenance
         {
             await getMachines();
 
-            foreach (ObjectModel.Machine m in machines)
+            machineNames = new List<String>();
+
+            foreach (Machine m in machines)
             {
                 if (m != null)
                 {
@@ -80,7 +79,7 @@ namespace MachineMaintenance
                 String id = e.SelectedItem.ToString();
                 id = id.Replace("Machine: ", "").Replace("- Model: ", "");
 
-                foreach (ObjectModel.Machine m in machines)     //matches selection with machine
+                foreach (Machine m in machines)     //matches selection with machine
                 {
                     String select = m.id.ToString() + " " + m.model.name;
                     if (select.Equals(id))
@@ -95,14 +94,14 @@ namespace MachineMaintenance
                             var reader = new StreamReader(stream);
                             var content = await reader.ReadToEndAsync();
                             //reads in existing Machines.txt file
-                            machinesToAdd = JsonConvert.DeserializeObject<List<ObjectModel.Machine>>(content);
+                            machinesToAdd = JsonConvert.DeserializeObject<List<Machine>>(content);
 
                             //if no machines in file, add machine
                             if (machinesToAdd == null)
                             {
                                 if (machinesToAdd == null)
                                 {
-                                    machinesToAdd = new List<ObjectModel.Machine>();
+                                    machinesToAdd = new List<Machine>();
                                 }
 
                                 machinesToAdd.Add(selection);
@@ -129,7 +128,6 @@ namespace MachineMaintenance
                                     await DisplayAlert("Success", "Machine has been downloaded", "Ok");
                                 }
                             }
-
                         }
 
                         String jsonMachines = JsonConvert.SerializeObject(machinesToAdd);
@@ -158,13 +156,13 @@ namespace MachineMaintenance
    
                     var client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/machines");
+                    Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/machines?include=model.majorAssemblies.subAssemblies.tests");
 
                     var response = await client.GetAsync(apiSite);
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        machines = JsonConvert.DeserializeObject<ObservableCollection<ObjectModel.Machine>>(content);
+                        machines = JsonConvert.DeserializeObject<ObservableCollection<Machine>>(content);
                     }
 
                     else //atm, all error codes under 1 else statement, should fix this at some point

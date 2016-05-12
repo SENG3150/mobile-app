@@ -38,6 +38,7 @@
     <Compile Include="AddMachine.cs" />
     <Compile Include="App.cs" />
     <Compile Include="InspectMachine.cs" />
+    <Compile Include="MajorAssemblyView.cs" />
     <Compile Include="ObjectModel\MachineGeneral.cs" />
     <Compile Include="ObjectModel\Model.cs" />
     <Compile Include="ObjectModel\Oil.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="ObjectModel\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulePage.cs" />
+    <Compile Include="SubAssemblyView.cs" />
     <Compile Include="ViewMachine.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MachineMaintenance.ObjectModel;
 
 using Xamarin.Forms;
 
@@ -10,9 +11,9 @@ namespace MachineMaintenance
 {
     public class ViewMachine : ContentPage
     {
-        ObjectModel.Machine machine;
+        Machine machine;
 
-        public ViewMachine(ObjectModel.Machine machine)
+        public ViewMachine(Machine machine)
         {
             this.machine = machine;
 
@@ -31,6 +32,7 @@ namespace MachineMaintenance
 
             Label machineInfo = new Label();
             machineInfo.Text = "You are currently viewing Machine: " + machine.id + " - Model: " + machine.model.name;
+            //present more info on machine here
 
             Label updateInfo = new Label();
             updateInfo.Text = "It is best to update machine before beginning inspection";

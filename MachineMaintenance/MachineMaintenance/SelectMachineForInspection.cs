@@ -1,38 +1,33 @@
 ﻿using System;
-using System.Windows;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using PCLStorage;
-
 using Xamarin.Forms;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.IO;
+using MachineMaintenance.ObjectModel;
 
 namespace MachineMaintenance
 {
     public class SelectMachineForInspection : ContentPage  
     {
-        ObservableCollection<ObjectModel.Machine> machines;
+        ObservableCollection<Machine> machines;
         ObservableCollection<String> machineNames;
-        ObjectModel.Machine selection;
+        Machine selection;
         ListView machineList = new ListView();
 
         public SelectMachineForInspection()
         {
-            Title = "Inspect Machine";
-            BackgroundColor = Color.White;
             selectMachineController();
         }
 
         //presentation for page
         private void selectMachinePresentation()
         {
+            Title = "Inspect Machine";
+            BackgroundColor = Color.White;
+
             machineList = new ListView();
             machineList.Header = "Select a machine to inspect - Pull down to Update";
             machineList.ItemsSource = machineNames;
@@ -68,7 +63,7 @@ namespace MachineMaintenance
 
             else
             {
-                foreach (ObjectModel.Machine m in machines)
+                foreach (Machine m in machines)
                 {
                     if (m != null /*&& machines isn't on device already*/)
                     {
@@ -92,7 +87,7 @@ namespace MachineMaintenance
                 String id = e.SelectedItem.ToString();
                 id = id.Replace("Machine: ", "").Replace("- Model: ", "");
 
-                foreach (ObjectModel.Machine m in machines)
+                foreach (Machine m in machines)
                 {
                     String select = m.id.ToString() + " " + m.model.name;
 
@@ -126,7 +121,7 @@ namespace MachineMaintenance
                 {
                     var reader = new StreamReader(stream);
                     var content = await reader.ReadToEndAsync();
-                    machines = JsonConvert.DeserializeObject<ObservableCollection<ObjectModel.Machine>>(content);
+                    machines = JsonConvert.DeserializeObject<ObservableCollection<Machine>>(content);
                 }
             }
 
