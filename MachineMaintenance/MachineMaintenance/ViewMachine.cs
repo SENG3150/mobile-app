@@ -10,11 +10,22 @@ namespace MachineMaintenance
 {
     public class ViewMachine : ContentPage
     {
-        ObjectModel.Machine selection;
+        ObjectModel.Machine machine;
+
         public ViewMachine(ObjectModel.Machine machine)
         {
-            selection = machine;
+            this.machine = machine;
 
+            viewMachineController();
+        }
+
+        private async void viewMachineController()
+        {
+            viewMachinePresentation();
+        }
+
+        private void viewMachinePresentation()
+        {
             Title = "ViewMachine";
             BackgroundColor = Color.White;
 
@@ -49,12 +60,12 @@ namespace MachineMaintenance
 
         private void Update_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new InspectMachine(machine));
         }
 
         private void Inspect_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new InspectMachine(selection));
+            Navigation.PushAsync(new InspectMachine(machine));
         }
     }
 }

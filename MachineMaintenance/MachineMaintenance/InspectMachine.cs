@@ -7,9 +7,9 @@ namespace MachineMaintenance
     {
         private Machine machine;
 
-        public InspectMachine(Machine selection)
+        public InspectMachine(Machine machine)
         {
-            machine = selection;
+            this.machine = machine;
         }
     }
 }
