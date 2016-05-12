@@ -20,7 +20,7 @@ namespace MachineMaintenance
             viewMachineController();
         }
 
-        private async void viewMachineController()
+        private void viewMachineController()
         {
             viewMachinePresentation();
         }

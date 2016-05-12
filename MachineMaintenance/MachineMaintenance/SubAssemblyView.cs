@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace MachineMaintenance
 {
-    internal class SubAssemblyView : ContentPage
+    internal class SubAssemblyView : CarouselPage
     {
         private SubAssembly subA;
 
@@ -17,19 +17,11 @@ namespace MachineMaintenance
         {
             Title = subA.name;
 
-            Label heading = new Label();
-            heading.Text = subA.name;
-
-            Content = new StackLayout
+            foreach (Test test in subA.tests)
             {
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
+                Children.Add(new TestView(test));
+            }
 
-                Children =
-                {
-                    heading,
-                }
-            };
         }
 
         private void subAssemController()

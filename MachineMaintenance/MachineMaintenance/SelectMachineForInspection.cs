@@ -29,7 +29,8 @@ namespace MachineMaintenance
             BackgroundColor = Color.White;
 
             machineList = new ListView();
-            machineList.Header = "Select a machine to inspect - Pull down to Update";
+            machineList.Header = "Select a machine to inspect";
+            machineList.Header += Environment.NewLine + "Pull down to refresh";
             machineList.ItemsSource = machineNames;
 
             machineList.IsPullToRefreshEnabled = true;
@@ -39,8 +40,9 @@ namespace MachineMaintenance
 
             Content = new StackLayout
             {
+                Margin = 50,
+                Spacing = 10,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
 
                 Children =
                 {

@@ -3,7 +3,7 @@ using MachineMaintenance.ObjectModel;
 
 namespace MachineMaintenance
 {
-    public class MajorAssemblyView : CarouselPage
+    public class MajorAssemblyView : TabbedPage
     {
         MajorAssembly majA;
         public MajorAssemblyView(MajorAssembly majA)

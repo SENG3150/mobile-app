@@ -32,21 +32,34 @@ namespace MachineMaintenance
             Title = "Add Machine";
             BackgroundColor = Color.White;
 
+            Label list = new Label();
+
             machineList = new ListView();
             machineList.Header = "Add a Machine to Device";
+
             machineList.ItemsSource = machineNames;
+
+            machineList.IsPullToRefreshEnabled = true;
+            machineList.Refreshing += ListView_Refreshing;
+
             machineList.ItemSelected += MachineList_Selected;
 
             Content = new StackLayout
             {
+                Margin = 50,
+                Spacing = 10,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
 
                 Children =
                 {
                     machineList
                 }
             };
+        }
+
+        private void ListView_Refreshing(object sender, EventArgs e)
+        {
+            addMachineController();
         }
 
         //controller for page
