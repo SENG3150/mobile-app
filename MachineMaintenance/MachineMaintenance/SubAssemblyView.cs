@@ -19,7 +19,20 @@ namespace MachineMaintenance
 
             foreach (Test test in subA.tests)
             {
-                Children.Add(new TestView(test));
+                if (test.machineGeneral.test)
+                {
+                    Children.Add(new TestView(test, test.machineGeneral));
+                }
+
+                if (test.oil.test)
+                {
+                    Children.Add(new TestView(test, test.oil));
+                }
+
+                if (test.wear.test)
+                {
+                    Children.Add(new TestView(test, test.wear));
+                }
             }
 
         }
