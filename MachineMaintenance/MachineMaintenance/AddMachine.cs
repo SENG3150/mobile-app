@@ -16,7 +16,6 @@ namespace MachineMaintenance
     public class AddMachine : ContentPage
     {
         private ObservableCollection<Machine> machines;
-        private List<String> machineNames;
         private Machine selection;
         private ListView machineList;
         private List<Machine> machinesToAdd;
@@ -32,16 +31,65 @@ namespace MachineMaintenance
             Title = "Add Machine";
             BackgroundColor = Color.White;
 
-            Label list = new Label();
+            machineList = new ListView
+            {
+                ItemsSource = machines,
+                IsPullToRefreshEnabled = true,
+                SeparatorColor = Color.Black,
+                RowHeight = 50,
 
-            machineList = new ListView();
-            machineList.Header = "Add a Machine to Device";
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label idLabel = new Label();
+                    idLabel.SetBinding(Label.TextProperty, new Binding("id", BindingMode.OneWay,
+                                null, null, "Machine: {0:d}"));
+                    idLabel.FontSize = 20;
+                    idLabel.TextColor = Color.Black;
+                    
+                    Label modelNameLabel = new Label();
+                    modelNameLabel.SetBinding(Label.TextProperty, new Binding("model.name", BindingMode.OneWay,
+                                null, null, "Model: {0:d}"));
+                    modelNameLabel.FontSize = 20;
+                    modelNameLabel.TextColor = Color.Black;
 
-            machineList.ItemsSource = machineNames;
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Padding = new Thickness(0, 5),
+                            Orientation = StackOrientation.Horizontal,
 
-            machineList.IsPullToRefreshEnabled = true;
+                            Children =
+                            {
+                                idLabel,
+                                modelNameLabel
+                            }
+                        }
+                    };
+                })
+            };
+
+            if (machines == null)
+            {
+                machineList.Header = new Label
+                {
+                    Text = "There are no machines available right now" + Environment.NewLine + Environment.NewLine + 
+                    "Pull down to refresh" + Environment.NewLine,
+                    FontSize = 15,
+                };
+            }
+
+            else
+            {
+                machineList.Header = new Label
+                {
+                    Text = "Choose a Machine to download" + Environment.NewLine + Environment.NewLine + 
+                    "Pull down to refresh" + Environment.NewLine,
+                    FontSize = 15,
+                };
+            }
+
             machineList.Refreshing += ListView_Refreshing;
-
             machineList.ItemSelected += MachineList_Selected;
 
             Content = new StackLayout
@@ -66,17 +114,6 @@ namespace MachineMaintenance
         private async void addMachineController()
         {
             await getMachines();
-
-            machineNames = new List<String>();
-
-            foreach (Machine m in machines)
-            {
-                if (m != null)
-                {
-                    machineNames.Add("Machine: " + m.id.ToString() + " - Model: " + m.model.name);
-                }
-            }
-
             addMachinePresentation();
         }
 
@@ -89,15 +126,13 @@ namespace MachineMaintenance
             }
             else
             {
-                String id = e.SelectedItem.ToString();
-                id = id.Replace("Machine: ", "").Replace("- Model: ", "");
+                selection = (Machine)e.SelectedItem;
 
                 foreach (Machine m in machines)     //matches selection with machine
                 {
-                    String select = m.id.ToString() + " " + m.model.name;
-                    if (select.Equals(id))
+
+                    if (selection.id == m.id)
                     {
-                        selection = m;
                         IFolder rootFolder = FileSystem.Current.LocalStorage;
                         IFile file = await rootFolder.CreateFileAsync("Machines.txt",
                                     CreationCollisionOption.OpenIfExists);

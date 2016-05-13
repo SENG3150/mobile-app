@@ -13,7 +13,6 @@ namespace MachineMaintenance
     public class SelectMachineForInspection : ContentPage  
     {
         ObservableCollection<Machine> machines;
-        ObservableCollection<String> machineNames;
         Machine selection;
         ListView machineList = new ListView();
 
@@ -28,14 +27,66 @@ namespace MachineMaintenance
             Title = "Inspect Machine";
             BackgroundColor = Color.White;
 
-            machineList = new ListView();
-            machineList.Header = "Select a machine to inspect";
-            machineList.Header += Environment.NewLine + "Pull down to refresh";
-            machineList.ItemsSource = machineNames;
+            machineList = new ListView
+            {
+                ItemsSource = machines,
 
-            machineList.IsPullToRefreshEnabled = true;
+                IsPullToRefreshEnabled = true,
+                SeparatorColor = Color.Black,
+                RowHeight = 50,
+
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label idLabel = new Label();
+                    idLabel.SetBinding(Label.TextProperty, new Binding("id", BindingMode.OneWay,
+                                null, null, "Machine: {0:d}"));
+                    idLabel.FontSize = 20;
+                    idLabel.TextColor = Color.Black;
+
+                    Label modelNameLabel = new Label();
+                    modelNameLabel.SetBinding(Label.TextProperty, new Binding("model.name", BindingMode.OneWay,
+                                null, null, "Model: {0:d}"));
+                    modelNameLabel.FontSize = 20;
+                    modelNameLabel.TextColor = Color.Black;
+
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Padding = new Thickness(0, 5),
+                            Orientation = StackOrientation.Horizontal,
+
+                            Children =
+                            {
+                                idLabel,
+                                modelNameLabel
+                            }
+                        }
+                    };
+                })
+            };
+
+            if (machines == null)
+            {
+                machineList.Header = new Label
+                {
+                    Text = "Please download a machine to continue" + Environment.NewLine + Environment.NewLine + 
+                        "Pull down to refresh" + Environment.NewLine,
+                    FontSize = 15,
+                };
+            }
+
+            else
+            {
+                machineList.Header = new Label
+                {
+                    Text = "Select a Machine to begin inspection" + Environment.NewLine + Environment.NewLine + 
+                    "Pull down to refresh" + Environment.NewLine,
+                    FontSize = 15,
+                };
+            }
+
             machineList.Refreshing += ListView_Refreshing;
-
             machineList.ItemSelected += Machine_Selected;
 
             Content = new StackLayout
@@ -55,25 +106,6 @@ namespace MachineMaintenance
         private async void selectMachineController()
         {
             await getMachines();
-
-            machineNames = new ObservableCollection<String>();
-
-            if (machines == null)
-            {
-                machineNames.Add("No machines to show");
-            }
-
-            else
-            {
-                foreach (Machine m in machines)
-                {
-                    if (m != null /*&& machines isn't on device already*/)
-                    {
-                        machineNames.Add("Machine: " + m.id.ToString() + " - Model: " + m.model.name);
-                    }
-                }
-            }
-
             selectMachinePresentation();
         }
 
@@ -86,17 +118,13 @@ namespace MachineMaintenance
             }
             else
             {
-                String id = e.SelectedItem.ToString();
-                id = id.Replace("Machine: ", "").Replace("- Model: ", "");
+                selection = (Machine)e.SelectedItem;
 
                 foreach (Machine m in machines)
                 {
-                    String select = m.id.ToString() + " " + m.model.name;
-
-                    if (select.Equals(id))
+                    if (selection.id == m.id)
                     {
                         selection = m;
-                        select = JsonConvert.SerializeObject(selection);
 
                         await Navigation.PushAsync(new ViewMachine(selection));
                         break;
