@@ -154,6 +154,7 @@ namespace MachineMaintenance
 
                                 machinesToAdd.Add(selection);
                                 await DisplayAlert("Success", "Machine has been downloaded", "Ok");
+                                Navigation.PushAsync(new InspectMachine(machine));
                             }
 
                             //else if machines in file, see if current machine is already downloaded

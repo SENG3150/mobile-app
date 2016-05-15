@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineMaintenance.ObjectModel.Inspections
+namespace MachineMaintenance.Inspections
 {
-    class Comment
+    public class Comment
     {
         public int id { get; set; }
         public string timeCommented { get; set; }

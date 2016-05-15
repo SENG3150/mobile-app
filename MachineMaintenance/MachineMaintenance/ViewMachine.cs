@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MachineMaintenance.ObjectModel;
 
+
 using Xamarin.Forms;
 
 namespace MachineMaintenance
@@ -41,10 +42,6 @@ namespace MachineMaintenance
             inspect.Text = "Inspect this Machine";
             inspect.Clicked += Inspect_Clicked;
 
-            Button update = new Button();
-            update.Text = "Update Machine";
-            update.Clicked += Update_Clicked;
-
             Content = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.Center,
@@ -54,19 +51,15 @@ namespace MachineMaintenance
                 {
                     machineInfo,
                     inspect,
-                    update, //this will download previous inspections for machine
                     updateInfo
                 }
             };
         }
 
-        private void Update_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new InspectMachine(machine));
-        }
-
         private void Inspect_Clicked(object sender, EventArgs e)
         {
+            Inspections.Inspection inspection = new Inspections.Inspection();
+
             Navigation.PushAsync(new InspectMachine(machine));
         }
     }

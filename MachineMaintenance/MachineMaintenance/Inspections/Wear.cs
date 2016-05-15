@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineMaintenance.ObjectModel.Inspections
+namespace MachineMaintenance.Inspections
 {
-    public class Oil
+    public class Wear
     {
         public bool test { get; set; }
         public object lower { get; set; }

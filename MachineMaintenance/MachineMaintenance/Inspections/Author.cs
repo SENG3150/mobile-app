@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineMaintenance.ObjectModel
+namespace MachineMaintenance.Inspections
 {
     public class Author
     {

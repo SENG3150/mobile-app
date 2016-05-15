@@ -177,6 +177,5 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\R.cs.flag
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\uploadflags.txt
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.dll.mdb

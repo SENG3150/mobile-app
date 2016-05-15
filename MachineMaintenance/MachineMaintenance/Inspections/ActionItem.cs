@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineMaintenance.ObjectModel.Inspections
+namespace MachineMaintenance.Inspections
 {
-    class ActionItem
+    public class ActionItem
     {
         public int id { get; set; }
         public string status { get; set; }

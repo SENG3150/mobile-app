@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineMaintenance.ObjectModel.Inspections
+namespace MachineMaintenance.Inspections
 {
-    class SubAssembly
+    public class SubAssembly
     {
         public int id { get; set; }
         public List<object> comments { get; set; }

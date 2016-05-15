@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineMaintenance.ObjectModel.Inspections
+namespace MachineMaintenance.Inspections
 {
-    class Inspection
+    public class Inspection
     {
         public int id { get; set; }
         public string timeCreated { get; set; }
@@ -15,5 +15,6 @@ namespace MachineMaintenance.ObjectModel.Inspections
         public object timeCompleted { get; set; }
         public List<MajorAssembly> majorAssemblies { get; set; }
         public List<Comment> comments { get; set; }
+        public Machine machine { get; set; }
     }
 }
