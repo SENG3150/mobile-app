@@ -9,23 +9,17 @@ using System.Text;
 using Xamarin.Forms;
 using System.IO;
 using PCLStorage;
+using MachineMaintenance.Database;
 
 namespace MachineMaintenance
 {
     public class App : Application
     {
-
+        public static LocalDatabase database;
         public App()
         {
-            reset();
+            database = new LocalDatabase();
             MainPage = new NavigationPage(new Login ());
-        }
-
-        private async void reset()
-        {
-            IFolder rootFolder = FileSystem.Current.LocalStorage;
-            IFile file = await rootFolder.CreateFileAsync("Machines.txt",
-                        CreationCollisionOption.ReplaceExisting);
         }
 
         protected override void OnStart()

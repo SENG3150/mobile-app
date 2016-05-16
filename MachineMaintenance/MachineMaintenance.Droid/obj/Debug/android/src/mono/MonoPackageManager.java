@@ -82,10 +82,14 @@ class MonoPackageManager_Resources {
 		"MachineMaintenance.Droid.dll",
 		"FormsViewGroup.dll",
 		"MachineMaintenance.dll",
+		"Newtonsoft.Json.dll",
 		"PCLStorage.Abstractions.dll",
 		"PCLStorage.dll",
 		"RestSharp.dll",
 		"SQLite-net.dll",
+		"SQLite.Net.dll",
+		"SQLite.Net.Platform.XamarinAndroid.dll",
+		"SQLiteNetExtensions.dll",
 		"SQLitePCL.raw.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Design.dll",
@@ -148,7 +152,6 @@ class MonoPackageManager_Resources {
 		"System.Xml.ReaderWriter.dll",
 		"System.Xml.XDocument.dll",
 		"System.Xml.XmlSerializer.dll",
-		"Newtonsoft.Json.dll",
 		"System.ServiceModel.Internals.dll",
 	};
 	public static final String[] Dependencies = new String[]{

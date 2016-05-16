@@ -5,19 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using Xamarin.Forms;
+using MachineMaintenance.ObjectModel;
+using MachineMaintenance.Inspections;
+using SQLiteNetExtensions.Attributes;
+using SQLiteNetExtensions.Extensions;
 
 namespace MachineMaintenance.Database
 {
-    public class TodoItemDatabase
+    public class LocalDatabase
     {
         SQLiteConnection database;
         static object locker = new object();
 
-        public TodoItemDatabase()
+        public LocalDatabase()
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
-            database.CreateTable<ObjectModel.Machine>();
-            database.CreateTable<Inspections.Inspection>();
+
+            database.CreateTable<ObjectModel.MachineSerialised>();
+            database.CreateTable<Inspections.InspectionSerialised>();
             database.CreateTable<ObjectModel.Token>();
         }
 
@@ -68,6 +73,22 @@ namespace MachineMaintenance.Database
         public Inspections.Inspection getInspection(int id)
         {
             return database.Table<Inspections.Inspection>().FirstOrDefault(x => x.id == id);
+        }
+
+        public void storeToken(Token token)
+        {
+            lock (locker)
+            {
+                database.Insert(token);
+            }
+        }
+
+        public List<Token> getToken()
+        {
+            lock (locker)
+            {
+                return (from i in database.Table<Token>() select i).ToList();
+            }
         }
     }
 }

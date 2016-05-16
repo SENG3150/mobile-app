@@ -28,6 +28,8 @@ namespace MachineMaintenance.Droid
 		{
 			global::PCLStorage.Resource.String.ApplicationName = global::MachineMaintenance.Droid.Resource.String.ApplicationName;
 			global::PCLStorage.Resource.String.Hello = global::MachineMaintenance.Droid.Resource.String.Hello;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::MachineMaintenance.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::MachineMaintenance.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MachineMaintenance.Droid.Resource.Attribute.actionBarSize;
 		}
 		

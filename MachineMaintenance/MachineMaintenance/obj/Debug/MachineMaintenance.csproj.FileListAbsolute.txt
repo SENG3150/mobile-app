@@ -85,5 +85,8 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\De
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.pdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.config
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\SQLite.Net.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\SQLiteNetExtensions.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
