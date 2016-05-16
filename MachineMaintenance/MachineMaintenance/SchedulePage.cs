@@ -130,7 +130,6 @@ namespace MachineMaintenance
 
                 foreach (Inspection i in inspections)     //matches selection with machine
                 {
-
                     if (selection.id == i.id)
                     {
                         IFolder rootFolder = FileSystem.Current.LocalStorage;
@@ -143,7 +142,8 @@ namespace MachineMaintenance
                         break;
                     }
                 }
-                await DisplayAlert("Success", "Click Ok to start inspection *does not work at this stage until issue resolved*", "Ok");
+                await DisplayAlert("Success", "Click Ok to start inspection!", "Ok");
+                await Navigation.PushAsync(new InspectMachine(selection));
                 inspectionList.SelectedItem = null;
             }
         }

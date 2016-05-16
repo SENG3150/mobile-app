@@ -1,5 +1,5 @@
 ﻿using Xamarin.Forms;
-using MachineMaintenance.ObjectModel;
+using MachineMaintenance.Inspections;
 
 namespace MachineMaintenance
 {
@@ -14,7 +14,7 @@ namespace MachineMaintenance
 
         private void majAssemPresentation()
         {
-            Title = majA.name;
+            Title = majA.majorAssembly.name;
             BackgroundColor = Color.White;
 
             foreach (SubAssembly subA in majA.subAssemblies)

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace MachineMaintenance.Inspections
 {
-    public class MajorAssembly
+    public class MajorAssemblyDetails
     {
         public int id { get; set; }
-        public List<SubAssembly> subAssemblies { get; set; }
-        public List<object> comments { get; set; }
-        public MajorAssemblyDetails majorAssembly { get; set; }
+        public string name { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MachineMaintenance.ObjectModel;
+﻿using MachineMaintenance.Inspections;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System;
@@ -7,15 +7,15 @@ namespace MachineMaintenance
 {
     public class InspectMachine : ContentPage
     {
-        private Machine machine;
+        private Inspection inspection;
         private MajorAssembly selection;
         private ListView listOfMajA;
         private ObservableCollection<MajorAssembly> majAssemList;
-        private ObservableCollection<string> majAssemNames;
+        private ObservableCollection<String> majAssemNames;
 
-        public InspectMachine(Machine machine)
+        public InspectMachine(Inspection inspection)
         {
-            this.machine = machine;
+            this.inspection = inspection;
 
             inspectionController();
         }
@@ -56,7 +56,7 @@ namespace MachineMaintenance
 
                 foreach (MajorAssembly majA in majAssemList)
                 {
-                    String select = majA.name;
+                    String select = majA.majorAssembly.name;
 
                     if (select.Equals(id))
                     {
@@ -72,12 +72,13 @@ namespace MachineMaintenance
 
         private void inspectionController()
         {
-            majAssemNames = new ObservableCollection<string>();
+            majAssemNames = new ObservableCollection<String>();
             majAssemList = new ObservableCollection<MajorAssembly>();
-            foreach (MajorAssembly majA in machine.model.majorAssemblies)
+
+            foreach (MajorAssembly majA in inspection.majorAssemblies)
             {
                 majAssemList.Add(majA);
-                majAssemNames.Add(majA.name);
+                majAssemNames.Add(majA.majorAssembly.name);
             }
 
             inspectionPresentation();

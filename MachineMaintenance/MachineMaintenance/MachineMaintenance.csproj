@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="AddMachine.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Inspections\MajorAssemblyDetails.cs" />
     <Compile Include="InspectMachine.cs" />
     <Compile Include="MajorAssemblyView.cs" />
     <Compile Include="Inspections\ActionItem.cs" />

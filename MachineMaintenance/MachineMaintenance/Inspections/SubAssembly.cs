@@ -13,5 +13,6 @@ namespace MachineMaintenance.Inspections
         public MachineGeneralTest machineGeneralTest { get; set; }
         public OilTest oilTest { get; set; }
         public WearTest wearTest { get; set; }
+        public MachineMaintenance.ObjectModel.SubAssembly subAssembly { get; set; }
     }
 }

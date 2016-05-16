@@ -1,4 +1,4 @@
-﻿using MachineMaintenance.ObjectModel;
+﻿using MachineMaintenance.Inspections;
 using Xamarin.Forms;
 
 namespace MachineMaintenance
@@ -15,9 +15,9 @@ namespace MachineMaintenance
 
         private void subAssemPresentation()
         {
-            Title = subA.name;
+            Title = subA.subAssembly.name;
 
-            foreach (Test test in subA.tests)
+            foreach (MachineMaintenance.ObjectModel.Test test in subA.subAssembly.tests)
             {
                 if (test.machineGeneral.test)
                 {

@@ -32,11 +32,8 @@ namespace MachineMaintenance
             BackgroundColor = Color.White;
 
             Label machineInfo = new Label();
-            machineInfo.Text = "You are currently viewing Machine: " + machine.id + " - Model: " + machine.model.name;
+            machineInfo.Text = "You are currently viewing Machine: " + machine.id + " - Model: " + machine.model.name + "Currently not working";
             //present more info on machine here
-
-            Label updateInfo = new Label();
-            updateInfo.Text = "It is best to update machine before beginning inspection";
 
             Button inspect = new Button();
             inspect.Text = "Inspect this Machine";
@@ -51,7 +48,6 @@ namespace MachineMaintenance
                 {
                     machineInfo,
                     inspect,
-                    updateInfo
                 }
             };
         }
@@ -60,7 +56,7 @@ namespace MachineMaintenance
         {
             Inspections.Inspection inspection = new Inspections.Inspection();
 
-            Navigation.PushAsync(new InspectMachine(machine));
+            //Navigation.PushAsync(new InspectMachine(machine));
         }
     }
 }
