@@ -12,6 +12,9 @@ namespace MachineMaintenance
 {
     public class Login : ContentPage
     {
+        Entry username;
+        Entry password;
+
         public Login()
         {
             loginPresentation();
@@ -23,20 +26,28 @@ namespace MachineMaintenance
             BackgroundColor = Color.White;
             Title = "Login";
 
-            Entry username = new Entry();
+            username = new Entry();
             username.Placeholder = "Username";
             username.PlaceholderColor = Color.Black;
             username.TextColor = Color.Black;
 
-            Entry password = new Entry();
+            password = new Entry();
             password.Placeholder = "Password";
             password.PlaceholderColor = Color.Black;
             password.IsPassword = true;
             password.TextColor = Color.Black;
 
-            Button login = new Button();
-            login.Text = "Login";
-            login.Clicked += Login_Clicked;
+            Button admin = new Button();
+            admin.Text = "Administrator";
+            admin.Clicked += Admin_Clicked;
+
+            Button expert = new Button();
+            expert.Text = "Domain Expert";
+            expert.Clicked += Expert_Clicked;
+
+            Button tech = new Button();
+            tech.Text = "Technician";
+            tech.Clicked += Tech_Clicked;
 
             Content = new StackLayout
             {
@@ -48,19 +59,31 @@ namespace MachineMaintenance
                 {
                     username,
                     password,
-                    login
+                    admin,
+                    expert,
+                    tech
                 }
             };
         }
 
         //this is called when user clicks "Login"
-        private async void Login_Clicked(object sender, EventArgs e)
+        private async void Admin_Clicked(object sender, EventArgs e)
         {
-            await this.authenticateLogin();
+            await this.authenticateLogin("administrator");
+        }
+
+        private async void Expert_Clicked(object sender, EventArgs e)
+        {
+            await this.authenticateLogin("domainExpert");
+        }
+
+        private async void Tech_Clicked(object sender, EventArgs e)
+        {
+            await this.authenticateLogin("technician");
         }
 
         //authenticate the user's input. At this stage, literally changes all values to administrator
-        private async Task authenticateLogin()
+        private async Task authenticateLogin(String role)
         {
             try
             {
@@ -69,7 +92,7 @@ namespace MachineMaintenance
                     var client = new HttpClient();
                     var jsonRequest = new
                     {
-                        type = "administrator", username = "administrator", password = "administrator"
+                        type = role, username = username.Text, password = password.Text
                     };
 
                     var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);       //saves login information as a string
