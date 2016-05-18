@@ -26,7 +26,7 @@ namespace MachineMaintenance
         private void loginPresentation()
         {
             BackgroundColor = Color.White;
-            Title = "Login";
+            Title = "Welcome: " + userType;
 
             username = new Entry();
             username.Placeholder = "Username";
@@ -40,7 +40,7 @@ namespace MachineMaintenance
             password.TextColor = Color.Black;
 
             Button login = new Button();
-            login.Text = "Administrator";
+            login.Text = "Login";
             login.Clicked += Login_Clicked;
 
 

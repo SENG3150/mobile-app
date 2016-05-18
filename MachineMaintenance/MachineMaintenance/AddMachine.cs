@@ -124,6 +124,7 @@ namespace MachineMaintenance
             {
                 return;
             }
+
             else
             {
                 selection = (Machine)e.SelectedItem;

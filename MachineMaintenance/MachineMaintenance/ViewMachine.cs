@@ -7,16 +7,20 @@ using MachineMaintenance.ObjectModel;
 
 
 using Xamarin.Forms;
+using MachineMaintenance.Inspections;
 
 namespace MachineMaintenance
 {
     public class ViewMachine : ContentPage
     {
-        Machine machine;
+        ObjectModel.Machine machine;
         ListView majAListView;
-        
+        ObjectModel.MajorAssembly selection;
+        Inspections.MajorAssembly toAdd;
+        Inspection inspection;
 
-        public ViewMachine(Machine machine)
+
+        public ViewMachine(ObjectModel.Machine machine)
         {
             this.machine = machine;
 
@@ -52,18 +56,51 @@ namespace MachineMaintenance
 
         private void Inspect_Clicked(object sender, EventArgs e)
         {
-            Inspections.Inspection inspection = new Inspections.Inspection();
+            Navigation.PushAsync(new InspectMachine(inspection));
+        }
 
-            //Navigation.PushAsync(new InspectMachine(machine));
+        private void Assembly_Selected(Object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
+
+            else
+            {
+                selection = (ObjectModel.MajorAssembly)e.SelectedItem;
+
+                toAdd = new Inspections.MajorAssembly();
+
+                toAdd.majorAssembly = new Inspections.MajorAssemblyDetails();
+                toAdd.majorAssembly.id = selection.id;
+                toAdd.majorAssembly.name = selection.name;
+                toAdd.id = selection.id;
+                toAdd.subAssemblies = new List<Inspections.SubAssembly>();
+
+                foreach (ObjectModel.SubAssembly subA in selection.subAssemblies)
+                {
+                    Inspections.SubAssembly toAdd2 = new Inspections.SubAssembly();
+                    toAdd2.subAssembly = subA;
+
+                    toAdd2.id = subA.id;
+
+                    toAdd.subAssemblies.Add(toAdd2);
+                }
+
+                inspection.majorAssemblies.Add(toAdd);
+            }
         }
 
 
         private void viewMachineController()
         {
+            inspection = new Inspection();
+            inspection.majorAssemblies = new List<Inspections.MajorAssembly>();
+
             majAListView = new ListView
             {
                 ItemsSource = machine.model.majorAssemblies,
-                IsPullToRefreshEnabled = true,
                 SeparatorColor = Color.Black,
                 RowHeight = 50,
 
@@ -90,6 +127,8 @@ namespace MachineMaintenance
                     };
                 })
             };
+
+            majAListView.ItemSelected += Assembly_Selected;
 
             viewMachinePresentation();
         }
