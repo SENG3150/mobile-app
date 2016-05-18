@@ -42,6 +42,7 @@
     <Compile Include="Inspections\MajorAssemblyDetails.cs" />
     <Compile Include="InspectMachine.cs" />
     <Compile Include="Database\ISQLite.cs" />
+    <Compile Include="MachineGeneralTestView.cs" />
     <Compile Include="MajorAssemblyView.cs" />
     <Compile Include="Inspections\ActionItem.cs" />
     <Compile Include="Inspections\Author.cs" />
@@ -76,8 +77,9 @@
     <Compile Include="SchedulePage.cs" />
     <Compile Include="SelectUserType.cs" />
     <Compile Include="SubAssemblyView.cs" />
-    <Compile Include="TestView.cs" />
-    <Compile Include="ViewMachine.cs" />
+    <Compile Include="OilTestView.cs" />
+    <Compile Include="SelectAssemblies.cs" />
+    <Compile Include="WearTestView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

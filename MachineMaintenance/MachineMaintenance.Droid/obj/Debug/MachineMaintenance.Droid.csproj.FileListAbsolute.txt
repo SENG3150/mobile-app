@@ -182,5 +182,6 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\SQLite.Net.Platform.XamarinAndroid.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\SQLiteNetExtensions.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\SQLiteNetExtensions.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.dll.mdb

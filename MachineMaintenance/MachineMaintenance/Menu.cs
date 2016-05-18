@@ -15,8 +15,8 @@ namespace MachineMaintenance
             BackgroundColor = Color.White;
             Title = "Main Menu";
 
-            Children.Add(new AddMachine());
             Children.Add(new SchedulePage());
+            Children.Add(new AddMachine());
             Children.Add(new SelectMachineForInspection());
         }
     }

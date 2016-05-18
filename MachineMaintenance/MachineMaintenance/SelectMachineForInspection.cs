@@ -126,7 +126,7 @@ namespace MachineMaintenance
                     {
                         selection = m;
 
-                        await Navigation.PushAsync(new ViewMachine(selection));
+                        await Navigation.PushAsync(new SelectAssemblies(selection));
                         break;
                     }
                 }

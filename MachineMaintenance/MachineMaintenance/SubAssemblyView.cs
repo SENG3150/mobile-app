@@ -21,17 +21,17 @@ namespace MachineMaintenance
             {
                 if (test.machineGeneral.test)
                 {
-                    Children.Add(new TestView(test, test.machineGeneral));
+                    Children.Add(new OilTestView(subA.oilTest));
                 }
 
                 if (test.oil.test)
                 {
-                    Children.Add(new TestView(test, test.oil));
+                    Children.Add(new WearTestView(subA.wearTest));
                 }
 
                 if (test.wear.test)
                 {
-                    Children.Add(new TestView(test, test.wear));
+                    Children.Add(new MachineGeneralTestView(subA.machineGeneralTest));
                 }
             }
 

@@ -79,8 +79,14 @@ namespace MachineMaintenance
             {
                 majAssemList.Add(majA);
                 majAssemNames.Add(majA.majorAssembly.name);
-            }
 
+                foreach (Inspections.SubAssembly subA in majA.subAssemblies)
+                {
+                    subA.wearTest = new WearTest();
+                    subA.oilTest = new OilTest();
+                    subA.machineGeneralTest = new MachineGeneralTest();
+                }
+            }              
             inspectionPresentation();
         }
     }

@@ -11,7 +11,7 @@ using MachineMaintenance.Inspections;
 
 namespace MachineMaintenance
 {
-    public class ViewMachine : ContentPage
+    public class SelectAssemblies : ContentPage
     {
         ObjectModel.Machine machine;
         ListView majAListView;
@@ -20,7 +20,7 @@ namespace MachineMaintenance
         Inspection inspection;
 
 
-        public ViewMachine(ObjectModel.Machine machine)
+        public SelectAssemblies(ObjectModel.Machine machine)
         {
             this.machine = machine;
 
@@ -84,7 +84,6 @@ namespace MachineMaintenance
                     toAdd2.subAssembly = subA;
 
                     toAdd2.id = subA.id;
-
                     toAdd.subAssemblies.Add(toAdd2);
                 }
 
