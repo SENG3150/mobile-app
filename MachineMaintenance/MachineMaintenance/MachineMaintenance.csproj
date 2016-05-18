@@ -74,6 +74,7 @@
     <Compile Include="ObjectModel\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulePage.cs" />
+    <Compile Include="SelectUserType.cs" />
     <Compile Include="SubAssemblyView.cs" />
     <Compile Include="TestView.cs" />
     <Compile Include="ViewMachine.cs" />

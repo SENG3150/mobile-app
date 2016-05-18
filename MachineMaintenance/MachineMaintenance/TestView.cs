@@ -7,7 +7,6 @@ namespace MachineMaintenance
     public class TestView : ContentPage
     {
         private Test test;
-        private ListView data;
         private List<Entry> input;
 
         public TestView(Test test, object testType)

@@ -13,6 +13,8 @@ namespace MachineMaintenance
     public class ViewMachine : ContentPage
     {
         Machine machine;
+        ListView majAListView;
+        
 
         public ViewMachine(Machine machine)
         {
@@ -21,32 +23,28 @@ namespace MachineMaintenance
             viewMachineController();
         }
 
-        private void viewMachineController()
-        {
-            viewMachinePresentation();
-        }
-
         private void viewMachinePresentation()
         {
             Title = "ViewMachine";
             BackgroundColor = Color.White;
 
-            Label machineInfo = new Label();
-            machineInfo.Text = "You are currently viewing Machine: " + machine.id + " - Model: " + machine.model.name + "Currently not working";
-            //present more info on machine here
+            Label heading = new Label();
+            heading.Text = "Select the MajorAssemblies you would like to inspect";
 
             Button inspect = new Button();
-            inspect.Text = "Inspect this Machine";
+            inspect.Text = "Done";
             inspect.Clicked += Inspect_Clicked;
 
             Content = new StackLayout
             {
+                Margin = 50,
+                Spacing = 10,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
 
                 Children =
                 {
-                    machineInfo,
+                    heading,
+                    majAListView,
                     inspect,
                 }
             };
@@ -57,6 +55,43 @@ namespace MachineMaintenance
             Inspections.Inspection inspection = new Inspections.Inspection();
 
             //Navigation.PushAsync(new InspectMachine(machine));
+        }
+
+
+        private void viewMachineController()
+        {
+            majAListView = new ListView
+            {
+                ItemsSource = machine.model.majorAssemblies,
+                IsPullToRefreshEnabled = true,
+                SeparatorColor = Color.Black,
+                RowHeight = 50,
+
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label majANameLabel = new Label();
+                    majANameLabel.SetBinding(Label.TextProperty, new Binding("name", BindingMode.OneWay,
+                                null, null, "Assembly: {0:d}"));
+                    majANameLabel.FontSize = 20;
+                    majANameLabel.TextColor = Color.Black;
+
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Padding = new Thickness(0, 5),
+                            Orientation = StackOrientation.Horizontal,
+
+                            Children =
+                            {
+                                majANameLabel
+                            }
+                        }
+                    };
+                })
+            };
+
+            viewMachinePresentation();
         }
     }
 }

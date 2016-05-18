@@ -19,7 +19,7 @@ namespace MachineMaintenance
         public App()
         {
             database = new LocalDatabase();
-            MainPage = new NavigationPage(new Login ());
+            MainPage = new NavigationPage(new SelectUserType ());
         }
 
         protected override void OnStart()

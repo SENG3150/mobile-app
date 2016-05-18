@@ -14,10 +14,12 @@ namespace MachineMaintenance
     {
         Entry username;
         Entry password;
+        String userType;
 
-        public Login()
+        public Login(String userType)
         {
             loginPresentation();
+            this.userType = userType;
         }
 
         //contains the presentation logic of the page
@@ -37,17 +39,10 @@ namespace MachineMaintenance
             password.IsPassword = true;
             password.TextColor = Color.Black;
 
-            Button admin = new Button();
-            admin.Text = "Administrator";
-            admin.Clicked += Admin_Clicked;
+            Button login = new Button();
+            login.Text = "Administrator";
+            login.Clicked += Login_Clicked;
 
-            Button expert = new Button();
-            expert.Text = "Domain Expert";
-            expert.Clicked += Expert_Clicked;
-
-            Button tech = new Button();
-            tech.Text = "Technician";
-            tech.Clicked += Tech_Clicked;
 
             Content = new StackLayout
             {
@@ -59,31 +54,19 @@ namespace MachineMaintenance
                 {
                     username,
                     password,
-                    admin,
-                    expert,
-                    tech
+                    login
                 }
             };
         }
 
         //this is called when user clicks "Login"
-        private async void Admin_Clicked(object sender, EventArgs e)
+        private async void Login_Clicked(object sender, EventArgs e)
         {
-            await this.authenticateLogin("administrator");
-        }
-
-        private async void Expert_Clicked(object sender, EventArgs e)
-        {
-            await this.authenticateLogin("domainExpert");
-        }
-
-        private async void Tech_Clicked(object sender, EventArgs e)
-        {
-            await this.authenticateLogin("technician");
+            await this.authenticateLogin();
         }
 
         //authenticate the user's input. At this stage, literally changes all values to administrator
-        private async Task authenticateLogin(String role)
+        private async Task authenticateLogin()
         {
             try
             {
@@ -92,7 +75,7 @@ namespace MachineMaintenance
                     var client = new HttpClient();
                     var jsonRequest = new
                     {
-                        type = role, username = username.Text, password = password.Text
+                        type = userType, username = username.Text, password = password.Text
                     };
 
                     var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);       //saves login information as a string
@@ -119,7 +102,7 @@ namespace MachineMaintenance
                     else //atm, all error codes under 1 else statement, should fix this at some point
                     {
                         await DisplayAlert("Error", "Ensure you are connected to the internet. If so, server may be experiencing difficulties", "I promise not to sue!");
-                        await Navigation.PushAsync(new Login());
+                        await Navigation.PushAsync(new SelectUserType());
                     }
                 }
                 Navigation.RemovePage(this);
