@@ -8,7 +8,6 @@ namespace MachineMaintenance
 {
     public class MachineGeneralTestView : ContentPage
     {
-        private List<Entry> input;
         MachineGeneralTest machineGeneralTest;
         Entry type;
         Entry docType;
@@ -23,12 +22,8 @@ namespace MachineMaintenance
         private void testPresentation()
         {
             Label heading = new Label();
-            input = new List<Entry>();
-
             heading.Text = "General Machine Test";
-
-            heading.FontSize = 30;
-            heading.TextColor = Color.Black;
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
             type = new Entry();
             if (machineGeneralTest.testType != null)
@@ -40,8 +35,7 @@ namespace MachineMaintenance
             {
                 type.Placeholder = "Type of Test";
             }
-            type.PlaceholderColor = Color.Black;
-            type.TextColor = Color.Black;
+            type.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -55,8 +49,7 @@ namespace MachineMaintenance
             {
                 type.Placeholder = "Type of Doc";
             }
-            docType.PlaceholderColor = Color.Black;
-            docType.TextColor = Color.Black;
+            docType.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -70,30 +63,39 @@ namespace MachineMaintenance
             {
                 type.Placeholder = "Comments";
             }
-            comments.PlaceholderColor = Color.Black;
-            comments.TextColor = Color.Black;
+            comments.Style = (Style)Application.Current.Resources["entryStyle"];
 
             Button save = new Button();
             save.Text = "Save data";
             save.Clicked += Save_Clicked;
+            save.Style = (Style)Application.Current.Resources["buttonStyle"];
+
+            var scrollview = new ScrollView
+            {
+                Content = new StackLayout
+                {
+                    Spacing = 10,
+
+                    Children =
+                    {
+                        heading,
+                        type,
+                        docType,
+                        comments,
+                        save
+                    }
+                }
+            };
 
             Content = new StackLayout
             {
                 Margin = 50,
-                Spacing = 10,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
 
                 Children =
                 {
-                    heading,
-                    type,
-                    docType,
-                    comments,
-                    save
+                    scrollview,
                 }
             };
-
         }
 
         private void Save_Clicked(object sender, EventArgs e)

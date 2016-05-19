@@ -31,26 +31,26 @@ namespace MachineMaintenance
             Title = "Add Machine";
             BackgroundColor = Color.White;
 
+            Label heading = new Label();
+            heading.Text = "Download Machine";
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
+
             machineList = new ListView
             {
                 ItemsSource = machines,
-                IsPullToRefreshEnabled = true,
-                SeparatorColor = Color.Black,
-                RowHeight = 50,
+                Style = (Style)Application.Current.Resources["listStyle"],
 
                 ItemTemplate = new DataTemplate(() =>
                 {
                     Label idLabel = new Label();
                     idLabel.SetBinding(Label.TextProperty, new Binding("id", BindingMode.OneWay,
                                 null, null, "Machine: {0:d}"));
-                    idLabel.FontSize = 20;
-                    idLabel.TextColor = Color.Black;
-                    
+                    idLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
+
                     Label modelNameLabel = new Label();
                     modelNameLabel.SetBinding(Label.TextProperty, new Binding("model.name", BindingMode.OneWay,
                                 null, null, "Model: {0:d}"));
-                    modelNameLabel.FontSize = 20;
-                    modelNameLabel.TextColor = Color.Black;
+                    modelNameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
 
                     return new ViewCell
                     {
@@ -100,6 +100,7 @@ namespace MachineMaintenance
 
                 Children =
                 {
+                    heading,
                     machineList
                 }
             };

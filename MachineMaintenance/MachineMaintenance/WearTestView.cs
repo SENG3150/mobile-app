@@ -28,13 +28,11 @@ namespace MachineMaintenance
 
         private void testPresentation()
         {
-            Label heading = new Label();
             input = new List<Entry>();
 
+            Label heading = new Label();
             heading.Text = "Wear Test";
-
-            heading.FontSize = 30;
-            heading.TextColor = Color.Black;
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
             description = new Entry();
             if (wearTest.description != null)
@@ -46,8 +44,7 @@ namespace MachineMaintenance
             {
                 description.Placeholder = "Description";
             }
-            description.PlaceholderColor = Color.Black;
-            description.TextColor = Color.Black;
+            description.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -61,8 +58,7 @@ namespace MachineMaintenance
             {
                 @new.Placeholder = "New";
             }
-            @new.PlaceholderColor = Color.Black;
-            @new.TextColor = Color.Black;
+            @new.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -76,8 +72,7 @@ namespace MachineMaintenance
             {
                 limit.Placeholder = "Limit";
             }
-            limit.PlaceholderColor = Color.Black;
-            limit.TextColor = Color.Black;
+            limit.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -91,8 +86,7 @@ namespace MachineMaintenance
             {
                 lifeLower.Placeholder = "Lower Life";
             }
-            lifeLower.PlaceholderColor = Color.Black;
-            lifeLower.TextColor = Color.Black;
+            lifeLower.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -106,8 +100,7 @@ namespace MachineMaintenance
             {
                 lifeUpper.Placeholder = "Upper Life";
             }
-            lifeUpper.PlaceholderColor = Color.Black;
-            lifeUpper.TextColor = Color.Black;
+            lifeUpper.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -121,8 +114,7 @@ namespace MachineMaintenance
             {
                 timeStart.Placeholder = "Start time";
             }
-            timeStart.PlaceholderColor = Color.Black;
-            timeStart.TextColor = Color.Black;
+            timeStart.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -136,8 +128,7 @@ namespace MachineMaintenance
             {
                 uniqueDetails.Placeholder = "Unique Details";
             }
-            uniqueDetails.PlaceholderColor = Color.Black;
-            uniqueDetails.TextColor = Color.Black;
+            uniqueDetails.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -151,36 +142,45 @@ namespace MachineMaintenance
             {
                 comments.Placeholder = "Comments";
             }
-            comments.PlaceholderColor = Color.Black;
-            comments.TextColor = Color.Black;
+            comments.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
             Button save = new Button();
             save.Text = "Save data";
             save.Clicked += Save_Clicked;
+            save.Style = (Style)Application.Current.Resources["buttonStyle"];
+
+            var scrollview = new ScrollView
+            {
+                Content = new StackLayout
+                {
+                    Spacing = 10,
+
+                    Children =
+                    {
+                        heading,
+                        description,
+                        @new,
+                        limit,
+                        lifeLower,
+                        lifeUpper,
+                        timeStart,
+                        uniqueDetails,
+                        comments,
+                        save
+                    }
+                }
+            };
 
             Content = new StackLayout
             {
                 Margin = 50,
-                Spacing = 10,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
 
                 Children =
                 {
-                    heading,
-                    description,
-                    @new,
-                    limit,
-                    lifeLower,
-                    lifeUpper,
-                    timeStart,
-                    uniqueDetails,
-                    comments,
-                    save
+                    scrollview,
                 }
             };
-
         }
 
         private void Save_Clicked(object sender, EventArgs e)

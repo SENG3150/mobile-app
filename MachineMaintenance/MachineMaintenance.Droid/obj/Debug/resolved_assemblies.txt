@@ -1,9 +1,11 @@
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\MachineMaintenance.Droid.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\FormsViewGroup.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\MachineMaintenance.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\ModernHttpClient.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Mono.Android.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\mscorlib.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Newtonsoft.Json.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\OkHttp.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\PCLStorage.Abstractions.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\PCLStorage.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\RestSharp.dll
@@ -25,8 +27,11 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.RecyclerView.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Android.Support.Vector.Drawable.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Core.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Pages.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Platform.Android.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Platform.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Theme.Android.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Theme.Base.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Xamarin.Forms.Xaml.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Collections.Concurrent.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Collections.dll
@@ -80,6 +85,8 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Net.Http.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Runtime.Serialization.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.ServiceModel.Internals.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Microsoft.CSharp.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\Mono.CSharp.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.ComponentModel.DataAnnotations.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.ComponentModel.Composition.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\assemblies\System.Numerics.dll

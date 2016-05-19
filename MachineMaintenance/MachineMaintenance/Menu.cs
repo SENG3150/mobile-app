@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 using Xamarin.Forms;
 
@@ -14,10 +15,11 @@ namespace MachineMaintenance
         {
             BackgroundColor = Color.White;
             Title = "Main Menu";
+            Style = (Style)Application.Current.Resources["tabPageStyle"];
 
             Children.Add(new SchedulePage());
+            Children.Add(new CreateInspection());
             Children.Add(new AddMachine());
-            Children.Add(new SelectMachineForInspection());
         }
     }
 }

@@ -31,13 +31,12 @@ namespace MachineMaintenance
 
         private void testPresentation()
         {
-            Label heading = new Label();
+
             input = new List<Entry>();
 
+            Label heading = new Label();
             heading.Text = "Oil";
-
-            heading.FontSize = 30;
-            heading.TextColor = Color.Black;
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
             lead = new Entry();
             if (oilTest.lead != 0)
@@ -49,8 +48,8 @@ namespace MachineMaintenance
             {
                 lead.Placeholder = "Lead";
             }
-            lead.PlaceholderColor = Color.Black;
-            lead.TextColor = Color.Black;
+            lead.Style = (Style)Application.Current.Resources["entryStyle"];
+            lead.Keyboard = Keyboard.Numeric;
 
 
 
@@ -64,9 +63,8 @@ namespace MachineMaintenance
             {
                 copper.Placeholder = "Copper";
             }
-            copper.PlaceholderColor = Color.Black;
-            copper.TextColor = Color.Black;
-
+            copper.Style = (Style)Application.Current.Resources["entryStyle"];
+            copper.Keyboard = Keyboard.Numeric;
 
 
             tin = new Entry();
@@ -79,8 +77,8 @@ namespace MachineMaintenance
             {
                 tin.Placeholder = "Tin";
             }
-            tin.PlaceholderColor = Color.Black;
-            tin.TextColor = Color.Black;
+            tin.Style = (Style)Application.Current.Resources["entryStyle"];
+            tin.Keyboard = Keyboard.Numeric;
 
 
 
@@ -94,8 +92,9 @@ namespace MachineMaintenance
             {
                 iron.Placeholder = "Iron";
             }
-            iron.PlaceholderColor = Color.Black;
-            iron.TextColor = Color.Black;
+            iron.Style = (Style)Application.Current.Resources["entryStyle"];
+            iron.Keyboard = Keyboard.Numeric;
+
 
             pq90 = new Entry();
             if (oilTest.pq90 != 0)
@@ -107,8 +106,8 @@ namespace MachineMaintenance
             {
                 pq90.Placeholder = "pq90";
             }
-            pq90.PlaceholderColor = Color.Black;
-            pq90.TextColor = Color.Black;
+            pq90.Style = (Style)Application.Current.Resources["entryStyle"];
+            pq90.Keyboard = Keyboard.Numeric;
 
 
 
@@ -122,9 +121,8 @@ namespace MachineMaintenance
             {
                 silicon.Placeholder = "Silicon";
             }
-            silicon.PlaceholderColor = Color.Black;
-            silicon.TextColor = Color.Black;
-
+            silicon.Style = (Style)Application.Current.Resources["entryStyle"];
+            silicon.Keyboard = Keyboard.Numeric;
 
 
             sodium = new Entry();
@@ -137,8 +135,8 @@ namespace MachineMaintenance
             {
                 sodium.Placeholder = "Sodium";
             }
-            sodium.PlaceholderColor = Color.Black;
-            sodium.TextColor = Color.Black;
+            sodium.Style = (Style)Application.Current.Resources["entryStyle"];
+            sodium.Keyboard = Keyboard.Numeric;
 
 
 
@@ -152,8 +150,8 @@ namespace MachineMaintenance
             {
                 aluminium.Placeholder = "Aluminium";
             }
-            aluminium.PlaceholderColor = Color.Black;
-            aluminium.TextColor = Color.Black;
+            aluminium.Style = (Style)Application.Current.Resources["entryStyle"];
+            aluminium.Keyboard = Keyboard.Numeric;
 
 
 
@@ -167,8 +165,7 @@ namespace MachineMaintenance
             {
                 water.Placeholder = "Water";
             }
-            water.PlaceholderColor = Color.Black;
-            water.TextColor = Color.Black;
+            water.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
 
@@ -182,8 +179,8 @@ namespace MachineMaintenance
             {
                 viscosity.Placeholder = "Viscosity";
             }
-            viscosity.PlaceholderColor = Color.Black;
-            viscosity.TextColor = Color.Black;
+            viscosity.Style = (Style)Application.Current.Resources["entryStyle"];
+            viscosity.Keyboard = Keyboard.Numeric;
 
 
 
@@ -197,34 +194,44 @@ namespace MachineMaintenance
             {
                 comments.Placeholder = "Comments";
             }
-            comments.PlaceholderColor = Color.Black;
-            comments.TextColor = Color.Black;
+            comments.Style = (Style)Application.Current.Resources["entryStyle"];
 
             Button save = new Button();
             save.Text = "Save data";
+            save.Clicked += Save_Clicked;
+            save.Style = (Style)Application.Current.Resources["buttonStyle"];
+
+            var scrollview = new ScrollView
+            {
+                Content = new StackLayout
+                {
+                    Spacing = 10,
+
+                    Children =
+                    {
+                        heading,
+                        lead,
+                        copper,
+                        tin,
+                        iron,
+                        pq90,
+                        silicon,
+                        sodium,
+                        aluminium,
+                        water,
+                        viscosity,
+                        comments,
+                        save,
+                    }
+                }
+            };
 
             Content = new StackLayout
             {
                 Margin = 50,
-                Spacing = 10,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-
                 Children =
                 {
-                    heading,
-                    lead,
-                    copper,
-                    tin,
-                    iron,
-                    pq90,
-                    silicon,
-                    sodium,
-                    aluminium,
-                    water,
-                    viscosity,
-                    comments,
-                    save,
+                    scrollview,
                 }
             };
         }

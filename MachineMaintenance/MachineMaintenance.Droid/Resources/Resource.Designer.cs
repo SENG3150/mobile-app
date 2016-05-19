@@ -26,6 +26,7 @@ namespace MachineMaintenance.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::ModernHttpClient.Resource.String.library_name = global::MachineMaintenance.Droid.Resource.String.library_name;
 			global::PCLStorage.Resource.String.ApplicationName = global::MachineMaintenance.Droid.Resource.String.ApplicationName;
 			global::PCLStorage.Resource.String.Hello = global::MachineMaintenance.Droid.Resource.String.Hello;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::MachineMaintenance.Droid.Resource.String.ApplicationName;
@@ -3000,6 +3001,9 @@ namespace MachineMaintenance.Droid
 			
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
+			
+			// aapt resource value: 0x7f080028
+			public const int library_name = 2131230760;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;

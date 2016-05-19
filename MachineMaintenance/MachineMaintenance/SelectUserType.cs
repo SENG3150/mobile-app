@@ -20,25 +20,28 @@ namespace MachineMaintenance
         //contains the presentation logic of the page
         private void loginPresentation()
         {
-            BackgroundColor = Color.White;
+            BackgroundColor = Color.FromHex("#F6F6F6");
             Title = "Login";
 
             Button admin = new Button();
             admin.Text = "Administrator";
+            admin.Style = (Style)Application.Current.Resources["buttonStyle"];
             admin.Clicked += Admin_Clicked;
 
             Button expert = new Button();
             expert.Text = "Domain Expert";
+            expert.Style = (Style)Application.Current.Resources["buttonStyle"];
             expert.Clicked += Expert_Clicked;
 
             Button tech = new Button();
             tech.Text = "Technician";
+            tech.Style = (Style)Application.Current.Resources["buttonStyle"];
             tech.Clicked += Tech_Clicked;
 
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
-                Spacing = 10,
+                Spacing = 40,
                 Margin = 50,
 
                 Children =

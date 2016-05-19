@@ -28,29 +28,29 @@ namespace MachineMaintenance
         //presentation logic for page
         private void getSchedulePresentation()
         {
-            Title = "View Schedule";
+            Title = "Assigned Inspections";
             BackgroundColor = Color.White;
+
+            Label heading = new Label();
+            heading.Text = "Assigned Inspections";
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
             inspectionList = new ListView
             {
                 ItemsSource = inspections,
-                IsPullToRefreshEnabled = true,
-                SeparatorColor = Color.Black,
-                RowHeight = 50,
+                Style = (Style)Application.Current.Resources["listStyle"],
 
                 ItemTemplate = new DataTemplate(() =>
                 {
                     Label idLabel = new Label();
                     idLabel.SetBinding(Label.TextProperty, new Binding("machine.id", BindingMode.OneWay,
                                 null, null, "Machine: {0:d}"));
-                    idLabel.FontSize = 20;
-                    idLabel.TextColor = Color.Black;
+                    idLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
 
                     Label modelNameLabel = new Label();
                     modelNameLabel.SetBinding(Label.TextProperty, new Binding("machine.model.name", BindingMode.OneWay,
                                 null, null, "Model: {0:d}"));
-                    modelNameLabel.FontSize = 20;
-                    modelNameLabel.TextColor = Color.Black;
+                    modelNameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
 
                     return new ViewCell
                     {
@@ -100,6 +100,7 @@ namespace MachineMaintenance
 
                 Children =
                 {
+                    heading,
                     inspectionList
                 }
             };

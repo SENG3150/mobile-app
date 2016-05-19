@@ -9,7 +9,7 @@ namespace MachineMaintenance
     {
         private Inspection inspection;
         private MajorAssembly selection;
-        private ListView listOfMajA;
+        private ListView majAListView;
         private ObservableCollection<MajorAssembly> majAssemList;
         private ObservableCollection<String> majAssemNames;
 
@@ -25,11 +25,42 @@ namespace MachineMaintenance
             Title = "Begin your inspection";
             BackgroundColor = Color.White;
 
-            listOfMajA = new ListView();
+            Label heading = new Label();
+            heading.Text = "Select Assembly to Inspect";
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
-            listOfMajA.ItemsSource = majAssemNames;
-            listOfMajA.ItemSelected += MajA_Selected;
-            listOfMajA.Header = "Please select a Major Assembly to Inspect";
+            majAListView = new ListView
+            {
+                ItemsSource = inspection.majorAssemblies,
+                Header = "Select the Major Assembly to Inspect",
+                Style = (Style)Application.Current.Resources["listStyle"],
+
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label majANameLabel = new Label();
+                    majANameLabel.SetBinding(Label.TextProperty, new Binding("majorAssembly.name", BindingMode.OneWay,
+                                null, null, "Assembly: {0:d}"));
+                    majANameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
+
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Padding = new Thickness(0, 5),
+                            Orientation = StackOrientation.Horizontal,
+                            BackgroundColor = Color.FromHex("#ff5c33"),
+                            Margin = 10,
+
+                            Children =
+                            {
+                                majANameLabel
+                            }
+                        }
+                    };
+                })
+            };
+
+            majAListView.ItemSelected += MajA_Selected;
 
             Content = new StackLayout
             {
@@ -39,7 +70,8 @@ namespace MachineMaintenance
 
                 Children =
                 {
-                    listOfMajA,
+                    heading,
+                    majAListView,
                 }
             };
         }
@@ -50,24 +82,14 @@ namespace MachineMaintenance
             {
                 return;
             }
+
             else
             {
-                String id = e.SelectedItem.ToString();
-
-                foreach (MajorAssembly majA in majAssemList)
-                {
-                    String select = majA.majorAssembly.name;
-
-                    if (select.Equals(id))
-                    {
-                        selection = majA;
-                        await Navigation.PushAsync(new MajorAssemblyView(selection));
-                        break;
-                    }
-                }
+                selection = (Inspections.MajorAssembly)e.SelectedItem;
+                await Navigation.PushAsync(new MajorAssemblyView(selection));
             }
 
-            listOfMajA.SelectedItem = null;
+            majAListView.SelectedItem = null;
         }
 
         private void inspectionController()

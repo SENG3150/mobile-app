@@ -29,14 +29,16 @@ namespace MachineMaintenance
 
         private void viewMachinePresentation()
         {
-            Title = "ViewMachine";
+            Title = "Select Assemblies";
             BackgroundColor = Color.White;
 
             Label heading = new Label();
-            heading.Text = "Select the MajorAssemblies you would like to inspect";
+            heading.Text = "Select Assemblies";
+            heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
             Button inspect = new Button();
             inspect.Text = "Done";
+            inspect.Style = (Style)Application.Current.Resources["buttonStyle"];
             inspect.Clicked += Inspect_Clicked;
 
             Content = new StackLayout
@@ -100,16 +102,15 @@ namespace MachineMaintenance
             majAListView = new ListView
             {
                 ItemsSource = machine.model.majorAssemblies,
-                SeparatorColor = Color.Black,
-                RowHeight = 50,
+                Header = "Select the MajorAssemblies to create an inspection",
+                Style = (Style)Application.Current.Resources["listStyle"],
 
                 ItemTemplate = new DataTemplate(() =>
                 {
                     Label majANameLabel = new Label();
                     majANameLabel.SetBinding(Label.TextProperty, new Binding("name", BindingMode.OneWay,
                                 null, null, "Assembly: {0:d}"));
-                    majANameLabel.FontSize = 20;
-                    majANameLabel.TextColor = Color.Black;
+                    majANameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
 
                     return new ViewCell
                     {

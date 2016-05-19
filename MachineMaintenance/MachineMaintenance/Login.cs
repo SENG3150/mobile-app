@@ -30,24 +30,23 @@ namespace MachineMaintenance
 
             username = new Entry();
             username.Placeholder = "Username";
-            username.PlaceholderColor = Color.Black;
-            username.TextColor = Color.Black;
+            username.Style = (Style)Application.Current.Resources["entryStyle"];
 
             password = new Entry();
             password.Placeholder = "Password";
-            password.PlaceholderColor = Color.Black;
+            password.Style = (Style)Application.Current.Resources["entryStyle"];
             password.IsPassword = true;
-            password.TextColor = Color.Black;
 
             Button login = new Button();
             login.Text = "Login";
+            login.Style = (Style)Application.Current.Resources["buttonStyle"];
             login.Clicked += Login_Clicked;
 
 
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
-                Spacing = 10,
+                Spacing = 30,
                 Margin = 50,
 
                 Children =

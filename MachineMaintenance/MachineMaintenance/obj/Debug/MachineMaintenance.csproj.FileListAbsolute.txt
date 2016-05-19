@@ -82,13 +82,14 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\De
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\Xamarin.Forms.Xaml.xml
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.pdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.config
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\SQLite.Net.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\SQLiteNetExtensions.dll
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\ModernHttpClient.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\Xamarin.Forms.Pages.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\Xamarin.Forms.Theme.Base.dll
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
