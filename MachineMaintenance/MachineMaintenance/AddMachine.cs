@@ -130,62 +130,20 @@ namespace MachineMaintenance
             {
                 selection = (Machine)e.SelectedItem;
 
-                foreach (Machine m in machines)     //matches selection with machine
+                MachineSerialised toAdd = new MachineSerialised();
+                toAdd.machine = JsonConvert.SerializeObject(selection);
+
+                if (App.database.getMachine(toAdd.machine) == null)
                 {
-
-                    if (selection.id == m.id)
-                    {
-                        IFolder rootFolder = FileSystem.Current.LocalStorage;
-                        IFile file = await rootFolder.CreateFileAsync("Machines.txt",
-                                    CreationCollisionOption.OpenIfExists);
-
-                        using (var stream = await file.OpenAsync(FileAccess.Read))
-                        {
-                            var reader = new StreamReader(stream);
-                            var content = await reader.ReadToEndAsync();
-                            //reads in existing Machines.txt file
-                            machinesToAdd = JsonConvert.DeserializeObject<List<Machine>>(content);
-
-                            //if no machines in file, add machine
-                            if (machinesToAdd == null)
-                            {
-                                if (machinesToAdd == null)
-                                {
-                                    machinesToAdd = new List<Machine>();
-                                }
-
-                                machinesToAdd.Add(selection);
-                                await DisplayAlert("Success", "Machine has been downloaded", "Ok");
-                            }
-
-                            //else if machines in file, see if current machine is already downloaded
-                            else
-                            {
-                                int i;
-
-                                for (i = 0; i < machinesToAdd.Count; i++)
-                                {
-                                    if (machinesToAdd[i].id == selection.id)
-                                    {
-                                        await DisplayAlert("Error", "Machine is already downloaded!", "Ok");
-                                        break;
-                                    }
-                                }
-
-                                if (i == machinesToAdd.Count)
-                                {
-                                    machinesToAdd.Add(selection);
-                                    await DisplayAlert("Success", "Machine has been downloaded", "Ok");
-                                }
-                            }
-                        }
-
-                        String jsonMachines = JsonConvert.SerializeObject(machinesToAdd);
-                        //write all machines to file
-                        await file.WriteAllTextAsync(jsonMachines);
-                        break;
-                    }
+                    App.database.storeMachine(toAdd);
+                    await DisplayAlert("Success", "Machine has been downloaded", "Ok");
                 }
+
+                else
+                {
+                    await DisplayAlert("Error", "Machine is already downloaded!", "Ok");
+                }
+
                 machineList.SelectedItem = null;
             }
         }
@@ -197,15 +155,11 @@ namespace MachineMaintenance
             {
                 using (var c = new HttpClient())
                 {
+                    List<Token> token;
+                    token = App.database.getToken();
 
-                    IFile file = await FileSystem.Current.LocalStorage.GetFileAsync("Token.txt");
-
-                    var stream = await file.OpenAsync(FileAccess.Read);
-                    var reader = new StreamReader(stream);
-                    String token = await reader.ReadToEndAsync();
-   
                     var client = new HttpClient();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token[token.Count - 1].token);
                     Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/machines?include=model.majorAssemblies.subAssemblies.tests");
 
                     var response = await client.GetAsync(apiSite);

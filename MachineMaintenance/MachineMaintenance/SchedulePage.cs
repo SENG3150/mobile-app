@@ -157,14 +157,11 @@ namespace MachineMaintenance
                 using (var c = new HttpClient())
                 {
 
-                    IFile file = await FileSystem.Current.LocalStorage.GetFileAsync("Token.txt");
-
-                    var stream = await file.OpenAsync(FileAccess.Read);
-                    var reader = new StreamReader(stream);
-                    String token = await reader.ReadToEndAsync();
+                    List<Token> token;
+                    token = App.database.getToken();
 
                     var client = new HttpClient();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token[token.Count - 1].token);
                     Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/inspections?include=majorAssemblies.majorAssembly,majorAssemblies.subAssemblies.subAssembly.tests,machine.model");
 
                     var response = await client.GetAsync(apiSite);

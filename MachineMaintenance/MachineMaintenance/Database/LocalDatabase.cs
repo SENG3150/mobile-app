@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SQLite;
 using Xamarin.Forms;
 using MachineMaintenance.ObjectModel;
 using MachineMaintenance.Inspections;
-using SQLiteNetExtensions.Attributes;
-using SQLiteNetExtensions.Extensions;
+
 
 namespace MachineMaintenance.Database
 {
@@ -21,31 +17,30 @@ namespace MachineMaintenance.Database
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
 
-            database.CreateTable<ObjectModel.MachineSerialised>();
-            database.CreateTable<Inspections.InspectionSerialised>();
-            database.CreateTable<ObjectModel.Token>();
+            database.CreateTable<MachineSerialised>();
+            database.CreateTable<InspectionSerialised>();
+            database.CreateTable<Token>();
         }
 
-        public void storeMachine(ObjectModel.Machine machine)
+        public void storeMachine(MachineSerialised machine)
         {
             lock (locker)
             {
-                if (database.Update(machine) == 0)
-                {
-                    database.Insert(machine);
-                }
-     
+                 database.Insert(machine);
             }
         }
 
-        public List<ObjectModel.Machine> getMachines()
+        public List<MachineSerialised> getMachines()
         {
-            return (from i in database.Table<ObjectModel.Machine>() select i).ToList();
+            lock (locker)
+            {
+                return (from i in database.Table<MachineSerialised>() select i).ToList();
+            }
         }
 
-        public ObjectModel.Machine getMachine(int id)
+        public MachineSerialised getMachine(string machine)
         {
-            return database.Table<ObjectModel.Machine>().FirstOrDefault(x => x.id == id);
+            return database.Table<MachineSerialised>().FirstOrDefault(x => x.machine.Equals(machine));
         }
 
         public void deleteMachine(int id)
@@ -53,7 +48,7 @@ namespace MachineMaintenance.Database
             database.Delete<ObjectModel.Machine>(id);
         }
 
-        public void storeInspection(Inspections.Inspection inspection)
+        public void storeInspection(Inspection inspection)
         {
             lock (locker)
             {
@@ -65,14 +60,14 @@ namespace MachineMaintenance.Database
             }
         }
 
-        public List<Inspections.Inspection> getInspections()
+        public List<Inspection> getInspections()
         {
-            return (from i in database.Table<Inspections.Inspection>() select i).ToList();
+            return (from i in database.Table<Inspection>() select i).ToList();
         }
 
-        public Inspections.Inspection getInspection(int id)
+        public Inspection getInspection(int id)
         {
-            return database.Table<Inspections.Inspection>().FirstOrDefault(x => x.id == id);
+            return database.Table<Inspection>().FirstOrDefault(x => x.id == id);
         }
 
         public void storeToken(Token token)

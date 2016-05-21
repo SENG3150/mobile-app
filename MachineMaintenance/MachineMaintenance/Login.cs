@@ -88,11 +88,6 @@ namespace MachineMaintenance
                         var bearer = await response.Content.ReadAsStringAsync();    //retrieve the content
                         Token token = JsonConvert.DeserializeObject<Token>(bearer);
 
-                        IFolder rootFolder = FileSystem.Current.LocalStorage;
-                        IFile file = await rootFolder.CreateFileAsync("Token.txt",
-                            CreationCollisionOption.ReplaceExisting);               //create a token.txt file to save the token - should be stored in db once working
-                        await file.WriteAllTextAsync(token.token);
-
                         App.database.storeToken(token);
 
                         await Navigation.PushAsync(new Menu());

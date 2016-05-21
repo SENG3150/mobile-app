@@ -9,7 +9,7 @@ namespace MachineMaintenance.ObjectModel
 {
     public class Token
     {
-        [AutoIncrement, PrimaryKey]
+        [PrimaryKey]
         public string token { get; set; }
     }
 }

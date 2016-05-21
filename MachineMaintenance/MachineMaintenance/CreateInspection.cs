@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.IO;
 using MachineMaintenance.ObjectModel;
+using System.Collections.Generic;
 
 namespace MachineMaintenance
 {
@@ -104,9 +105,9 @@ namespace MachineMaintenance
         }
 
         //controller for page
-        private async void selectMachineController()
+        private void selectMachineController()
         {
-            await getMachines();
+            getMachines();
             selectMachinePresentation();
         }
 
@@ -120,17 +121,7 @@ namespace MachineMaintenance
             else
             {
                 selection = (Machine)e.SelectedItem;
-
-                foreach (Machine m in machines)
-                {
-                    if (selection.id == m.id)
-                    {
-                        selection = m;
-
-                        await Navigation.PushAsync(new SelectAssemblies(selection));
-                        break;
-                    }
-                }
+                await Navigation.PushAsync(new SelectAssemblies(selection));
             }
 
             machineList.SelectedItem = null;
@@ -143,16 +134,16 @@ namespace MachineMaintenance
         }
 
         //retrieves machines from file
-        public async Task getMachines()
+        public void getMachines()
         {
+            machines = new ObservableCollection<Machine>();
             try
             {
-                IFile file = await FileSystem.Current.LocalStorage.GetFileAsync("Machines.txt");
-                using (var stream = await file.OpenAsync(FileAccess.Read))
+                List<MachineSerialised> content = App.database.getMachines();
+
+                foreach (MachineSerialised stored in content)
                 {
-                    var reader = new StreamReader(stream);
-                    var content = await reader.ReadToEndAsync();
-                    machines = JsonConvert.DeserializeObject<ObservableCollection<Machine>>(content);
+                    machines.Add(JsonConvert.DeserializeObject<Machine>(stored.machine));
                 }
             }
 
