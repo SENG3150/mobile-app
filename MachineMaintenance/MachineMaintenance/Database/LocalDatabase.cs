@@ -13,13 +13,14 @@ namespace MachineMaintenance.Database
         SQLiteConnection database;
         static object locker = new object();
 
-        public LocalDatabase()
+        public LocalDatabase() 
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
 
             database.CreateTable<MachineSerialised>();
             database.CreateTable<InspectionSerialised>();
             database.CreateTable<Token>();
+            database.CreateTable<User>();
         }
 
         public void storeMachine(MachineSerialised machine)
@@ -85,5 +86,22 @@ namespace MachineMaintenance.Database
                 return (from i in database.Table<Token>() select i).ToList();
             }
         }
+
+        public void storeUser(User user)
+        {
+            lock (locker)
+            {
+                database.Insert(user);
+            }
+        }
+        
+        public void deleteUser(User user)
+        {
+            lock (locker)
+            {
+                database.Delete<User>(user);
+            }
+        }
+        
     }
 }

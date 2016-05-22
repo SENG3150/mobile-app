@@ -21,5 +21,6 @@ namespace MachineMaintenance.Inspections
         public int viscosity { get; set; }
         public List<Comment> comments { get; set; }
         public ActionItem actionItem { get; set; }
+        public bool isCompleted { get; set; }
     }
 }

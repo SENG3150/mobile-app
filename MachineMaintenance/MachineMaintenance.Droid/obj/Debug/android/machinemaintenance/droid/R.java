@@ -2984,6 +2984,7 @@ containing a value of this type.
         public static final int CardView=0x7f0a0017;
         public static final int CardView_Dark=0x7f0a0019;
         public static final int CardView_Light=0x7f0a001a;
+        public static final int CustomTheme=0x7f0a0172;
         public static final int Platform_AppCompat=0x7f0a0032;
         public static final int Platform_AppCompat_Light=0x7f0a0033;
         public static final int Platform_ThemeOverlay_AppCompat=0x7f0a0095;

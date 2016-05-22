@@ -10,7 +10,7 @@ namespace MachineMaintenance.Inspections
     {
         public int id { get; set; }
         public List<SubAssembly> subAssemblies { get; set; }
-        public List<object> comments { get; set; }
+        public List<Comment> comments { get; set; }
         public MajorAssemblyDetails majorAssembly { get; set; }
     }
 }

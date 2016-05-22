@@ -40,6 +40,7 @@
     <Compile Include="Database\LocalDatabase.cs" />
     <Compile Include="Inspections\InspectionSerialised.cs" />
     <Compile Include="Inspections\MajorAssemblyDetails.cs" />
+    <Compile Include="Inspections\UniqueDetails.cs" />
     <Compile Include="InspectMachine.cs" />
     <Compile Include="Database\ISQLite.cs" />
     <Compile Include="MachineGeneralTestView.cs" />

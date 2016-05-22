@@ -190,8 +190,7 @@ namespace MachineMaintenance
             wearTest.limit = limit.Text;
             wearTest.lifeLower = lifeLower.Text;
             wearTest.lifeUpper = lifeUpper.Text;
-            wearTest.uniqueDetails = new List<string>();
-            wearTest.uniqueDetails.Add(uniqueDetails.Text);
+            wearTest.uniqueDetails = new UniqueDetails();
         }
     }
 }

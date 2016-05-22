@@ -6,7 +6,7 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:name="mono.android.app.Application" android:allowBackup="true" android:label="MachineMaintenance.Droid" android:icon="@drawable/icon" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="MachineMaintenance" android:name="md5147dde086a08ceea51df922bfcfc0f4b.MainActivity">
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="MachineMaintenance" android:theme="@style/CustomTheme" android:name="md5147dde086a08ceea51df922bfcfc0f4b.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

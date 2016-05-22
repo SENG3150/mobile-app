@@ -89,6 +89,9 @@ namespace MachineMaintenance
                         Token token = JsonConvert.DeserializeObject<Token>(bearer);
 
                         App.database.storeToken(token);
+                        User user = new User();
+
+                        App.database.storeUser(user);
 
                         await Navigation.PushAsync(new Menu());
                     }
