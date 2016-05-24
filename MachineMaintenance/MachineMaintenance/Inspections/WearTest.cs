@@ -14,9 +14,11 @@ namespace MachineMaintenance.Inspections
         public string limit { get; set; }
         public string lifeLower { get; set; }
         public string lifeUpper { get; set; }
+        public int smu { get; set; }
         public string timeStart { get; set; }
         public UniqueDetails uniqueDetails { get; set; }
         public List<Comment> comments { get; set; }
+        public List<object> photos { get; set; }
         public ActionItem actionItem { get; set; }
         public bool isCompleted { get; set; }
     }

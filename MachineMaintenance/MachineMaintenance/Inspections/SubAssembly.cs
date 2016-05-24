@@ -10,6 +10,7 @@ namespace MachineMaintenance.Inspections
     {
         public int id { get; set; }
         public List<Comment> comments { get; set; }
+        public List<object> photos { get; set; }
         public MachineGeneralTest machineGeneralTest { get; set; }
         public OilTest oilTest { get; set; }
         public WearTest wearTest { get; set; }

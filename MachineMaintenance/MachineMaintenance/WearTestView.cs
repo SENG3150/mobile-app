@@ -16,6 +16,7 @@ namespace MachineMaintenance
         Entry limit;
         Entry lifeLower;
         Entry lifeUpper;
+        Entry smu;
         Entry timeStart;
         Entry uniqueDetails;
         Entry comments;
@@ -103,6 +104,19 @@ namespace MachineMaintenance
             lifeUpper.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
+            smu = new Entry();
+            if (wearTest.smu != 0)
+            {
+                smu.Placeholder = wearTest.smu.ToString();
+            }
+
+            else
+            {
+                smu.Placeholder = "SMU";
+            }
+            smu.Style = (Style)Application.Current.Resources["entryStyle"];
+            smu.Keyboard = Keyboard.Numeric;
+
 
             timeStart = new Entry();
             if (wearTest.timeStart != null)
@@ -164,6 +178,7 @@ namespace MachineMaintenance
                         limit,
                         lifeLower,
                         lifeUpper,
+                        smu,
                         timeStart,
                         uniqueDetails,
                         comments,
@@ -190,7 +205,7 @@ namespace MachineMaintenance
             wearTest.limit = limit.Text;
             wearTest.lifeLower = lifeLower.Text;
             wearTest.lifeUpper = lifeUpper.Text;
-            wearTest.uniqueDetails = new UniqueDetails();
+            wearTest.smu = Int32.Parse(smu.Text);
         }
     }
 }

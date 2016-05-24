@@ -9,6 +9,6 @@ namespace MachineMaintenance.Inspections
     public class UniqueDetails
     {
         public string Test { get; set; }
-        public string A { get; set; }
+        public string Wear { get; set; }
     }
 }

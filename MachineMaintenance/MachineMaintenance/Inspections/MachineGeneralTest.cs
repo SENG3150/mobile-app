@@ -12,6 +12,7 @@ namespace MachineMaintenance.Inspections
         public string testType { get; set; }
         public string docLink { get; set; }
         public List<Comment> comments { get; set; }
+        public List<object> photos { get; set; }
         public ActionItem actionItem { get; set; }
         public bool isCompleted { get; set; }
     }

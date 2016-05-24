@@ -18,7 +18,7 @@ namespace MachineMaintenance
         private ObservableCollection<Machine> machines;
         private Machine selection;
         private ListView machineList;
-        private List<Machine> machinesToAdd;
+
 
         public AddMachine()
         {
@@ -73,7 +73,7 @@ namespace MachineMaintenance
             {
                 machineList.Header = new Label
                 {
-                    Text = "There are no machines available right now" + Environment.NewLine + Environment.NewLine + 
+                    Text = "There are no machines available right now" + Environment.NewLine + Environment.NewLine +
                     "Pull down to refresh" + Environment.NewLine,
                     FontSize = 15,
                 };
@@ -83,7 +83,7 @@ namespace MachineMaintenance
             {
                 machineList.Header = new Label
                 {
-                    Text = "Choose a Machine to download" + Environment.NewLine + Environment.NewLine + 
+                    Text = "Choose a Machine to download" + Environment.NewLine + Environment.NewLine +
                     "Pull down to refresh" + Environment.NewLine,
                     FontSize = 15,
                 };

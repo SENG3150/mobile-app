@@ -71,25 +71,47 @@ namespace MachineMaintenance
             else
             {
                 selection = (ObjectModel.MajorAssembly)e.SelectedItem;
+                byte i;
+                i = 0;
 
-                toAdd = new Inspections.MajorAssembly();
-
-                toAdd.majorAssembly = new Inspections.MajorAssemblyDetails();
-                toAdd.majorAssembly.id = selection.id;
-                toAdd.majorAssembly.name = selection.name;
-                toAdd.id = selection.id;
-                toAdd.subAssemblies = new List<Inspections.SubAssembly>();
-
-                foreach (ObjectModel.SubAssembly subA in selection.subAssemblies)
+                foreach (Inspections.MajorAssembly maj in inspection.majorAssemblies)
                 {
-                    Inspections.SubAssembly toAdd2 = new Inspections.SubAssembly();
-                    toAdd2.subAssembly = subA;
-
-                    toAdd2.id = subA.id;
-                    toAdd.subAssemblies.Add(toAdd2);
+                    if (maj.majorAssembly.id == selection.id)
+                    {
+                        break;
+                    }
+                    i++;
                 }
 
-                inspection.majorAssemblies.Add(toAdd);
+                if (i == inspection.majorAssemblies.Count || inspection.majorAssemblies.Count == 0)
+                {
+                    toAdd = new Inspections.MajorAssembly();
+
+                    toAdd.majorAssembly = new Inspections.MajorAssemblyDetails();
+                    toAdd.majorAssembly.id = selection.id;
+                    toAdd.majorAssembly.name = selection.name;
+                    toAdd.id = selection.id;
+                    toAdd.subAssemblies = new List<Inspections.SubAssembly>();
+
+                    foreach (ObjectModel.SubAssembly subA in selection.subAssemblies)
+                    {
+                        Inspections.SubAssembly toAdd2 = new Inspections.SubAssembly();
+                        toAdd2.subAssembly = subA;
+
+                        toAdd2.id = subA.id;
+                        toAdd.subAssemblies.Add(toAdd2);
+                    }
+
+                    inspection.majorAssemblies.Add(toAdd);
+                    DisplayAlert("Success", "Major Assembly added!", "Ok");
+                    
+                }
+
+                else
+                {
+                    DisplayAlert("ERROR", "Major Assembly already selected!", "Ok");
+                }
+                majAListView.SelectedItem = null;
             }
         }
 
@@ -111,6 +133,7 @@ namespace MachineMaintenance
                     majANameLabel.SetBinding(Label.TextProperty, new Binding("name", BindingMode.OneWay,
                                 null, null, "Assembly: {0:d}"));
                     majANameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
+
 
                     return new ViewCell
                     {

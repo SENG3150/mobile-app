@@ -1,7 +1,14 @@
 ﻿using MachineMaintenance.Inspections;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
+using System.Diagnostics;
+using System.Net.Http.Headers;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MachineMaintenance
 {
@@ -28,6 +35,11 @@ namespace MachineMaintenance
             Label heading = new Label();
             heading.Text = "Select Assembly to Inspect";
             heading.Style = (Style)Application.Current.Resources["headingStyle"];
+
+            Button submit = new Button();
+            submit.Text = "Submit";
+            submit.Style = (Style)Application.Current.Resources["buttonStyle"];
+            submit.Clicked += Submit_Clicked;
 
             majAListView = new ListView
             {
@@ -72,9 +84,61 @@ namespace MachineMaintenance
                 {
                     heading,
                     majAListView,
+                    submit,
                 }
             };
         }
+
+        private async void Submit_Clicked(object sender, EventArgs e)
+        {
+            await this.submitData();
+        }
+
+        private async Task submitData()
+        {
+            try
+            {
+                using (var c = new HttpClient())
+                {
+                    var client = new HttpClient();
+                    var jsonRequest = new
+                    {
+                        inspection,
+                    };
+
+                    var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);       //saves login information as a string
+                    HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");  //encodes login information
+                    Uri apiSite = new Uri("https://seng3150-api.wingmanwebdesign.com.au/inspections/1/bulk ");
+
+                    List<ObjectModel.Token> token;
+                    token = App.database.getToken();
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token[token.Count - 1].token);
+
+                    var response = await client.PostAsync(apiSite, content);        
+
+                    if (response.IsSuccessStatusCode) 
+                    {
+                        await DisplayAlert("Success", "Data has been submitted!", "Okay");
+                        await Navigation.PushAsync(new Menu());
+                    }
+
+                    else 
+                    {
+                        await DisplayAlert("Error", "Ensure you are connected to the internet. If so, server may be experiencing difficulties", "I promise not to sue!");
+                        await Navigation.PushAsync(new SelectUserType());
+                    }
+                }
+                Navigation.RemovePage(this);
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+
+
 
         private async void MajA_Selected(object sender, SelectedItemChangedEventArgs e)
         {
