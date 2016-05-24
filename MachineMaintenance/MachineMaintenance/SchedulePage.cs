@@ -43,8 +43,8 @@ namespace MachineMaintenance
                 ItemTemplate = new DataTemplate(() =>
                 {
                     Label idLabel = new Label();
-                    idLabel.SetBinding(Label.TextProperty, new Binding("machine.id", BindingMode.OneWay,
-                                null, null, "Machine: {0:d}"));
+                    idLabel.SetBinding(Label.TextProperty, new Binding("timeScheduled", BindingMode.OneWay,
+                                null, null, "Time Scheduled: {0:d}"));
                     idLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
 
                     Label modelNameLabel = new Label();

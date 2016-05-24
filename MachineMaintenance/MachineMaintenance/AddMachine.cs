@@ -17,8 +17,8 @@ namespace MachineMaintenance
     {
         private ObservableCollection<Machine> machines;
         private Machine selection;
-        private ListView machineList;
-
+        private View.MachineListView machineList;
+        SearchBar searchBar;
 
         public AddMachine()
         {
@@ -35,38 +35,20 @@ namespace MachineMaintenance
             heading.Text = "Download Machine";
             heading.Style = (Style)Application.Current.Resources["headingStyle"];
 
-            machineList = new ListView
+            machineList = new View.MachineListView(machines);
+
+            searchBar = new SearchBar()
             {
-                ItemsSource = machines,
-                Style = (Style)Application.Current.Resources["listStyle"],
-
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    Label idLabel = new Label();
-                    idLabel.SetBinding(Label.TextProperty, new Binding("id", BindingMode.OneWay,
-                                null, null, "Machine: {0:d}"));
-                    idLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
-
-                    Label modelNameLabel = new Label();
-                    modelNameLabel.SetBinding(Label.TextProperty, new Binding("model.name", BindingMode.OneWay,
-                                null, null, "Model: {0:d}"));
-                    modelNameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
-
-                    return new ViewCell
-                    {
-                        View = new StackLayout
-                        {
-                            Padding = new Thickness(0, 5),
-                            Orientation = StackOrientation.Horizontal,
-
-                            Children =
-                            {
-                                idLabel,
-                                modelNameLabel
-                            }
-                        }
-                    };
-                })
+                Placeholder = "Search",
+                FontSize = 25,
+                TextColor = Color.Black,
+                PlaceholderColor = Color.Gray,
+                HeightRequest = 50,
+            };
+            searchBar.TextChanged += (sender, e) => machineList.FilterMachines(searchBar.Text);
+            searchBar.SearchButtonPressed += (sender, e) => 
+            {
+                machineList.FilterMachines(searchBar.Text);
             };
 
             if (machines == null)
@@ -101,14 +83,16 @@ namespace MachineMaintenance
                 Children =
                 {
                     heading,
+                    searchBar,
                     machineList
                 }
             };
         }
 
-        private void ListView_Refreshing(object sender, EventArgs e)
+        private async void ListView_Refreshing(object sender, EventArgs e)
         {
-            addMachineController();
+            await getMachines();
+            machineList.IsRefreshing = false;
         }
 
         //controller for page

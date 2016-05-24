@@ -66,7 +66,7 @@
     <Compile Include="ObjectModel\Oil.cs" />
     <Compile Include="ObjectModel\Token.cs" />
     <Compile Include="ObjectModel\Wear.cs" />
-    <Compile Include="CreateInspection.cs" />
+    <Compile Include="CreateNewInspection.cs" />
     <Compile Include="Inspections\Inspection.cs" />
     <Compile Include="ObjectModel\Machine.cs" />
     <Compile Include="Menu.cs" />
@@ -81,6 +81,8 @@
     <Compile Include="SubAssemblyView.cs" />
     <Compile Include="OilTestView.cs" />
     <Compile Include="SelectAssemblies.cs" />
+    <Compile Include="View\MachineListView.cs" />
+    <Compile Include="View\MachineViewCell.cs" />
     <Compile Include="WearTestView.cs" />
   </ItemGroup>
   <ItemGroup>

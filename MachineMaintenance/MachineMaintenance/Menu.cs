@@ -18,7 +18,7 @@ namespace MachineMaintenance
             Style = (Style)Application.Current.Resources["tabPageStyle"];
 
             Children.Add(new SchedulePage());
-            Children.Add(new CreateInspection());
+            Children.Add(new CreateNewInspection());
             Children.Add(new AddMachine());
         }
     }
