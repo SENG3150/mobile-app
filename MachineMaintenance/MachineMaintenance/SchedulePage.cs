@@ -162,7 +162,7 @@ namespace MachineMaintenance
 
                     var client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token[token.Count - 1].token);
-                    Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/inspections?include=majorAssemblies.majorAssembly,majorAssemblies.subAssemblies.subAssembly.tests,machine.model");
+                    Uri apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/inspections/incomplete?include=majorAssemblies.majorAssembly,majorAssemblies.subAssemblies.subAssembly.tests,machine.model");
 
                     var response = await client.GetAsync(apiSite);
                     if (response.IsSuccessStatusCode)

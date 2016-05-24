@@ -16,7 +16,7 @@ namespace MachineMaintenance
     {
         private Inspection inspection;
         private MajorAssembly selection;
-        private ListView majAListView;
+        private View.MajorAssemblyListView majAListView;
         private ObservableCollection<MajorAssembly> majAssemList;
         private ObservableCollection<String> majAssemNames;
 
@@ -29,7 +29,7 @@ namespace MachineMaintenance
 
         private void inspectionPresentation()
         { 
-            Title = "Begin your inspection";
+            Title = "Complete your Machine";
             BackgroundColor = Color.White;
 
             Label heading = new Label();
@@ -41,37 +41,7 @@ namespace MachineMaintenance
             submit.Style = (Style)Application.Current.Resources["buttonStyle"];
             submit.Clicked += Submit_Clicked;
 
-            majAListView = new ListView
-            {
-                ItemsSource = inspection.majorAssemblies,
-                Header = "Select the Major Assembly to Inspect",
-                Style = (Style)Application.Current.Resources["listStyle"],
-
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    Label majANameLabel = new Label();
-                    majANameLabel.SetBinding(Label.TextProperty, new Binding("majorAssembly.name", BindingMode.OneWay,
-                                null, null, "Assembly: {0:d}"));
-                    majANameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
-
-                    return new ViewCell
-                    {
-                        View = new StackLayout
-                        {
-                            Padding = new Thickness(0, 5),
-                            Orientation = StackOrientation.Horizontal,
-                            BackgroundColor = Color.FromHex("#ff5c33"),
-                            Margin = 10,
-
-                            Children =
-                            {
-                                majANameLabel
-                            }
-                        }
-                    };
-                })
-            };
-
+            majAListView = new View.MajorAssemblyListView(inspection.majorAssemblies);
             majAListView.ItemSelected += MajA_Selected;
 
             Content = new StackLayout

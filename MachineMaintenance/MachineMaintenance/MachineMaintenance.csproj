@@ -83,6 +83,10 @@
     <Compile Include="SelectAssemblies.cs" />
     <Compile Include="View\MachineListView.cs" />
     <Compile Include="View\MachineViewCell.cs" />
+    <Compile Include="View\MajorAssemblyListView.cs" />
+    <Compile Include="View\MajorAssemblyViewCell.cs" />
+    <Compile Include="View\SelectAssembliesListView.cs" />
+    <Compile Include="View\SelectAssembliesViewCell.cs" />
     <Compile Include="WearTestView.cs" />
   </ItemGroup>
   <ItemGroup>

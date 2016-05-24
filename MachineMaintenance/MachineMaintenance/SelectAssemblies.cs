@@ -14,7 +14,7 @@ namespace MachineMaintenance
     public class SelectAssemblies : ContentPage
     {
         ObjectModel.Machine machine;
-        ListView majAListView;
+        View.SelectAssembliesListView majAListView;
         ObjectModel.MajorAssembly selection;
         Inspections.MajorAssembly toAdd;
         Inspection inspection;
@@ -102,9 +102,7 @@ namespace MachineMaintenance
                         toAdd.subAssemblies.Add(toAdd2);
                     }
 
-                    inspection.majorAssemblies.Add(toAdd);
-                    DisplayAlert("Success", "Major Assembly added!", "Ok");
-                    
+                    inspection.majorAssemblies.Add(toAdd);                   
                 }
 
                 else
@@ -121,36 +119,7 @@ namespace MachineMaintenance
             inspection = new Inspection();
             inspection.majorAssemblies = new List<Inspections.MajorAssembly>();
 
-            majAListView = new ListView
-            {
-                ItemsSource = machine.model.majorAssemblies,
-                Header = "Select the MajorAssemblies to create an inspection",
-                Style = (Style)Application.Current.Resources["listStyle"],
-
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    Label majANameLabel = new Label();
-                    majANameLabel.SetBinding(Label.TextProperty, new Binding("name", BindingMode.OneWay,
-                                null, null, "Assembly: {0:d}"));
-                    majANameLabel.Style = (Style)Application.Current.Resources["listLabelStyle"];
-
-
-                    return new ViewCell
-                    {
-                        View = new StackLayout
-                        {
-                            Padding = new Thickness(0, 5),
-                            Orientation = StackOrientation.Horizontal,
-
-                            Children =
-                            {
-                                majANameLabel
-                            }
-                        }
-                    };
-                })
-            };
-
+            majAListView = new View.SelectAssembliesListView(machine.model.majorAssemblies);
             majAListView.ItemSelected += Assembly_Selected;
 
             viewMachinePresentation();
