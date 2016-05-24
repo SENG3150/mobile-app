@@ -14,6 +14,7 @@ namespace MachineMaintenance.Inspections
         public object timeStarted { get; set; }
         public object timeCompleted { get; set; }
         public List<MajorAssembly> majorAssemblies { get; set; }
+        public List<object> photos { get; set; }
         public List<Comment> comments { get; set; }
         public Machine machine { get; set; }
     }

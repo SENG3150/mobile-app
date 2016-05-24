@@ -166,6 +166,7 @@ namespace MachineMaintenance
                 water.Placeholder = "Water";
             }
             water.Style = (Style)Application.Current.Resources["entryStyle"];
+            water.Keyboard = Keyboard.Numeric;
 
 
 
