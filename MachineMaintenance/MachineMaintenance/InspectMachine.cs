@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace MachineMaintenance
 {
@@ -29,7 +30,7 @@ namespace MachineMaintenance
 
         private void inspectionPresentation()
         { 
-            Title = "Complete your Machine";
+            Title = "Complete your Inspection";
             BackgroundColor = Color.White;
 
             Label heading = new Label();
@@ -70,15 +71,85 @@ namespace MachineMaintenance
             {
                 using (var c = new HttpClient())
                 {
+                    inspection.timeCompleted = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+
+                    var majAList = new List<object>();
+
+                    foreach (MajorAssembly majA in inspection.majorAssemblies)
+                    {
+                        var majASubmit = new List<object>();
+                        majASubmit.Add(new { id = majA.id });
+                        /*//majASubmit.Add(new { comments = majA.comments });
+                        //majASubmit.Add(new { photos = majA.photos });
+
+                        var subAList = new List<object>();
+
+                        foreach (SubAssembly subA in majA.subAssemblies)
+                        {
+                            var subASubmit = new List<object>();
+                            subASubmit.Add(new { id = subA.id });
+                            //subASubmit.Add(new { comments = subA.comments });
+                            //subASubmit.Add(new { photos = subA.photos });
+
+                            foreach (ObjectModel.Test test in subA.subAssembly.tests)
+                            {
+                                if(test.machineGeneral.test)
+                                {
+                                    var machineGeneralTest = new List<object>();
+                                    subASubmit.Add(new { machineGeneralTest = machineGeneralTest });
+                                }
+
+                                if(test.oil.test)
+                                {
+                                    var oilTest = new List<object>();
+
+                                    oilTest.Add(new { lead = subA.oilTest.lead });
+                                    oilTest.Add(new { copper  = subA.oilTest.copper  });
+                                    oilTest.Add(new { tin = subA.oilTest.tin  });
+                                    oilTest.Add(new { iron  = subA.oilTest.iron  });
+                                    oilTest.Add(new { pq90  = subA.oilTest.pq90  });
+                                    oilTest.Add(new { silicon  = subA.oilTest.silicon  });
+                                    oilTest.Add(new { sodium  = subA.oilTest.sodium  });
+                                    oilTest.Add(new { aluminium  = subA.oilTest.aluminium  });
+                                    oilTest.Add(new { water  = subA.oilTest.water  });
+                                    oilTest.Add(new { viscosity  = subA.oilTest.viscosity});
+
+                                    subASubmit.Add(new { oilTest = oilTest });
+                                }
+
+                                if(test.wear.test)
+                                {
+                                    var wearTest = new List<object>();
+
+                                    wearTest.Add(new { description = subA.wearTest.description });
+                                    wearTest.Add(new { lifeLower = subA.wearTest.lifeLower });
+                                    wearTest.Add(new { lifeUpper = subA.wearTest.lifeUpper });
+                                    wearTest.Add(new { limit = subA.wearTest.limit });
+                                    wearTest.Add(new { @new = subA.wearTest.@new });
+                                    wearTest.Add(new { smu = subA.wearTest.smu });
+
+                                    subASubmit.Add(new { wearTest = wearTest });
+                                }
+                            }
+                            subAList.Add(subASubmit);
+                        }
+                        majASubmit.Add( new { subAssemblies = subAList } );
+                        majAList.Add(majASubmit);*/
+                    }
+
+
                     var client = new HttpClient();
                     var jsonRequest = new
                     {
-                        inspection,
+                        timeStarted = inspection.timeStarted,
+                        //timeCompleted = inspection.timeCompleted,
+                        majorAssemblies = majAList,
                     };
 
                     var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);       //saves login information as a string
                     HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");  //encodes login information
-                    Uri apiSite = new Uri("https://seng3150-api.wingmanwebdesign.com.au/inspections/1/bulk ");
+                    String site = "http://seng3150-api.wingmanwebdesign.com.au/inspections/" + inspection.id.ToString() + "/bulk";
+                    Uri apiSite = new Uri(site);
 
                     List<ObjectModel.Token> token;
                     token = App.database.getToken();

@@ -17,7 +17,6 @@ namespace MachineMaintenance
         Entry lifeLower;
         Entry lifeUpper;
         Entry smu;
-        Entry timeStart;
         Entry uniqueDetails;
         Entry comments;
 
@@ -118,20 +117,6 @@ namespace MachineMaintenance
             smu.Keyboard = Keyboard.Numeric;
 
 
-            timeStart = new Entry();
-            if (wearTest.timeStart != null)
-            {
-                timeStart.Placeholder = wearTest.timeStart;
-            }
-
-            else
-            {
-                timeStart.Placeholder = "Start time";
-            }
-            timeStart.Style = (Style)Application.Current.Resources["entryStyle"];
-
-
-
             uniqueDetails = new Entry();
             if (wearTest.uniqueDetails != null)
             {
@@ -179,7 +164,6 @@ namespace MachineMaintenance
                         lifeLower,
                         lifeUpper,
                         smu,
-                        timeStart,
                         uniqueDetails,
                         comments,
                         save
@@ -206,6 +190,7 @@ namespace MachineMaintenance
             wearTest.lifeLower = lifeLower.Text;
             wearTest.lifeUpper = lifeUpper.Text;
             wearTest.smu = Int32.Parse(smu.Text);
+            wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
         }
     }
 }

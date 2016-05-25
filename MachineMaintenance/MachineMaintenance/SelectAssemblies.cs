@@ -117,6 +117,14 @@ namespace MachineMaintenance
         private void viewMachineController()
         {
             inspection = new Inspection();
+            inspection.timeStarted = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+
+            inspection.machine = new Inspections.Machine();
+            inspection.machine.model = new Inspections.Model();
+
+            inspection.machine.id = machine.id;
+            inspection.machine.model.name = machine.model.name;
+
             inspection.majorAssemblies = new List<Inspections.MajorAssembly>();
 
             majAListView = new View.SelectAssembliesListView(machine.model.majorAssemblies);
