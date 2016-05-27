@@ -25,6 +25,7 @@ namespace MachineMaintenance
         {
             this.inspection = inspection;
 
+            this.inspection.timeStarted = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
             inspectionController();
         }
 
@@ -77,66 +78,58 @@ namespace MachineMaintenance
 
                     foreach (MajorAssembly majA in inspection.majorAssemblies)
                     {
-                        var majASubmit = new List<object>();
-                        majASubmit.Add(new { id = majA.id });
-                        /*//majASubmit.Add(new { comments = majA.comments });
-                        //majASubmit.Add(new { photos = majA.photos });
-
                         var subAList = new List<object>();
 
                         foreach (SubAssembly subA in majA.subAssemblies)
                         {
-                            var subASubmit = new List<object>();
-                            subASubmit.Add(new { id = subA.id });
-                            //subASubmit.Add(new { comments = subA.comments });
-                            //subASubmit.Add(new { photos = subA.photos });
-
-                            foreach (ObjectModel.Test test in subA.subAssembly.tests)
+                            var machineGeneralTest = new
                             {
-                                if(test.machineGeneral.test)
-                                {
-                                    var machineGeneralTest = new List<object>();
-                                    subASubmit.Add(new { machineGeneralTest = machineGeneralTest });
-                                }
 
-                                if(test.oil.test)
-                                {
-                                    var oilTest = new List<object>();
+                            };
 
-                                    oilTest.Add(new { lead = subA.oilTest.lead });
-                                    oilTest.Add(new { copper  = subA.oilTest.copper  });
-                                    oilTest.Add(new { tin = subA.oilTest.tin  });
-                                    oilTest.Add(new { iron  = subA.oilTest.iron  });
-                                    oilTest.Add(new { pq90  = subA.oilTest.pq90  });
-                                    oilTest.Add(new { silicon  = subA.oilTest.silicon  });
-                                    oilTest.Add(new { sodium  = subA.oilTest.sodium  });
-                                    oilTest.Add(new { aluminium  = subA.oilTest.aluminium  });
-                                    oilTest.Add(new { water  = subA.oilTest.water  });
-                                    oilTest.Add(new { viscosity  = subA.oilTest.viscosity});
+                            var oilTest = new
+                            {
+                                /*lead = subA.oilTest.lead,
+                                copper = subA.oilTest.copper,
+                                iron = subA.oilTest.iron,
+                                pq90 = subA.oilTest.pq90,
+                                silicon = subA.oilTest.silicon,
+                                sodium = subA.oilTest.sodium,
+                                aluminium = subA.oilTest.aluminium,
+                                water = subA.oilTest.water,
+                                viscosity = subA.oilTest.viscosity*/
+                            };
 
-                                    subASubmit.Add(new { oilTest = oilTest });
-                                }
+                            var wearTest = new
+                            {
+                                description = subA.wearTest.description,
+                                lifeLower = subA.wearTest.lifeLower,
+                                lifeUpper = subA.wearTest.lifeUpper,
+                                limit = subA.wearTest.limit,
+                                @new = subA.wearTest.@new,
+                                smu = subA.wearTest.smu
+                            };
 
-                                if(test.wear.test)
-                                {
-                                    var wearTest = new List<object>();
-
-                                    wearTest.Add(new { description = subA.wearTest.description });
-                                    wearTest.Add(new { lifeLower = subA.wearTest.lifeLower });
-                                    wearTest.Add(new { lifeUpper = subA.wearTest.lifeUpper });
-                                    wearTest.Add(new { limit = subA.wearTest.limit });
-                                    wearTest.Add(new { @new = subA.wearTest.@new });
-                                    wearTest.Add(new { smu = subA.wearTest.smu });
-
-                                    subASubmit.Add(new { wearTest = wearTest });
-                                }
-                            }
-                            subAList.Add(subASubmit);
+                            subAList.Add(new
+                            {
+                                id = subA.id,
+                                comments = subA.comments,
+                                photos = subA.photos,
+                                machineGeneralTest = machineGeneralTest,
+                                oilTest = oilTest,
+                                //wearTest = wearTest,
+                            });
                         }
-                        majASubmit.Add( new { subAssemblies = subAList } );
-                        majAList.Add(majASubmit);*/
-                    }
 
+
+                        majAList.Add(new
+                        {
+                            id = majA.id,
+                            comments = majA.comments,
+                            photos = majA.photos,
+                            subAssemblies = subAList,
+                        });
+                    }
 
                     var client = new HttpClient();
                     var jsonRequest = new
@@ -146,8 +139,8 @@ namespace MachineMaintenance
                         majorAssemblies = majAList,
                     };
 
-                    var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);       //saves login information as a string
-                    HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");  //encodes login information
+                    var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
+                    HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
                     String site = "http://seng3150-api.wingmanwebdesign.com.au/inspections/" + inspection.id.ToString() + "/bulk";
                     Uri apiSite = new Uri(site);
 
@@ -166,7 +159,7 @@ namespace MachineMaintenance
 
                     else 
                     {
-                        await DisplayAlert("Error", "Ensure you are connected to the internet. If so, server may be experiencing difficulties", "I promise not to sue!");
+                        await DisplayAlert("Error", response.ToString(), "Ok");
                         await Navigation.PushAsync(new SelectUserType());
                     }
                 }

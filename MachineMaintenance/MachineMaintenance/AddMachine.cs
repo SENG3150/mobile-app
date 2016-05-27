@@ -155,7 +155,7 @@ namespace MachineMaintenance
 
                     else //atm, all error codes under 1 else statement, should fix this at some point
                     {
-                        await DisplayAlert("Error", "Ensure you are connected to the internet. If so, server may be experiencing difficulties", "I promise not to sue!");
+                        await DisplayAlert("Error", response.ToString(), "Ok");
                         await Navigation.PushAsync(new SelectUserType());
                     }
                 }
