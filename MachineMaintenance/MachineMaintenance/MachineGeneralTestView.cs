@@ -102,6 +102,18 @@ namespace MachineMaintenance
         {
             machineGeneralTest.testType = type.Text;
             machineGeneralTest.docLink = docType.Text;
+            machineGeneralTest.comments = new List<Comment>();
+
+            List<User> content = App.database.getUser();
+            User user = content[content.Count - 1];
+
+            machineGeneralTest.comments.Add(new Comment
+            {
+                timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                authorType = "Technician",
+                text = comments.Text,
+                author = user,
+            });
         }
 
     }

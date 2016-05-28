@@ -72,6 +72,9 @@ namespace MachineMaintenance
             {
                 using (var c = new HttpClient())
                 {
+                    List<ObjectModel.User> userContent = App.database.getUser();
+                    ObjectModel.User user = userContent[userContent.Count - 1];
+
                     inspection.timeCompleted = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
 
                     var majAList = new List<object>();
@@ -82,10 +85,33 @@ namespace MachineMaintenance
 
                         foreach (SubAssembly subA in majA.subAssemblies)
                         {
+                            var commentsSubmit = new List<object>();
+
+                            var comment = (new
+                            {
+                                timeCommented = "",
+                                authorType = "",
+                                text = "",
+                                author = new ObjectModel.User(),
+                            });
+
+                            commentsSubmit.Add(comment);
+
                             var machineGeneralTestSubmit = (new
                             {
 
                             });
+
+                            comment = (new
+                            {
+                                timeCommented = subA.oilTest.comments[0].timeCommented,
+                                authorType = subA.oilTest.comments[0].authorType,
+                                text = subA.oilTest.comments[0].text,
+                                author = user,
+                            });
+
+                            commentsSubmit = new List<object>();
+                            commentsSubmit.Add(comment);
 
                             var oilTestSubmit = (new
                             {
@@ -98,8 +124,20 @@ namespace MachineMaintenance
                                 sodium = subA.oilTest.sodium,
                                 aluminium = subA.oilTest.aluminium,
                                 water = subA.oilTest.water,
-                                viscosity = subA.oilTest.viscosity
+                                viscosity = subA.oilTest.viscosity,
+                                comments = commentsSubmit,
                             });
+
+                            comment = (new
+                            {
+                                timeCommented = subA.wearTest.comments[0].timeCommented,
+                                authorType = subA.wearTest.comments[0].authorType,
+                                text = subA.wearTest.comments[0].text,
+                                author = user,
+                            });
+
+                            commentsSubmit = new List<object>();
+                            commentsSubmit.Add(comment);
 
                             var wearTestSubmit = (new 
                             {
@@ -108,7 +146,8 @@ namespace MachineMaintenance
                                 lifeUpper = subA.wearTest.lifeUpper,
                                 limit = subA.wearTest.limit,
                                 @new = subA.wearTest.@new,
-                                smu = subA.wearTest.smu
+                                smu = subA.wearTest.smu,
+                                comments = commentsSubmit,
                             });
 
                             subAList.Add(new
@@ -117,8 +156,8 @@ namespace MachineMaintenance
                                 comments = subA.comments,
                                 photos = subA.photos,
                                 oilTest = oilTestSubmit,
-                                machineGeneralTest = machineGeneralTestSubmit
-                                wearTest = wearTestSubmit,
+                                //machineGeneralTest = machineGeneralTestSubmit,
+                                //wearTest = wearTestSubmit,
                             });
                         }
 

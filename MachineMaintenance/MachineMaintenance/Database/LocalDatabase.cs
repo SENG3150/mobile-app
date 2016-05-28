@@ -102,6 +102,14 @@ namespace MachineMaintenance.Database
                 database.Delete<User>(user);
             }
         }
-        
+
+        public List<User> getUser()
+        {
+            lock (locker)
+            {
+                return (from i in database.Table<User>() select i).ToList();
+            }
+        }
+
     }
 }

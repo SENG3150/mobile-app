@@ -249,6 +249,18 @@ namespace MachineMaintenance
             oilTest.aluminium = Int32.Parse(aluminium.Text);
             oilTest.water = water.Text;
             oilTest.viscosity = Int32.Parse(viscosity.Text);
+            oilTest.comments = new List<Comment>();
+
+            List<User> content = App.database.getUser();
+            User user = content[content.Count - 1];
+
+            oilTest.comments.Add(new Comment
+            {
+                timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                authorType = "Technician",
+                text = comments.Text,
+                author = user,
+            });
         }
 
     }

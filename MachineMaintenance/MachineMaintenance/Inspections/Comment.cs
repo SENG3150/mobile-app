@@ -12,6 +12,6 @@ namespace MachineMaintenance.Inspections
         public string timeCommented { get; set; }
         public string authorType { get; set; }
         public string text { get; set; }
-        public Author author { get; set; }
+        public ObjectModel.User author { get; set; }
     }
 }

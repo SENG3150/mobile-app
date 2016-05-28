@@ -191,6 +191,18 @@ namespace MachineMaintenance
             wearTest.lifeUpper = lifeUpper.Text;
             wearTest.smu = Int32.Parse(smu.Text);
             wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            wearTest.comments = new List<Comment>();
+
+            List<User> content = App.database.getUser();
+            User user = content[content.Count - 1];
+
+            wearTest.comments.Add(new Comment
+            {
+                timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                authorType = "Technician",
+                text = comments.Text,
+                author = user,
+            });
         }
     }
 }

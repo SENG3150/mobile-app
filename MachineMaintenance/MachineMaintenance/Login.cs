@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using PCLStorage;
 using MachineMaintenance.ObjectModel;
+using System.Net.Http.Headers;
 
 namespace MachineMaintenance
 {
@@ -89,9 +90,19 @@ namespace MachineMaintenance
                         Token token = JsonConvert.DeserializeObject<Token>(bearer);
 
                         App.database.storeToken(token);
-                        User user = new User();
 
-                        App.database.storeUser(user);
+                        client = new HttpClient();
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token.token);
+                        Uri site = new Uri("http://seng3150-api.wingmanwebdesign.com.au/auth/me");
+
+                        response = await client.GetAsync(site);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var value = await response.Content.ReadAsStringAsync();
+                            User user = JsonConvert.DeserializeObject<User>(value);
+
+                            App.database.storeUser(user);
+                        }
 
                         await Navigation.PushAsync(new Menu());
                     }

@@ -13,6 +13,6 @@ namespace MachineMaintenance.Inspections
         public string issue { get; set; }
         public string action { get; set; }
         public string timeActioned { get; set; }
-        public Technician technician { get; set; }
+        public ObjectModel.User technician { get; set; }
     }
 }
