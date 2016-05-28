@@ -82,25 +82,26 @@ namespace MachineMaintenance
 
                         foreach (SubAssembly subA in majA.subAssemblies)
                         {
-                            var machineGeneralTest = new
+                            var machineGeneralTestSubmit = (new
                             {
 
-                            };
+                            });
 
-                            var oilTest = new
+                            var oilTestSubmit = (new
                             {
-                                /*lead = subA.oilTest.lead,
+                                lead = subA.oilTest.lead,
                                 copper = subA.oilTest.copper,
+                                tin = subA.oilTest.tin,
                                 iron = subA.oilTest.iron,
                                 pq90 = subA.oilTest.pq90,
                                 silicon = subA.oilTest.silicon,
                                 sodium = subA.oilTest.sodium,
                                 aluminium = subA.oilTest.aluminium,
                                 water = subA.oilTest.water,
-                                viscosity = subA.oilTest.viscosity*/
-                            };
+                                viscosity = subA.oilTest.viscosity
+                            });
 
-                            var wearTest = new
+                            var wearTestSubmit = (new 
                             {
                                 description = subA.wearTest.description,
                                 lifeLower = subA.wearTest.lifeLower,
@@ -108,16 +109,16 @@ namespace MachineMaintenance
                                 limit = subA.wearTest.limit,
                                 @new = subA.wearTest.@new,
                                 smu = subA.wearTest.smu
-                            };
+                            });
 
                             subAList.Add(new
                             {
                                 id = subA.id,
                                 comments = subA.comments,
                                 photos = subA.photos,
-                                machineGeneralTest = machineGeneralTest,
-                                oilTest = oilTest,
-                                //wearTest = wearTest,
+                                oilTest = oilTestSubmit,
+                                machineGeneralTest = machineGeneralTestSubmit
+                                wearTest = wearTestSubmit,
                             });
                         }
 
@@ -135,7 +136,7 @@ namespace MachineMaintenance
                     var jsonRequest = new
                     {
                         timeStarted = inspection.timeStarted,
-                        //timeCompleted = inspection.timeCompleted,
+                        timeCompleted = inspection.timeCompleted,
                         majorAssemblies = majAList,
                     };
 

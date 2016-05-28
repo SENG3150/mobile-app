@@ -19,17 +19,17 @@ namespace MachineMaintenance
 
             foreach (MachineMaintenance.ObjectModel.Test test in subA.subAssembly.tests)
             {
-                if (test.machineGeneral.test)
+                if (test.oil.test)
                 {
                     Children.Add(new OilTestView(subA.oilTest));
                 }
 
-                if (test.oil.test)
+                if (test.wear.test)
                 {
                     Children.Add(new WearTestView(subA.wearTest));
                 }
 
-                if (test.wear.test)
+                if (test.machineGeneral.test)
                 {
                     Children.Add(new MachineGeneralTestView(subA.machineGeneralTest));
                 }
