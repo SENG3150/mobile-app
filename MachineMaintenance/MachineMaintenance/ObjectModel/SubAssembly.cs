@@ -1,4 +1,10 @@
-﻿using SQLite;
+﻿/*
+    *   Title:          SubAssembly.cs
+    *   Purpose:        A sub assembly object
+    *   Last Updated:   15/05/16
+*/
+
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;

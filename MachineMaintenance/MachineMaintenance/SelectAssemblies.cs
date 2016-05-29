@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          SelectAssemblies.cs
+    *   Purpose:        Is a Content Page where user selects the assemblies they wish to inspect
+    *   Last Updated:   19/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

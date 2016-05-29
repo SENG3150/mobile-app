@@ -1,4 +1,10 @@
-﻿using MachineMaintenance.ObjectModel;
+﻿/*
+    *   Title:          OilTestView.cs
+    *   Purpose:        Is a Content Page where user inputs data for a oil test
+    *   Last Updated:   20/05/16
+*/
+
+using MachineMaintenance.ObjectModel;
 using MachineMaintenance.Inspections;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -340,12 +346,13 @@ namespace MachineMaintenance
                 oilTest.viscosity = Int32.Parse(viscosity.Text);
             }
 
+            List<User> content = App.database.getUser();
+            User user = content[content.Count - 1];
+
             if (comments.Text != null)
             {
                 oilTest.comments = new List<Comment>();
-                List<User> content = App.database.getUser();
-                User user = content[content.Count - 1];
-
+                
                 oilTest.comments.Add(new Comment
                 {
                     timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
@@ -363,6 +370,7 @@ namespace MachineMaintenance
                 oilTest.actionItem.issue = issue.Text;
                 oilTest.actionItem.action = recommendedAction.Text;
                 oilTest.actionItem.timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+                oilTest.actionItem.technician = user;
             }
         }
     }

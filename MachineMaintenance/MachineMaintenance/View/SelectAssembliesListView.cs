@@ -1,4 +1,10 @@
-﻿using MachineMaintenance.ObjectModel;
+﻿/*
+    *   Title:          SelectAssembliesListView.cs
+    *   Purpose:        A custom ListView
+    *   Last Updated:   18/05/16
+*/
+
+using MachineMaintenance.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

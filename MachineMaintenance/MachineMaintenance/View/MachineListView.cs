@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          MachineListView.cs
+    *   Purpose:        A custom ListView
+    *   Last Updated:   18/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;

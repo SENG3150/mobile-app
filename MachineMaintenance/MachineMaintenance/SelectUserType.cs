@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          SelectUserType.cs
+    *   Purpose:        Is a Content Page where user selects their type before logging in
+    *   Last Updated:   15/05/16
+*/
+
+using System;
 using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;

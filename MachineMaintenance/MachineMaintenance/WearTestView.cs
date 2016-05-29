@@ -1,4 +1,11 @@
-﻿using MachineMaintenance.ObjectModel;
+﻿/*
+    *   Title:          WearTestView.cs
+    *   Purpose:        Is a Content Page where user inputs data for a wear test
+    *                   Currently does not work as desired as some inputs should be obtained via the server
+    *   Last Updated:   20/05/16
+*/
+
+using MachineMaintenance.ObjectModel;
 using MachineMaintenance.Inspections;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -268,11 +275,13 @@ namespace MachineMaintenance
 
             wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
 
+            List<User> content = App.database.getUser();
+            User user = content[content.Count - 1];
+
             if (comments.Text != null)
             {
                 wearTest.comments = new List<Comment>();
-                List<User> content = App.database.getUser();
-                User user = content[content.Count - 1];
+
                 wearTest.comments.Add(new Comment
                 {
                     timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
@@ -290,6 +299,7 @@ namespace MachineMaintenance
                 wearTest.actionItem.issue = issue.Text;
                 wearTest.actionItem.action = recommendedAction.Text;
                 wearTest.actionItem.timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+                wearTest.actionItem.technician = user;
             }
         }
     }

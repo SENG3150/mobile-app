@@ -1,4 +1,10 @@
-﻿using Xamarin.Forms;
+﻿/*
+    *   Title:          MajorAssemblyView.cs
+    *   Purpose:        Is a Tabbed Page that provides a tab layout of all sub assemblies in a major assembly
+    *   Last Updated:   15/05/16
+*/
+
+using Xamarin.Forms;
 using MachineMaintenance.Inspections;
 
 namespace MachineMaintenance

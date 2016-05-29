@@ -1,4 +1,10 @@
-﻿using SQLite;
+﻿/*
+    *   Title:          InspectionSerilised.cs
+    *   Purpose:        A inspection that has been serialised for storage
+    *   Last Updated:   20/05/16
+*/
+
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;

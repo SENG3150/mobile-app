@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          SchedulePage.cs
+    *   Purpose:        Is a Content Page displaying a list of available inspections
+    *   Last Updated:   25/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;

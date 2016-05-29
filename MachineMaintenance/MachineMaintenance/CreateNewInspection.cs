@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+    *   Title:          CreateNewInspection.cs
+    *   Purpose:        Is a Content Page that allows a user to make their own inspection from a downloaded machine
+    *                   Currently does not save inspection to database and needs to be improved when time allows 
+    *   Last Updated:   21/05/16
+*/
+
+using System;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using PCLStorage;

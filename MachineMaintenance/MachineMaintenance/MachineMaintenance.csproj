@@ -49,18 +49,14 @@
     <Compile Include="Inspections\Author.cs" />
     <Compile Include="Inspections\Comment.cs" />
     <Compile Include="Inspections\Machine.cs" />
-    <Compile Include="Inspections\MachineGeneral.cs" />
     <Compile Include="Inspections\MachineGeneralTest.cs" />
     <Compile Include="Inspections\MajorAssembly.cs" />
     <Compile Include="Inspections\Model.cs" />
-    <Compile Include="Inspections\Oil.cs" />
     <Compile Include="Inspections\OilTest.cs" />
     <Compile Include="Inspections\SubAssembly.cs" />
     <Compile Include="Inspections\Technician.cs" />
-    <Compile Include="Inspections\Wear.cs" />
     <Compile Include="Inspections\WearTest.cs" />
     <Compile Include="ObjectModel\MachineGeneral.cs" />
-    <Compile Include="ObjectModel\MachineListView.cs" />
     <Compile Include="ObjectModel\MachineSerialised.cs" />
     <Compile Include="ObjectModel\Model.cs" />
     <Compile Include="ObjectModel\Oil.cs" />
@@ -147,9 +143,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.0.38-pre2\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.0.38-pre2\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

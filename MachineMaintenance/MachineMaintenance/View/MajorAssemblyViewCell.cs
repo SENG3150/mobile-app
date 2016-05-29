@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          MajorAssemblyViewCell.cs
+    *   Purpose:        A custom ViewCell
+    *   Last Updated:   18/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

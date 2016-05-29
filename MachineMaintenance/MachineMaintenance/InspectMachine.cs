@@ -1,4 +1,11 @@
-﻿using MachineMaintenance.Inspections;
+﻿/*
+    *   Title:          InspectMachine.cs
+    *   Purpose:        Is a ContentPage that contains a list of major assemblies to be inspected
+    *                   Then submits data to the server
+    *   Last Updated:   29/05/16
+*/
+
+using MachineMaintenance.Inspections;
 using Xamarin.Forms;
 using System;
 using System.Threading.Tasks;
@@ -88,6 +95,20 @@ namespace MachineMaintenance
                             var commentsSubmit = new List<object>();
                             var actionItemSubmit = new object();
 
+                            var technicianSubmit = (new
+                            {
+                                id = 1,
+                                username = "technician",
+                                name = "Technician Technician",
+                                firstName = "Technician",
+                                lastName = "Technician",
+                                email = "technician@example.com",
+                                temporary = false,
+                                loginExpiresTime = "2016-06-08T10:10:00+1000",
+                                expired = false,
+                                emailHash = "793a064364d831179aa778e824d25c77"
+                            });
+
                             var comment = (new
                             {
                                 timeCommented = "",
@@ -110,6 +131,7 @@ namespace MachineMaintenance
                                 issue = "",
                                 action = "",
                                 timeAction = "",
+                                technician = technicianSubmit,
                             });
 
                             actionItem = null;
@@ -132,7 +154,7 @@ namespace MachineMaintenance
                                 water = "0",
                                 viscosity = 0,
                                 comments = new List<object>(),
-                                actionItem = new object(),
+                                //actionItem = new object(),
                             });
 
                             var wearTestSubmit = (new
@@ -145,7 +167,7 @@ namespace MachineMaintenance
                                 smu = 0,
                                 timeStart = "",
                                 uniqueDetails = uniqueDetailsSubmit,
-                                //comments = new List<object>(),
+                                comments = new List<object>(),
                                 //actionItem = new object()
                             });
 
@@ -179,13 +201,14 @@ namespace MachineMaintenance
 
                                 if (subA.oilTest.actionItem != null)
                                 {
-                                    /*actionItemSubmit = (new
+                                    actionItemSubmit = (new
                                     {
                                         status = subA.oilTest.actionItem.status,
                                         issue = subA.oilTest.actionItem.issue,
                                         action = subA.oilTest.actionItem.action,
                                         timeActioned = subA.oilTest.actionItem.timeActioned,
-                                    });*/
+                                        technician = technicianSubmit,
+                                    });
                                 }
 
                                 oilTestSubmit = (new
@@ -201,7 +224,7 @@ namespace MachineMaintenance
                                     water = subA.oilTest.water,
                                     viscosity = subA.oilTest.viscosity,
                                     comments = commentsSubmit,
-                                    actionItem = actionItemSubmit
+                                    //actionItem = actionItemSubmit
                                 });
                             }
 
@@ -226,13 +249,14 @@ namespace MachineMaintenance
 
                                 if (subA.wearTest.actionItem != null)
                                 {
-                                    /*actionItemSubmit = (new
+                                    actionItemSubmit = (new
                                     {
-                                        status = subA.oilTest.actionItem.status,
-                                        issue = subA.oilTest.actionItem.issue,
-                                        action = subA.oilTest.actionItem.action,
-                                        timeActioned = subA.oilTest.actionItem.timeActioned,
-                                    });*/
+                                        status = subA.wearTest.actionItem.status,
+                                        issue = subA.wearTest.actionItem.issue,
+                                        action = subA.wearTest.actionItem.action,
+                                        timeActioned = subA.wearTest.actionItem.timeActioned,
+                                        technician = technicianSubmit
+                                    });
                                 }
 
                                 wearTestSubmit = (new
@@ -245,7 +269,7 @@ namespace MachineMaintenance
                                     smu = subA.wearTest.smu,
                                     timeStart = subA.wearTest.timeStart,
                                     uniqueDetails = uniqueDetailsSubmit,
-                                    //comments = commentsSubmit,
+                                    comments = commentsSubmit,
                                     //actionItem = actionItemSubmit
                                 });
                             }
@@ -299,7 +323,7 @@ namespace MachineMaintenance
 
                     else 
                     {
-                        await DisplayAlert("Error", response.ToString(), "Ok");
+                        await DisplayAlert("Error", await response.Content.ReadAsStringAsync(), "Ok");
                         await Navigation.PushAsync(new SelectUserType());
                     }
                 }

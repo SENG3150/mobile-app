@@ -1,4 +1,10 @@
-﻿using MachineMaintenance.Inspections;
+﻿/*
+    *   Title:          SubAssemblyView
+    *   Purpose:        Is a CarouselPage where a user can swipe between each test for a sub assembly
+    *   Last Updated:   20/05/16
+*/
+
+using MachineMaintenance.Inspections;
 using Xamarin.Forms;
 
 namespace MachineMaintenance

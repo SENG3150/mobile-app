@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          MachineViewCell.cs
+    *   Purpose:        A custom ViewCell
+    *   Last Updated:   18/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;

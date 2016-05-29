@@ -1,4 +1,10 @@
-﻿using MachineMaintenance.Inspections;
+﻿/*
+    *   Title:          MajorAssemblyListView.cs
+    *   Purpose:        A custom ListView
+    *   Last Updated:   18/05/16
+*/
+
+using MachineMaintenance.Inspections;
 using System;
 using System.Collections.Generic;
 using System.Linq;

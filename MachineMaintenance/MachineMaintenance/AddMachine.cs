@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+    *   Title:          AddMachine.cs
+    *   Purpose:        Is a Content Page that allows a user to download a machine
+    *   Last Updated:   20/05/16
+*/
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;

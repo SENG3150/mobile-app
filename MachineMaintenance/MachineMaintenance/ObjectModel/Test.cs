@@ -1,4 +1,10 @@
-﻿using SQLite;
+﻿/*
+    *   Title:          Test.cs
+    *   Purpose:        An test object containing information on what tests are needed
+    *   Last Updated:   15/05/16
+*/
+
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;

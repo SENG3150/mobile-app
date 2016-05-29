@@ -1,4 +1,11 @@
-﻿using MachineMaintenance.ObjectModel;
+﻿/*
+    *   Title:          MachineGeneralTestView.cs
+    *   Purpose:        Is a Content Page where user inputs data for a machine general test
+    *                   Currently does not work as the server at this stage does not provide the required information
+    *   Last Updated:   20/05/16
+*/
+
+using MachineMaintenance.ObjectModel;
 using MachineMaintenance.Inspections;
 using System.Collections.Generic;
 using Xamarin.Forms;

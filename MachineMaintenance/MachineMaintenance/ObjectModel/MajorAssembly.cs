@@ -1,4 +1,10 @@
-﻿using SQLite;
+﻿/*
+    *   Title:          MajorAssembly.cs
+    *   Purpose:        A major assembly object
+    *   Last Updated:   15/05/16
+*/
+
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;

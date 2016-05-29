@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          App.cs
+    *   Purpose:        Is a Application to contains styling information and launches the mobile application
+    *   Last Updated:   15/05/16
+*/
+
+using System;
 using System.Windows;
 using System.Collections.Generic;
 using System.Net.Http;

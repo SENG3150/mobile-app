@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          Login.cs
+    *   Purpose:        Is a Content Page where user can enter their login information
+    *   Last Updated:   15/05/16
+*/
+
+using System;
 using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;

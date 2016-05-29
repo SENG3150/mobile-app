@@ -1,4 +1,10 @@
-﻿using SQLite;
+﻿/*
+    *   Title:          MachineSerialised.cs
+    *   Purpose:        A machine object that has been serialised for storage
+    *   Last Updated:   15/05/16
+*/
+
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;

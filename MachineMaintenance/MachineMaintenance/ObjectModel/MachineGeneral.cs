@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          MachineGeneral.cs
+    *   Purpose:        A machinegeneral object (test)
+    *   Last Updated:   15/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

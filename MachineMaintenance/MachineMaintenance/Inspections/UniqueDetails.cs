@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    *   Title:          UniqueDetails.cs
+    *   Purpose:        An unique details test object for some assemblies
+    *   Last Updated:   20/05/16
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
