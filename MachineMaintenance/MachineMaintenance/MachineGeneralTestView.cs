@@ -56,7 +56,7 @@ namespace MachineMaintenance
             comments = new Entry();
             if (machineGeneralTest.comments != null)
             {
-                docType.Placeholder = machineGeneralTest.comments.ToString();
+                docType.Placeholder = machineGeneralTest.comments[0].ToString();
             }
 
             else

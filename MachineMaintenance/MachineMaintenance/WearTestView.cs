@@ -134,7 +134,7 @@ namespace MachineMaintenance
             comments = new Entry();
             if (wearTest.comments != null)
             {
-                comments.Placeholder = wearTest.comments.ToString();
+                comments.Placeholder = wearTest.comments[0].ToString();
             }
 
             else
@@ -184,25 +184,52 @@ namespace MachineMaintenance
 
         private void Save_Clicked(object sender, EventArgs e)
         {
-            wearTest.description = description.Text;
-            wearTest.@new = @new.Text;
-            wearTest.limit = limit.Text;
-            wearTest.lifeLower = lifeLower.Text;
-            wearTest.lifeUpper = lifeUpper.Text;
-            wearTest.smu = Int32.Parse(smu.Text);
-            wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
-            wearTest.comments = new List<Comment>();
-
-            List<User> content = App.database.getUser();
-            User user = content[content.Count - 1];
-
-            wearTest.comments.Add(new Comment
+            if (description.Text != null)
             {
-                timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
-                authorType = "Technician",
-                text = comments.Text,
-                author = user,
-            });
+                wearTest.description = description.Text;
+            }
+
+            if (@new.Text != null)
+            {
+                wearTest.@new = @new.Text;
+            }
+
+            if (limit.Text != null)
+            {
+                wearTest.limit = limit.Text;
+            }
+
+            if (lifeLower.Text != null)
+            {
+                wearTest.lifeLower = lifeLower.Text;
+            }
+
+            if (lifeUpper.Text != null)
+            {
+                wearTest.lifeUpper = lifeUpper.Text;
+            }
+
+            if (smu.Text != null)
+            {
+                wearTest.smu = Int32.Parse(smu.Text);
+            }
+
+
+            wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+
+            if (comments.Text != null)
+            {
+                wearTest.comments = new List<Comment>();
+                List<User> content = App.database.getUser();
+                User user = content[content.Count - 1];
+                wearTest.comments.Add(new Comment
+                {
+                    timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                    authorType = "Technician",
+                    text = comments.Text,
+                    author = user,
+                });
+            }
         }
     }
 }

@@ -188,7 +188,7 @@ namespace MachineMaintenance
             comments = new Entry();
             if (oilTest.comments != null)
             {
-                comments.Placeholder = oilTest.comments.ToString();
+                comments.Placeholder = oilTest.comments[0].ToString();
             }
 
             else
@@ -239,29 +239,70 @@ namespace MachineMaintenance
 
         private void Save_Clicked(object sender, EventArgs e)
         {
-            oilTest.lead = Int32.Parse(lead.Text);
-            oilTest.copper = Int32.Parse(copper.Text);
-            oilTest.tin = Int32.Parse(tin.Text);
-            oilTest.iron = Int32.Parse(iron.Text);
-            oilTest.pq90 = Int32.Parse(pq90.Text);
-            oilTest.silicon = Int32.Parse(silicon.Text);
-            oilTest.sodium = Int32.Parse(sodium.Text);
-            oilTest.aluminium = Int32.Parse(aluminium.Text);
-            oilTest.water = water.Text;
-            oilTest.viscosity = Int32.Parse(viscosity.Text);
-            oilTest.comments = new List<Comment>();
-
-            List<User> content = App.database.getUser();
-            User user = content[content.Count - 1];
-
-            oilTest.comments.Add(new Comment
+            if (lead.Text != null)
             {
-                timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
-                authorType = "Technician",
-                text = comments.Text,
-                author = user,
-            });
-        }
+                oilTest.lead = Int32.Parse(lead.Text);
+            }
 
+            if (copper.Text != null)
+            {
+                oilTest.copper = Int32.Parse(copper.Text);
+            }
+
+            if (tin.Text != null)
+            {
+                oilTest.tin = Int32.Parse(tin.Text);
+            }
+
+            if (iron.Text != null)
+            {
+                oilTest.iron = Int32.Parse(iron.Text);
+            }
+
+            if (pq90.Text != null)
+            {
+                oilTest.pq90 = Int32.Parse(pq90.Text);
+            }
+
+            if (silicon.Text != null)
+            {
+                oilTest.silicon = Int32.Parse(silicon.Text);
+            }
+
+            if (sodium.Text != null)
+            {
+                oilTest.sodium = Int32.Parse(sodium.Text);
+            }
+
+            if (aluminium.Text != null)
+            {
+                oilTest.aluminium = Int32.Parse(aluminium.Text);
+            }
+
+            if (water.Text != null)
+            {
+                oilTest.water = water.Text;
+            }
+
+            if (viscosity.Text != null)
+            {
+                oilTest.viscosity = Int32.Parse(viscosity.Text);
+            }
+
+            if (comments.Text != null)
+            {
+                oilTest.comments = new List<Comment>();
+                List<User> content = App.database.getUser();
+                User user = content[content.Count - 1];
+
+                oilTest.comments.Add(new Comment
+                {
+                    timeCommented = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                    authorType = "Technician",
+                    text = comments.Text,
+                    author = user,
+                });
+            }
+        }
     }
 }

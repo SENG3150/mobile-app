@@ -95,60 +95,109 @@ namespace MachineMaintenance
                                 author = new ObjectModel.User(),
                             });
 
-                            commentsSubmit.Add(comment);
-
                             var machineGeneralTestSubmit = (new
                             {
 
                             });
 
-                            comment = (new
-                            {
-                                timeCommented = subA.oilTest.comments[0].timeCommented,
-                                authorType = subA.oilTest.comments[0].authorType,
-                                text = subA.oilTest.comments[0].text,
-                                author = user,
-                            });
-
-                            commentsSubmit = new List<object>();
-                            commentsSubmit.Add(comment);
-
                             var oilTestSubmit = (new
                             {
-                                lead = subA.oilTest.lead,
-                                copper = subA.oilTest.copper,
-                                tin = subA.oilTest.tin,
-                                iron = subA.oilTest.iron,
-                                pq90 = subA.oilTest.pq90,
-                                silicon = subA.oilTest.silicon,
-                                sodium = subA.oilTest.sodium,
-                                aluminium = subA.oilTest.aluminium,
-                                water = subA.oilTest.water,
-                                viscosity = subA.oilTest.viscosity,
-                                comments = commentsSubmit,
+                                lead = 0,
+                                copper = 0,
+                                tin = 0,
+                                iron = 0,
+                                pq90 = 0,
+                                silicon = 0,
+                                sodium = 0,
+                                aluminium = 0,
+                                water = "0",
+                                viscosity = 0,
+                                comments = new List<object>(),
                             });
 
-                            comment = (new
+                            var wearTestSubmit = (new
                             {
-                                timeCommented = subA.wearTest.comments[0].timeCommented,
-                                authorType = subA.wearTest.comments[0].authorType,
-                                text = subA.wearTest.comments[0].text,
-                                author = user,
+                                description = "",
+                                lifeLower = "",
+                                lifeUpper = "",
+                                limit = "",
+                                @new = "",
+                                smu = 0,
+                                comments = new List<object>(),
                             });
 
-                            commentsSubmit = new List<object>();
-                            commentsSubmit.Add(comment);
+                            machineGeneralTestSubmit = null;
+                            oilTestSubmit = null;
+                            wearTestSubmit = null;
 
-                            var wearTestSubmit = (new 
+
+                            if (subA.subAssembly.tests[0].machineGeneral.test)
                             {
-                                description = subA.wearTest.description,
-                                lifeLower = subA.wearTest.lifeLower,
-                                lifeUpper = subA.wearTest.lifeUpper,
-                                limit = subA.wearTest.limit,
-                                @new = subA.wearTest.@new,
-                                smu = subA.wearTest.smu,
-                                comments = commentsSubmit,
-                            });
+                                machineGeneralTestSubmit = (new
+                                {
+
+                                });
+                            }
+
+                            if (subA.subAssembly.tests[0].oil.test)
+                            {
+                                if (subA.oilTest.comments != null)
+                                {
+                                    comment = (new
+                                    {
+                                        timeCommented = subA.oilTest.comments[0].timeCommented,
+                                        authorType = subA.oilTest.comments[0].authorType,
+                                        text = subA.oilTest.comments[0].text,
+                                        author = user,
+                                    });
+
+                                    commentsSubmit = new List<object>();
+                                    commentsSubmit.Add(comment);
+                                }
+
+                                oilTestSubmit = (new
+                                {
+                                    lead = subA.oilTest.lead,
+                                    copper = subA.oilTest.copper,
+                                    tin = subA.oilTest.tin,
+                                    iron = subA.oilTest.iron,
+                                    pq90 = subA.oilTest.pq90,
+                                    silicon = subA.oilTest.silicon,
+                                    sodium = subA.oilTest.sodium,
+                                    aluminium = subA.oilTest.aluminium,
+                                    water = subA.oilTest.water,
+                                    viscosity = subA.oilTest.viscosity,
+                                    comments = commentsSubmit,
+                                });
+                            }
+
+                            if (subA.subAssembly.tests[0].wear.test)
+                            {
+                                if (subA.wearTest.comments != null)
+                                {
+                                    comment = (new
+                                    {
+                                        timeCommented = subA.wearTest.comments[0].timeCommented,
+                                        authorType = subA.wearTest.comments[0].authorType,
+                                        text = subA.wearTest.comments[0].text,
+                                        author = user,
+                                    });
+
+                                    commentsSubmit = new List<object>();
+                                    commentsSubmit.Add(comment);
+                                }
+
+                                wearTestSubmit = (new
+                                {
+                                    description = subA.wearTest.description,
+                                    lifeLower = subA.wearTest.lifeLower,
+                                    lifeUpper = subA.wearTest.lifeUpper,
+                                    limit = subA.wearTest.limit,
+                                    @new = subA.wearTest.@new,
+                                    smu = subA.wearTest.smu,
+                                    comments = commentsSubmit,
+                                });
+                            }
 
                             subAList.Add(new
                             {
@@ -156,8 +205,8 @@ namespace MachineMaintenance
                                 comments = subA.comments,
                                 photos = subA.photos,
                                 oilTest = oilTestSubmit,
-                                //machineGeneralTest = machineGeneralTestSubmit,
-                                //wearTest = wearTestSubmit,
+                                machineGeneralTest = machineGeneralTestSubmit,
+                                wearTest = wearTestSubmit,
                             });
                         }
 
