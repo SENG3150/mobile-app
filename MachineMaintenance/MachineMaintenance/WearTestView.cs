@@ -20,6 +20,10 @@ namespace MachineMaintenance
         Entry uniqueDetails;
         Entry comments;
 
+        Entry status;
+        Entry issue;
+        Entry recommendedAction;
+
         public WearTestView(WearTest wearTest)
         {
             this.wearTest = wearTest;
@@ -59,7 +63,7 @@ namespace MachineMaintenance
                 @new.Placeholder = "New";
             }
             @new.Style = (Style)Application.Current.Resources["entryStyle"];
-
+            @new.Keyboard = Keyboard.Numeric;
 
 
             limit = new Entry();
@@ -73,7 +77,7 @@ namespace MachineMaintenance
                 limit.Placeholder = "Limit";
             }
             limit.Style = (Style)Application.Current.Resources["entryStyle"];
-
+            limit.Keyboard = Keyboard.Numeric;
 
 
             lifeLower = new Entry();
@@ -87,7 +91,7 @@ namespace MachineMaintenance
                 lifeLower.Placeholder = "Lower Life";
             }
             lifeLower.Style = (Style)Application.Current.Resources["entryStyle"];
-
+            lifeLower.Keyboard = Keyboard.Numeric;
 
 
             lifeUpper = new Entry();
@@ -101,7 +105,7 @@ namespace MachineMaintenance
                 lifeUpper.Placeholder = "Upper Life";
             }
             lifeUpper.Style = (Style)Application.Current.Resources["entryStyle"];
-
+            lifeUpper.Keyboard = Keyboard.Numeric;
 
             smu = new Entry();
             if (wearTest.smu != 0)
@@ -134,7 +138,7 @@ namespace MachineMaintenance
             comments = new Entry();
             if (wearTest.comments != null)
             {
-                comments.Placeholder = wearTest.comments[0].ToString();
+                comments.Placeholder = wearTest.comments[0].text;
             }
 
             else
@@ -148,6 +152,50 @@ namespace MachineMaintenance
             save.Text = "Save data";
             save.Clicked += Save_Clicked;
             save.Style = (Style)Application.Current.Resources["buttonStyle"];
+
+
+            Label actionItem = new Label();
+            actionItem.Text = "Complete if action is required";
+            actionItem.Style = (Style)Application.Current.Resources["headingStyle"];
+
+            status = new Entry();
+            if (wearTest.actionItem != null)
+            {
+                status.Placeholder = wearTest.actionItem.status;
+            }
+
+            else
+            {
+                status.Placeholder = "Status";
+            }
+            status.Style = (Style)Application.Current.Resources["entryStyle"];
+
+
+            issue = new Entry();
+            if (wearTest.actionItem != null)
+            {
+                issue.Placeholder = wearTest.actionItem.issue;
+            }
+
+            else
+            {
+                issue.Placeholder = "Issue";
+            }
+            issue.Style = (Style)Application.Current.Resources["entryStyle"];
+
+
+
+            recommendedAction = new Entry();
+            if (wearTest.actionItem != null)
+            {
+                recommendedAction.Placeholder = wearTest.actionItem.action;
+            }
+
+            else
+            {
+                recommendedAction.Placeholder = "Recommended Action";
+            }
+            recommendedAction.Style = (Style)Application.Current.Resources["entryStyle"];
 
             var scrollview = new ScrollView
             {
@@ -166,6 +214,10 @@ namespace MachineMaintenance
                         smu,
                         uniqueDetails,
                         comments,
+                        actionItem,
+                        status,
+                        issue,
+                        recommendedAction,
                         save
                     }
                 }
@@ -214,7 +266,6 @@ namespace MachineMaintenance
                 wearTest.smu = Int32.Parse(smu.Text);
             }
 
-
             wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
 
             if (comments.Text != null)
@@ -229,6 +280,16 @@ namespace MachineMaintenance
                     text = comments.Text,
                     author = user,
                 });
+            }
+
+            if (status.Text != null)
+            {
+                wearTest.actionItem = new ActionItem();
+
+                wearTest.actionItem.status = status.Text;
+                wearTest.actionItem.issue = issue.Text;
+                wearTest.actionItem.action = recommendedAction.Text;
+                wearTest.actionItem.timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
             }
         }
     }

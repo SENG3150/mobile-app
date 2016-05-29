@@ -23,6 +23,10 @@ namespace MachineMaintenance
         Entry viscosity;
         Entry comments;
 
+        Entry status;
+        Entry issue;
+        Entry recommendedAction;
+
         public OilTestView(OilTest oilTest)
         {
             this.oilTest = oilTest;
@@ -184,11 +188,10 @@ namespace MachineMaintenance
             viscosity.Keyboard = Keyboard.Numeric;
 
 
-
             comments = new Entry();
             if (oilTest.comments != null)
             {
-                comments.Placeholder = oilTest.comments[0].ToString();
+                comments.Placeholder = oilTest.comments[0].text;
             }
 
             else
@@ -201,6 +204,50 @@ namespace MachineMaintenance
             save.Text = "Save data";
             save.Clicked += Save_Clicked;
             save.Style = (Style)Application.Current.Resources["buttonStyle"];
+
+            Label actionItem = new Label();
+            actionItem.Text = "Complete if action is required";
+            actionItem.Style = (Style)Application.Current.Resources["headingStyle"];
+
+            status = new Entry();
+            if (oilTest.actionItem != null)
+            {
+                status.Placeholder = oilTest.actionItem.status;
+            }
+
+            else
+            {
+                status.Placeholder = "Status";
+            }
+            status.Style = (Style)Application.Current.Resources["entryStyle"];
+
+
+            issue = new Entry();
+            if (oilTest.actionItem != null)
+            {
+                issue.Placeholder = oilTest.actionItem.issue;
+            }
+
+            else
+            {
+                issue.Placeholder = "Issue";
+            }
+            issue.Style = (Style)Application.Current.Resources["entryStyle"];
+
+
+
+            recommendedAction = new Entry();
+            if (oilTest.actionItem != null)
+            {
+                recommendedAction.Placeholder = oilTest.actionItem.action;
+            }
+
+            else
+            {
+                recommendedAction.Placeholder = "Recommended Action";
+            }
+            recommendedAction.Style = (Style)Application.Current.Resources["entryStyle"];
+
 
             var scrollview = new ScrollView
             {
@@ -222,6 +269,10 @@ namespace MachineMaintenance
                         water,
                         viscosity,
                         comments,
+                        actionItem,
+                        status,
+                        issue,
+                        recommendedAction,
                         save,
                     }
                 }
@@ -302,6 +353,16 @@ namespace MachineMaintenance
                     text = comments.Text,
                     author = user,
                 });
+            }
+
+            if (status.Text != null)
+            {
+                oilTest.actionItem = new ActionItem();
+
+                oilTest.actionItem.status = status.Text;
+                oilTest.actionItem.issue = issue.Text;
+                oilTest.actionItem.action = recommendedAction.Text;
+                oilTest.actionItem.timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
             }
         }
     }

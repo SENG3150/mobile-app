@@ -86,6 +86,7 @@ namespace MachineMaintenance
                         foreach (SubAssembly subA in majA.subAssemblies)
                         {
                             var commentsSubmit = new List<object>();
+                            var actionItemSubmit = new object();
 
                             var comment = (new
                             {
@@ -94,6 +95,24 @@ namespace MachineMaintenance
                                 text = "",
                                 author = new ObjectModel.User(),
                             });
+
+                            var uniqueDetailsSubmit = (new
+                            {
+                                Test = "Type of Test",
+                                A = "Result"
+                            });
+
+                            comment = null;
+
+                            var actionItem = (new
+                            {
+                                status = "",
+                                issue = "",
+                                action = "",
+                                timeAction = "",
+                            });
+
+                            actionItem = null;
 
                             var machineGeneralTestSubmit = (new
                             {
@@ -113,23 +132,26 @@ namespace MachineMaintenance
                                 water = "0",
                                 viscosity = 0,
                                 comments = new List<object>(),
+                                actionItem = new object(),
                             });
 
                             var wearTestSubmit = (new
                             {
-                                description = "",
-                                lifeLower = "",
-                                lifeUpper = "",
-                                limit = "",
-                                @new = "",
+                                description = "Desc",
+                                @new = "New",
+                                limit = "Limit",
+                                lifeLower = "Lower",
+                                lifeUpper = "Upper",
                                 smu = 0,
-                                comments = new List<object>(),
+                                timeStart = "",
+                                uniqueDetails = uniqueDetailsSubmit,
+                                //comments = new List<object>(),
+                                //actionItem = new object()
                             });
 
                             machineGeneralTestSubmit = null;
                             oilTestSubmit = null;
                             wearTestSubmit = null;
-
 
                             if (subA.subAssembly.tests[0].machineGeneral.test)
                             {
@@ -155,6 +177,17 @@ namespace MachineMaintenance
                                     commentsSubmit.Add(comment);
                                 }
 
+                                if (subA.oilTest.actionItem != null)
+                                {
+                                    /*actionItemSubmit = (new
+                                    {
+                                        status = subA.oilTest.actionItem.status,
+                                        issue = subA.oilTest.actionItem.issue,
+                                        action = subA.oilTest.actionItem.action,
+                                        timeActioned = subA.oilTest.actionItem.timeActioned,
+                                    });*/
+                                }
+
                                 oilTestSubmit = (new
                                 {
                                     lead = subA.oilTest.lead,
@@ -168,8 +201,12 @@ namespace MachineMaintenance
                                     water = subA.oilTest.water,
                                     viscosity = subA.oilTest.viscosity,
                                     comments = commentsSubmit,
+                                    actionItem = actionItemSubmit
                                 });
                             }
+
+                            commentsSubmit = null;
+                            comment = null;
 
                             if (subA.subAssembly.tests[0].wear.test)
                             {
@@ -187,15 +224,29 @@ namespace MachineMaintenance
                                     commentsSubmit.Add(comment);
                                 }
 
+                                if (subA.wearTest.actionItem != null)
+                                {
+                                    /*actionItemSubmit = (new
+                                    {
+                                        status = subA.oilTest.actionItem.status,
+                                        issue = subA.oilTest.actionItem.issue,
+                                        action = subA.oilTest.actionItem.action,
+                                        timeActioned = subA.oilTest.actionItem.timeActioned,
+                                    });*/
+                                }
+
                                 wearTestSubmit = (new
                                 {
                                     description = subA.wearTest.description,
+                                    @new = subA.wearTest.@new,
+                                    limit = subA.wearTest.limit,
                                     lifeLower = subA.wearTest.lifeLower,
                                     lifeUpper = subA.wearTest.lifeUpper,
-                                    limit = subA.wearTest.limit,
-                                    @new = subA.wearTest.@new,
                                     smu = subA.wearTest.smu,
-                                    comments = commentsSubmit,
+                                    timeStart = subA.wearTest.timeStart,
+                                    uniqueDetails = uniqueDetailsSubmit,
+                                    //comments = commentsSubmit,
+                                    //actionItem = actionItemSubmit
                                 });
                             }
 
@@ -204,8 +255,8 @@ namespace MachineMaintenance
                                 id = subA.id,
                                 comments = subA.comments,
                                 photos = subA.photos,
-                                oilTest = oilTestSubmit,
                                 machineGeneralTest = machineGeneralTestSubmit,
+                                oilTest = oilTestSubmit,
                                 wearTest = wearTestSubmit,
                             });
                         }
