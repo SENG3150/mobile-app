@@ -118,7 +118,7 @@ namespace MachineMaintenance
 
             if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert("Success", await response.Content.ReadAsStringAsync(), "Okay");
+                await DisplayAlert("Success", "Click Ok to start the inspection", "Ok");
                 Inspections.Inspection inspection = new Inspections.Inspection();
                 inspection = JsonConvert.DeserializeObject<Inspections.Inspection>(await response.Content.ReadAsStringAsync());
 
