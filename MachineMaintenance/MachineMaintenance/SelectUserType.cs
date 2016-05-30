@@ -43,6 +43,22 @@ namespace MachineMaintenance
             tech.Text = "Technician";
             tech.Style = (Style)Application.Current.Resources["buttonStyle"];
             tech.Clicked += Tech_Clicked;
+            var scrollview = new ScrollView
+            {
+                Content = new StackLayout
+                {
+                    VerticalOptions = LayoutOptions.Center,
+                    Spacing = 40,
+                    Margin = 50,
+
+                    Children =
+                    {
+                        admin,
+                        expert,
+                        tech
+                    }
+                }
+            };
 
             Content = new StackLayout
             {
@@ -52,9 +68,7 @@ namespace MachineMaintenance
 
                 Children =
                 {
-                    admin,
-                    expert,
-                    tech
+                    scrollview
                 }
             };
         }
