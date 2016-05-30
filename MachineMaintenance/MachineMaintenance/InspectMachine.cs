@@ -120,9 +120,10 @@ namespace MachineMaintenance
                             var uniqueDetailsSubmit = (new
                             {
                                 Test = "Type of Test",
-                                A = "Result"
+                                Value = "Result"
                             });
 
+                            uniqueDetailsSubmit = null;
                             comment = null;
 
                             var actionItem = (new
@@ -258,6 +259,12 @@ namespace MachineMaintenance
                                         technician = technicianSubmit
                                     });
                                 }
+
+                                uniqueDetailsSubmit = (new
+                                {
+                                    Test = subA.wearTest.uniqueDetails.Test,
+                                    Value = subA.wearTest.uniqueDetails.value.ToString(),
+                                });
 
                                 wearTestSubmit = (new
                                 {

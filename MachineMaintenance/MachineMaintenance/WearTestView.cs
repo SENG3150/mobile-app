@@ -24,7 +24,8 @@ namespace MachineMaintenance
         Entry lifeLower;
         Entry lifeUpper;
         Entry smu;
-        Entry uniqueDetails;
+        Entry uniqueDetailsType;
+        Entry uniqueDetailsValue;
         Entry comments;
 
         Entry status;
@@ -128,19 +129,32 @@ namespace MachineMaintenance
             smu.Keyboard = Keyboard.Numeric;
 
 
-            uniqueDetails = new Entry();
+            uniqueDetailsType = new Entry();
             if (wearTest.uniqueDetails != null)
             {
-                uniqueDetails.Placeholder = wearTest.uniqueDetails.ToString();
+                uniqueDetailsType.Placeholder = wearTest.uniqueDetails.ToString();
             }
 
             else
             {
-                uniqueDetails.Placeholder = "Unique Details";
+                uniqueDetailsType.Placeholder = "Unique Details Type";
             }
-            uniqueDetails.Style = (Style)Application.Current.Resources["entryStyle"];
+            uniqueDetailsType.Style = (Style)Application.Current.Resources["entryStyle"];
 
 
+
+            uniqueDetailsValue = new Entry();
+            if (wearTest.uniqueDetails != null)
+            {
+                uniqueDetailsValue.Placeholder = wearTest.uniqueDetails.ToString();
+            }
+
+            else
+            {
+                uniqueDetailsValue.Placeholder = "Unique Details Value";
+            }
+            uniqueDetailsValue.Style = (Style)Application.Current.Resources["entryStyle"];
+            uniqueDetailsValue.Keyboard = Keyboard.Numeric;
 
             comments = new Entry();
             if (wearTest.comments != null)
@@ -219,7 +233,8 @@ namespace MachineMaintenance
                         lifeLower,
                         lifeUpper,
                         smu,
-                        uniqueDetails,
+                        uniqueDetailsType,
+                        uniqueDetailsValue,
                         comments,
                         actionItem,
                         status,
@@ -243,6 +258,8 @@ namespace MachineMaintenance
 
         private void Save_Clicked(object sender, EventArgs e)
         {
+            wearTest.uniqueDetails = new UniqueDetails();
+
             if (description.Text != null)
             {
                 wearTest.description = description.Text;
@@ -271,6 +288,16 @@ namespace MachineMaintenance
             if (smu.Text != null)
             {
                 wearTest.smu = Int32.Parse(smu.Text);
+            }
+
+            if (uniqueDetailsType.Text != null)
+            {
+                wearTest.uniqueDetails.Test = uniqueDetailsType.Text;
+            }
+
+            if (uniqueDetailsValue.Text != null)
+            {
+                wearTest.uniqueDetails.value = Int32.Parse(uniqueDetailsValue.Text);
             }
 
             wearTest.timeStart = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
