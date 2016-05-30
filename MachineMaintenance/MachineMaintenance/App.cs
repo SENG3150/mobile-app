@@ -32,7 +32,7 @@ namespace MachineMaintenance
                 {
                     new Setter
                     {
-                        Property = Button.FontSizeProperty, Value = 25
+                        Property = Button.FontSizeProperty, Value = 20
                     },
 
                     new Setter
