@@ -372,6 +372,8 @@ namespace MachineMaintenance
                 oilTest.actionItem.timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
                 oilTest.actionItem.technician = user;
             }
+
+            DisplayAlert("Success", "Data has been saved", "OK");
         }
     }
 }

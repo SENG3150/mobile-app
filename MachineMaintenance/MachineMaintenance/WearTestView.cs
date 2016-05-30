@@ -328,6 +328,8 @@ namespace MachineMaintenance
                 wearTest.actionItem.timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
                 wearTest.actionItem.technician = user;
             }
+
+            DisplayAlert("Success", "Data has been saved", "OK");
         }
     }
 }

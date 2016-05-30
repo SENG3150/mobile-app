@@ -121,6 +121,8 @@ namespace MachineMaintenance
                 text = comments.Text,
                 author = user,
             });
+
+            DisplayAlert("Success", "Data has been saved", "OK");
         }
 
     }
