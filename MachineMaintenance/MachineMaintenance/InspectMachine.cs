@@ -25,8 +25,8 @@ namespace MachineMaintenance
         private Inspection inspection;
         private MajorAssembly selection;
         private View.MajorAssemblyListView majAListView;
-        private ObservableCollection<MajorAssembly> majAssemList;
-        private ObservableCollection<String> majAssemNames;
+        private List<MajorAssembly> majAssemList;
+        private List<String> majAssemNames;
 
         public InspectMachine(Inspection inspection)
         {
@@ -285,7 +285,6 @@ namespace MachineMaintenance
                             });
                         }
 
-
                         majAList.Add(new
                         {
                             id = majA.id,
@@ -356,8 +355,8 @@ namespace MachineMaintenance
 
         private void inspectionController()
         {
-            majAssemNames = new ObservableCollection<String>();
-            majAssemList = new ObservableCollection<MajorAssembly>();
+            majAssemNames = new List<String>();
+            majAssemList = new List<MajorAssembly>();
 
             foreach (MajorAssembly majA in inspection.majorAssemblies)
             {

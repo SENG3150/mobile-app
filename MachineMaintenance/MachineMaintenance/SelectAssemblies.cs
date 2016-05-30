@@ -13,17 +13,18 @@ using MachineMaintenance.ObjectModel;
 
 
 using Xamarin.Forms;
-using MachineMaintenance.Inspections;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace MachineMaintenance
 {
     public class SelectAssemblies : ContentPage
     {
-        ObjectModel.Machine machine;
+        Machine machine;
         View.SelectAssembliesListView majAListView;
-        ObjectModel.MajorAssembly selection;
-        Inspections.MajorAssembly toAdd;
-        Inspection inspection;
+        MajorAssembly selection;
+        List<MajorAssembly> selected; 
 
 
         public SelectAssemblies(ObjectModel.Machine machine)
@@ -64,7 +65,79 @@ namespace MachineMaintenance
 
         private void Inspect_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new InspectMachine(inspection));
+            submitInspection();
+        }
+
+        private async void submitInspection()
+        {
+            List<ObjectModel.User> userContent = App.database.getUser();
+            ObjectModel.User user = userContent[userContent.Count - 1];
+
+            var majAList = new List<object>();
+
+            foreach (MajorAssembly majA in selected)
+            {
+                var subAList = new List<object>();
+
+                foreach (SubAssembly subA in majA.subAssemblies)
+                {
+                    subAList.Add(new
+                    {
+                        subAssembly = subA.id,
+                    });
+                }
+
+                majAList.Add(new
+                {
+                    majorAssembly = majA.id,
+                    subAssemblies = subAList,
+                });
+            }
+
+            var client = new HttpClient();
+            var jsonRequest = new
+            {
+                machine = machine.id,
+                timeScheduled = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                technician = "1",
+                domainExpert = "1",
+                majorAssemblies = majAList,
+            };
+
+            var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
+            HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
+            String site = "http://seng3150-api.wingmanwebdesign.com.au/inspections/bulk";
+            Uri apiSite = new Uri(site);
+
+            List<ObjectModel.Token> token;
+            token = App.database.getToken();
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token[token.Count - 1].token);
+
+            var response = await client.PostAsync(apiSite, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Success", await response.Content.ReadAsStringAsync(), "Okay");
+                Inspections.Inspection inspection = new Inspections.Inspection();
+                inspection = JsonConvert.DeserializeObject<Inspections.Inspection>(await response.Content.ReadAsStringAsync());
+
+                apiSite = new Uri("http://seng3150-api.wingmanwebdesign.com.au/inspections/" + inspection.id + "?include=majorAssemblies.majorAssembly,majorAssemblies.subAssemblies.subAssembly.tests,machine.model");
+
+                response = await client.GetAsync(apiSite);
+                if (response.IsSuccessStatusCode)
+                {
+                    inspection = JsonConvert.DeserializeObject<Inspections.Inspection>(await response.Content.ReadAsStringAsync());
+                }
+                await Navigation.PushAsync(new InspectMachine(inspection));
+            }
+
+            else
+            {
+                await DisplayAlert("Error", await response.Content.ReadAsStringAsync(), "Ok");
+                await Navigation.PushAsync(new SelectUserType());
+            }
+            //await Navigation.PushAsync(new InspectMachine(inspection));
         }
 
         private void Assembly_Selected(Object sender, SelectedItemChangedEventArgs e)
@@ -76,39 +149,22 @@ namespace MachineMaintenance
 
             else
             {
-                selection = (ObjectModel.MajorAssembly)e.SelectedItem;
+                selection = (MajorAssembly)e.SelectedItem;
                 byte i;
                 i = 0;
 
-                foreach (Inspections.MajorAssembly maj in inspection.majorAssemblies)
+                foreach (MajorAssembly maj in selected)
                 {
-                    if (maj.majorAssembly.id == selection.id)
+                    if (maj.id == selection.id)
                     {
                         break;
                     }
                     i++;
                 }
 
-                if (i == inspection.majorAssemblies.Count || inspection.majorAssemblies.Count == 0)
+                if (i == selected.Count || selected.Count == 0)
                 {
-                    toAdd = new Inspections.MajorAssembly();
-
-                    toAdd.majorAssembly = new Inspections.MajorAssemblyDetails();
-                    toAdd.majorAssembly.id = selection.id;
-                    toAdd.majorAssembly.name = selection.name;
-                    toAdd.id = selection.id;
-                    toAdd.subAssemblies = new List<Inspections.SubAssembly>();
-
-                    foreach (ObjectModel.SubAssembly subA in selection.subAssemblies)
-                    {
-                        Inspections.SubAssembly toAdd2 = new Inspections.SubAssembly();
-                        toAdd2.subAssembly = subA;
-
-                        toAdd2.id = subA.id;
-                        toAdd.subAssemblies.Add(toAdd2);
-                    }
-
-                    inspection.majorAssemblies.Add(toAdd);                   
+                    selected.Add(selection);           
                 }
 
                 else
@@ -122,16 +178,7 @@ namespace MachineMaintenance
 
         private void viewMachineController()
         {
-            inspection = new Inspection();
-
-            inspection.machine = new Inspections.Machine();
-            inspection.machine.model = new Inspections.Model();
-
-            inspection.machine.id = machine.id;
-            inspection.machine.model.name = machine.model.name;
-
-            inspection.majorAssemblies = new List<Inspections.MajorAssembly>();
-
+            selected = new List<MajorAssembly>();
             majAListView = new View.SelectAssembliesListView(machine.model.majorAssemblies);
             majAListView.ItemSelected += Assembly_Selected;
 

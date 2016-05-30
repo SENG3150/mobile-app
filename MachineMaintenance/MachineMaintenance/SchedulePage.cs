@@ -22,7 +22,7 @@ namespace MachineMaintenance
 {
     public class SchedulePage : ContentPage
     {
-        private ObservableCollection<Inspection> inspections;
+        private List<Inspection> inspections;
         private Inspection selection;
         private ListView inspectionList;
 
@@ -174,7 +174,7 @@ namespace MachineMaintenance
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        inspections = JsonConvert.DeserializeObject<ObservableCollection<Inspection>>(content);
+                        inspections = JsonConvert.DeserializeObject<List<Inspection>>(content);
                     }
 
                     else //atm, all error codes under 1 else statement, should fix this at some point
