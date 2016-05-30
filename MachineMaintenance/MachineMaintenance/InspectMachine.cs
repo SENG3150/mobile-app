@@ -98,7 +98,7 @@ namespace MachineMaintenance
                             var technicianSubmit = (new
                             {
                                 id = 1,
-                                username = "technician",
+                                /*username = "technician",
                                 name = "Technician Technician",
                                 firstName = "Technician",
                                 lastName = "Technician",
@@ -106,7 +106,7 @@ namespace MachineMaintenance
                                 temporary = false,
                                 loginExpiresTime = "2016-06-08T10:10:00+1000",
                                 expired = false,
-                                emailHash = "793a064364d831179aa778e824d25c77"
+                                emailHash = "793a064364d831179aa778e824d25c77"*/
                             });
 
                             var comment = (new
@@ -126,16 +126,16 @@ namespace MachineMaintenance
                             uniqueDetailsSubmit = null;
                             comment = null;
 
-                            var actionItem = (new
+                            actionItemSubmit = (new
                             {
                                 status = "",
                                 issue = "",
                                 action = "",
-                                timeAction = "",
+                                timeActioned = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
                                 technician = technicianSubmit,
                             });
 
-                            actionItem = null;
+                            actionItemSubmit = null;
 
                             var machineGeneralTestSubmit = (new
                             {
@@ -155,7 +155,7 @@ namespace MachineMaintenance
                                 water = "0",
                                 viscosity = 0,
                                 comments = new List<object>(),
-                                //actionItem = new object(),
+                                actionItem = new object(),
                             });
 
                             var wearTestSubmit = (new
@@ -169,7 +169,7 @@ namespace MachineMaintenance
                                 timeStart = "",
                                 uniqueDetails = uniqueDetailsSubmit,
                                 comments = new List<object>(),
-                                //actionItem = new object()
+                                actionItem = new object()
                             });
 
                             machineGeneralTestSubmit = null;
@@ -204,7 +204,7 @@ namespace MachineMaintenance
                                 {
                                     actionItemSubmit = (new
                                     {
-                                        status = subA.oilTest.actionItem.status,
+                                        status = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
                                         issue = subA.oilTest.actionItem.issue,
                                         action = subA.oilTest.actionItem.action,
                                         timeActioned = subA.oilTest.actionItem.timeActioned,
@@ -225,7 +225,7 @@ namespace MachineMaintenance
                                     water = subA.oilTest.water,
                                     viscosity = subA.oilTest.viscosity,
                                     comments = commentsSubmit,
-                                    //actionItem = actionItemSubmit
+                                    actionItem = actionItemSubmit
                                 });
                             }
 
@@ -277,7 +277,7 @@ namespace MachineMaintenance
                                     timeStart = subA.wearTest.timeStart,
                                     uniqueDetails = uniqueDetailsSubmit,
                                     comments = commentsSubmit,
-                                    //actionItem = actionItemSubmit
+                                    actionItem = actionItemSubmit
                                 });
                             }
 
