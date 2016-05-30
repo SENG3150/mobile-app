@@ -98,15 +98,6 @@ namespace MachineMaintenance
                             var technicianSubmit = (new
                             {
                                 id = 1,
-                                /*username = "technician",
-                                name = "Technician Technician",
-                                firstName = "Technician",
-                                lastName = "Technician",
-                                email = "technician@example.com",
-                                temporary = false,
-                                loginExpiresTime = "2016-06-08T10:10:00+1000",
-                                expired = false,
-                                emailHash = "793a064364d831179aa778e824d25c77"*/
                             });
 
                             var comment = (new
@@ -204,7 +195,7 @@ namespace MachineMaintenance
                                 {
                                     actionItemSubmit = (new
                                     {
-                                        status = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                                        status = subA.oilTest.actionItem.status,
                                         issue = subA.oilTest.actionItem.issue,
                                         action = subA.oilTest.actionItem.action,
                                         timeActioned = subA.oilTest.actionItem.timeActioned,
