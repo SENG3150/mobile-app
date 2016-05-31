@@ -2813,6 +2813,7 @@ containing a value of this type.
         public static int appbar_scrolling_view_behavior=0x7f080023;
         public static int bottom_sheet_behavior=0x7f080024;
         public static int character_counter_pattern=0x7f080025;
+        public static int library_name=0x7f080028;
         public static int mr_button_content_description=0x7f080000;
         public static int mr_chooser_searching=0x7f080001;
         public static int mr_chooser_title=0x7f080002;
@@ -2983,6 +2984,7 @@ containing a value of this type.
         public static int CardView=0x7f0a0017;
         public static int CardView_Dark=0x7f0a0019;
         public static int CardView_Light=0x7f0a001a;
+        public static int CustomTheme=0x7f0a0172;
         public static int Platform_AppCompat=0x7f0a0032;
         public static int Platform_AppCompat_Light=0x7f0a0033;
         public static int Platform_ThemeOverlay_AppCompat=0x7f0a0095;
