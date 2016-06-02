@@ -92,3 +92,9 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\De
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\Xamarin.Forms.Theme.Base.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb

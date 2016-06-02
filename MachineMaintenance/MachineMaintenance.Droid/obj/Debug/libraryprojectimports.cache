@@ -10,7 +10,6 @@
     <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Theme.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\PCLStorage\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\ModernHttpClient\library_project_imports\assets</ResolvedAssetDirectory>
@@ -21,7 +20,6 @@
     <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Theme.Android\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\PCLStorage\library_project_imports\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
@@ -33,6 +31,5 @@
     <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Theme.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\__library_projects__\PCLStorage.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

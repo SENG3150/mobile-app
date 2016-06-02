@@ -129,8 +129,6 @@ C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droi
 C:\Users\Brendan\Desktop\3150\mob-app\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.pdb
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.apk
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid-Signed.apk
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\FormsViewGroup.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\PCLStorage.Abstractions.dll
@@ -166,7 +164,6 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.csprojResolveAssemblyReference.cache
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.dll
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.pdb
-C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\android\bin\MachineMaintenance.Droid.apk
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\res\drawable\icon.png
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\res\drawable-hdpi\icon.png
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\res\drawable-xhdpi\icon.png
@@ -189,5 +186,9 @@ C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\res\values\styles.xml
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaitenance.MachineMaitenance.apk
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaitenance.MachineMaitenance-Signed.apk
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\android\bin\MachineMaitenance.MachineMaitenance.apk
+C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\obj\Debug\MachineMaintenance.Droid.dll.mdb
 C:\Users\Brendan\Desktop\3150\repos\MachineMaintenance\MachineMaintenance.Droid\bin\Debug\MachineMaintenance.Droid.dll.mdb
