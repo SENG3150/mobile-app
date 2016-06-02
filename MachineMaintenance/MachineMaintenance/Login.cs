@@ -98,16 +98,21 @@ namespace MachineMaintenance
                         App.database.storeToken(token);
 
                         client = new HttpClient();
-                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token.token);
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.token);
                         Uri site = new Uri("http://seng3150-api.wingmanwebdesign.com.au/auth/me");
 
                         response = await client.GetAsync(site);
                         if (response.IsSuccessStatusCode)
                         {
                             var value = await response.Content.ReadAsStringAsync();
-                            User user = JsonConvert.DeserializeObject<User>(value);
+                            Inspections.LoginDetails user = JsonConvert.DeserializeObject<Inspections.LoginDetails>(value);
 
-                            App.database.storeUser(user);
+                            App.database.storeUser(user.primary);
+                        }
+
+                        else
+                        {
+                            await DisplayAlert("Hey", "Hey", "Hey");
                         }
 
                         await Navigation.PushAsync(new Menu());
