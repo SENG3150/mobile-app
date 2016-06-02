@@ -110,11 +110,6 @@ namespace MachineMaintenance
                             App.database.storeUser(user.primary);
                         }
 
-                        else
-                        {
-                            await DisplayAlert("Hey", "Hey", "Hey");
-                        }
-
                         await Navigation.PushAsync(new Menu());
                     }
 

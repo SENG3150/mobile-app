@@ -26,7 +26,7 @@ namespace MachineMaintenance
         {
             database = new LocalDatabase();
 
-            var buttonStyle = new Style(typeof(Button))
+        var buttonStyle = new Style(typeof(Button))
             {
                 Setters =
                 {

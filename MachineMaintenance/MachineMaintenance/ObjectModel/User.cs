@@ -15,7 +15,7 @@ namespace MachineMaintenance.ObjectModel
 {
     public class User
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int id { get; set; }
         public string username { get; set;  }
         public string name { get; set; }
@@ -25,5 +25,6 @@ namespace MachineMaintenance.ObjectModel
         public bool temporary { get; set; }
         public string loginExpiresTime { get; set; }
         public bool expired { get; set; }
+        public String emailHash { get; set; }
     }
 }

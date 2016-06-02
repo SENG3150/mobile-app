@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace MachineMaintenance.Inspections
 {
     class LoginDetails
     {
+        [PrimaryKey]
         public string id { get; set; }
         public string type { get; set; }
         public ObjectModel.User primary { get; set; }
