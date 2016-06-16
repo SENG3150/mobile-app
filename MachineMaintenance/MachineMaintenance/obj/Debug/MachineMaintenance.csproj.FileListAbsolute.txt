@@ -123,3 +123,7 @@ C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\Machin
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
+C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
+C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb
+C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\obj\Debug\MachineMaintenance.dll.mdb
+C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance\bin\Debug\MachineMaintenance.dll.mdb

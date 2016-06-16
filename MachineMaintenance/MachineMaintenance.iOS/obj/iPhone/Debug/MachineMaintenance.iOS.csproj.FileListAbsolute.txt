@@ -205,5 +205,6 @@ C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\Machin
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance.iOS\obj\iPhone\Debug\MachineMaintenance.iOS.csprojResolveAssemblyReference.cache
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance.iOS\obj\iPhone\Debug\MachineMaintenanceiOS.exe
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance.iOS\obj\iPhone\Debug\MachineMaintenanceiOS.pdb
+C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance.iOS\bin\iPhone\Debug\MachineMaintenance.dll.mdb
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance.iOS\obj\iPhone\Debug\MachineMaintenanceiOS.exe.mdb
 C:\Users\bbaxt.DESKTOP-QTES9E0\Source\Repos\mobile-app\MachineMaintenance\MachineMaintenance.iOS\bin\iPhone\Debug\MachineMaintenanceiOS.exe.mdb

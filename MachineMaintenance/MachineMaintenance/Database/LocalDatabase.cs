@@ -91,7 +91,15 @@ namespace MachineMaintenance.Database
         {
             lock (locker)
             {
-                database.Insert(user);
+                try
+                {
+                    database.Insert(user);
+                }
+
+                catch (System.Exception e)
+                {
+
+                }
             }
         }
         
