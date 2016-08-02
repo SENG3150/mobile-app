@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Inspect.Data;
+using Inspect.Models;
 using Xamarin.Forms;
 
 namespace Inspect
@@ -12,6 +9,14 @@ namespace Inspect
         public MainPage()
         {
             InitializeComponent();
+
+            IRestService restService = new RestService();
+            restService.Authenticate(new LoginDetails()
+            {
+                UserType = "administrator",
+                Username = "administrator",
+                Password = "administrator"
+            });
         }
     }
 }
