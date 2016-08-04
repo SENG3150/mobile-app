@@ -5,6 +5,6 @@ namespace Inspect.Data
 {
     public interface IRestService
     {
-        Task Authenticate(LoginDetails loginDetails);
+        Task Authenticate(LoginCredentials loginDetails);
     }
 }

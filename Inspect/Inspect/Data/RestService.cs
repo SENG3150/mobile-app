@@ -18,7 +18,7 @@ namespace Inspect.Data
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task Authenticate(LoginDetails loginDetails)
+        public async Task Authenticate(LoginCredentials loginDetails)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync("/auth/authenticate", loginDetails);
             if (response.IsSuccessStatusCode)

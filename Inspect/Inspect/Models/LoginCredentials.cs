@@ -2,10 +2,10 @@
 
 namespace Inspect.Models
 {
-    public class LoginDetails
+    public class LoginCredentials
     {
         [JsonProperty("type")]
-        public string UserType { get; set; }
+        public string Type { get; set; }
 
         [JsonProperty("username")]
         public string Username { get; set; }
